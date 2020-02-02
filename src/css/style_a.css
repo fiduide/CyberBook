@@ -1,0 +1,21 @@
+.recherche{
+	display: flex;
+	line-height: 130px;
+}
+.button{
+	font-size: 30px;
+	border-radius: 5px; 
+	border-style: groove;
+	margin-left: 5px;	
+	line-height: 30px;
+	
+}
+
+.button:hover{
+	font-size: 30px;
+	border-radius: 5px; 
+	border-style: inset;
+
+	margin-left: 5px;		
+}
+

@@ -1,0 +1,36 @@
+.formulaire{
+	border: 1px solid black;
+	border-style: 10px outset;
+	border-radius: 15px;
+	background-color: #fafafa;
+	margin-left: 15em;
+	margin-right: 15em;
+	margin-top: 4.5em;
+	margin-bottom: 7em;
+	padding: 2em;
+}
+
+.input{
+	border: none;
+	border-bottom: 1px groove;
+
+}
+form{
+	font-size: 20px;
+}
+
+a{
+	font-size: 9px;
+	text-decoration: none;
+}
+
+.button{
+	font-size: 20px;
+	border-radius: 5px; 
+	border-style: inset;	
+}
+.button:hover{
+	font-size: 20px;
+	border-radius: 5px; 
+	border-style: groove;	
+}
