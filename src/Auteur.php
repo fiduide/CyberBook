@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style_auteur.css">
 	<link rel="stylesheet" type="text/css" href="css/style_livre.css">
 	<title>Liste des Auteurs</title>
 </head>
@@ -19,14 +20,14 @@
 
 		// On affiche les livres avec leur auteurs
 		?>
-		<div class="align">
+		<div class="alignA">
 			<?php
 			while ($donnees = $reponse->fetch())
 				{
 					?>
 					
 						<a href="Livre_A.php?id=<?= ($donnees['id']) ?>">
-						<section class="idlivre">
+						<section class="idlivreA">
 							<?php 
 								echo '<p><strong>' . $donnees["prenom"] . ' - ' . $donnees["nom"] . '</strong></p>';
 								?>

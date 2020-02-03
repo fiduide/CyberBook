@@ -1,0 +1,50 @@
+.idlivreA
+{
+	background-color: whitesmoke;
+	text-align: center;
+	padding: center;
+	border: 1px groove black;
+	border-radius: 30px 5px 30px 5px;	
+	padding-left: 75px;
+	padding-right: 75px;
+	padding-top: 35px;
+	padding-bottom: 70px;
+	width: 90px;
+	height: 30px;
+	font-size: 17px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	line-height: 40px;
+}
+
+.alignA{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+a{
+	text-decoration: none;
+	color: black;	
+}
+
+.detail
+{
+	background-color: white;
+	justify-content: center;
+	text-align: center;
+	border: 1px groove black;
+	border-radius: 30px;	
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 15px;
+	padding-bottom: 25px;
+	width: 200px;
+	font-size: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 15px;
+
+}

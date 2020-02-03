@@ -22,7 +22,7 @@
 	{
 		?>
 		<center>
-		<section class="idlivre">
+		<section class="details_Livre">
 						<a href="details_livre.php?titre=<?= ($alivre['titre']) ?>"> <!-- Permet de rediriger la donnée titre vers la page détails-->
 							<tr>
 								<td>
@@ -48,4 +48,4 @@
 	}
 
 ?>
-</center
+</center >
