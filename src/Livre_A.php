@@ -20,6 +20,8 @@
 
 	while($alivre = $alllivre->fetch())
 	{
+	$image = 'img/'.$alivre["isbn"].'.jpg';
+	$image_par_defaut = 'img/0.png';
 		?>
 		<center>
 		<section class="details_Livre">
@@ -27,11 +29,14 @@
 							<tr>
 								<td>
 								<?php 
-									if($alivre["isbn"] != $alivre["isbn"]){
-										echo '<img src="img/0.jpg"';
+									if(is_file($image)){
+										
+										echo '<img src="'.$image.'">';
+										
 									}else {
-										echo '<img src="img/'.$alivre["isbn"].'.jpg"';
+										echo '<img src="'.$image_par_defaut.'"';
 									}
+
 									echo '<p><strong><u>Titre</u></strong> : '.$alivre["titre"]. '<br>'; //affichage des titres des livres
 									echo '<strong><u>ISBN</u></strong> : '.$alivre["isbn"]. '<br>'; 
 									echo '<strong><u>Nombre de page</u></strong> : '.$alivre["nbpages"]. ' pages <br>';

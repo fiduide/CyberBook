@@ -23,33 +23,33 @@
 	
 	while ($d = $req->fetch()){
 	$image = 'img/'.$d["isbn"].'.jpg';
-	$image_par_defaut = 'img/0.jpg';
+	$image_par_defaut = 'img/0.png';
 ?>
 <div class="align">
 		<section class="details_Livre">
-							<tr>
-								<td>
-								<?php 
-									if(is_file($image)){ //si l'image existe ou non 
+			<tr>
+				<td>
+					<?php 
+						if(is_file($image)){ //si l'image existe ou non 
 										
-										echo '<img src="'.$image.'">';
+							echo '<img src="'.$image.'">';
 										
-									}else {
-										echo '<img src="'.$image_par_defaut.'"';
-									}
-									echo '<p><strong><u>Titre</u></strong> : '.$d["titre"]. '<br>'; //affichage des titres des livres
-									echo '<strong><u>ISBN</u></strong> : '.$d["isbn"]. '<br>'; //isbn
-									echo '<strong><u>Genre</u></strong> : '.$e["libelle"]. '<br>'; //genre
-									echo '<strong><u>Nombre de page</u></strong> : '.$d["nbpages"]. ' pages <br>'; //nbpages
-									echo '<strong><u>Date de sortie</u></strong> : '.$d["annee"]. '<br>'; //annee
+						}else {
+							echo '<img src="'.$image_par_defaut.'">';
+							}
+						echo '<p style="margin-top: 0%;"><strong><u>Titre</u></strong> : '.$d["titre"]. '<br>'; //affichage des titres des livres
+						echo '<strong><u>ISBN</u></strong> : '.$d["isbn"]. '<br>'; //isbn
+						echo '<strong><u>Genre</u></strong> : '.$e["libelle"]. '<br>'; //genre
+						echo '<strong><u>Nombre de page</u></strong> : '.$d["nbpages"]. ' pages <br>'; //nbpages
+						echo '<strong><u>Date de sortie</u></strong> : '.$d["annee"]. '<br>'; //annee
 									
-									?>
-								</td>	
-							<tr>
-						</a>
-					</section>
+					?>
+				</td>	
+			<tr>
+		</section>
 	</div>
-					<?php
+
+<?php
 	}
 
 ?>

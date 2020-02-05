@@ -1,7 +1,29 @@
-.recherche{
+.align{
 	display: flex;
-	line-height: 130px;
 }
+
+.rechercheA{
+	line-height: 130px;
+
+}
+
+.buttonA{
+	font-size: 15px;
+	border-radius: 5px; 
+	border-style: groove;
+	margin-left: 5px;	
+	line-height: 30px;
+	
+}
+
+.buttonA:hover{
+	font-size: 15px;
+	border-radius: 5px; 
+	border-style: inset;
+
+	margin-left: 5px;		
+}
+
 .button{
 	font-size: 30px;
 	border-radius: 5px; 

@@ -24,7 +24,7 @@
 		while ($donnees = $reponse->fetch()) //tant que tout n'est pas marqué continuer
 		{
 			$image = 'img/'.$donnees["isbn"].'.jpg';
-			$image_par_defaut = 'img/0.jpg';
+			$image_par_defaut = 'img/0.png';
 				?>
 					<section class="idlivre">
 						<a href="details_livre.php?titre=<?= ($donnees['titre']) ?>&amp;genre=<?= ($donnees['genre']) ?>"> <!-- Permet de rediriger la donnée titre et genre vers la page détails-->

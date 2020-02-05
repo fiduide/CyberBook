@@ -4,13 +4,31 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/style_auteur.css">
 	<link rel="stylesheet" type="text/css" href="css/style_livre.css">
+	<link rel="stylesheet" type="text/css" href="css/style_a.css">
 	<title>Liste des Auteurs</title>
 </head>
 <body>
+	
 	<?php include "header.php" ?>
-	<br>
-	<br>
-	<br>
+	<header>
+		<div class="align">
+			<form  class="rechercheA" action="rechercheA.php" method="GET">
+				<input style="width: 50em; height: 30px;" type="search" name="rechercheA" placeholder="Recherche...">
+				<input class="buttonA" type="submit" value="Recherche">
+			</form>
+		</div>
+	</header>
+
+
+
+
+
+
+
+
+
+
+
 	<?php
 		include "bdd.php" // Accès à la bdd
 	?>
