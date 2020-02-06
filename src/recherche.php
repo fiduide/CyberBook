@@ -49,11 +49,13 @@
 		}
 		}
 		else if (empty($_GET['q'])){ // Si le champs est vide 
-			echo "Veuillez saisir un champs de recherche";
+			echo '<br><br><p style="text-align: center;">Veuillez saisir un champs de recherche<p>';
 		}
 		if($articles->rowCount() == 0){ // Si le résultat trouvé est inférieur à 0 
-			echo "<br><br><center>Nous n'avons trouvé aucun résultat à votre recherche</center>";
+			echo '<br><br><p style="text-align: center;">Nous n\'avons trouvé aucun résultat à votre recherche</p>';
 		}
+
+		
 		?>
 		</div>
 </body>

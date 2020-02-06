@@ -1,7 +1,4 @@
-.align{
-	display: flex;
-}
-
+/*Barre de recherche Auteur*/
 .rechercheA{
 	line-height: 130px;
 
@@ -20,24 +17,95 @@
 	font-size: 15px;
 	border-radius: 5px; 
 	border-style: inset;
-
 	margin-left: 5px;		
+}
+
+/*Barre de recherche dans Index*/
+.recherche{
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+	margin-bottom: 50px;
+
+
 }
 
 .button{
 	font-size: 30px;
 	border-radius: 5px; 
 	border-style: groove;
-	margin-left: 5px;	
-	line-height: 30px;
-	
+	margin-left: 5px;
+	margin-top: 10px;
 }
 
 .button:hover{
 	font-size: 30px;
 	border-radius: 5px; 
 	border-style: inset;
-
 	margin-left: 5px;		
 }
+/*footer*/
+.img_footer{
+	width: 80px;
+	height: 80px;	
+}
 
+.contener{
+
+	display: flex;
+	justify-content: space-around;
+
+}
+
+.fonction{
+	
+}
+
+
+
+.footer{
+
+	flex-wrap: wrap;
+	height: 220px;
+	width: 300px;
+	text-align: center;
+	line-height: 1.3em;
+}
+
+
+.idlivre
+{	
+	text-align: center;
+	padding: center;
+	border-radius: 30px 5px 30px 5px;	
+	padding-left: 75px;
+	padding-right: 75px;
+	padding-top: 35px;
+	padding-bottom: 70px;
+	width: 300px;
+	height: 600px;
+	font-size: 17px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	line-height: 40px;
+}
+.align{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-bottom: 50px;
+
+
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+.i{
+	border: outset 10px;
+	border-color: whitesmoke;
+}

@@ -138,16 +138,6 @@ nav li:hover .submenu {
 /*fin menu déroulant*/    
     
     
-    
-/* Barre de recherche */
-.recherche{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 50vh;
-
-
-}
 
 
 body, html {
