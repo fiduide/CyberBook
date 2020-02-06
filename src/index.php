@@ -19,12 +19,12 @@
 <header >
     <section class="recherche">
         <form action="recherche.php" method="GET">
-            <input style="width: 50em; height: 40px;" type="search" name="q" placeholder="Recherche..."><br>
+            <input style="width: 50em; height: 40px;" type="search" name="q" placeholder="Recherche de livre..."><br>
             <center><input class="button" type="submit" value="Recherche"><center>
         </form>
     </section>
 <header>
-
+<p style="text-align: center; font-size: 45px; text-decoration: underline;"><strong>Derniers ajouts...</strong></p>
 <section>
     <?php
     $home = $bdd->query('SELECT * FROM livre LEFT JOIN auteur ON isbn = idLivre LEFT JOIN personne ON idPersonne = personne.id ORDER BY livre.id DESC LIMIT 2');

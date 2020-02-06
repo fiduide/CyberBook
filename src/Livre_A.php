@@ -23,7 +23,7 @@
 	$image = 'img/'.$alivre["isbn"].'.jpg';
 	$image_par_defaut = 'img/0.png';
 		?>
-		<center>
+		<div class="alignA">
 		<section class="details_Livre">
 						<a href="details_livre.php?titre=<?= ($alivre['titre']) ?>"> <!-- Permet de rediriger la donnée titre vers la page détails-->
 							<tr>
@@ -48,9 +48,9 @@
 							<tr>
 						</a>
 					</section>
+				</div>
 		
 <?php
 	}
 
 ?>
-</center >
