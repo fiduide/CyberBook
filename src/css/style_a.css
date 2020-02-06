@@ -108,6 +108,8 @@ a{
 .i{
 	border: outset 10px;
 	border-color: whitesmoke;
+	border-left: outset 0px;
+	border-top: outset 0px;
 	width: 306px;
 	height: 506px;
 }

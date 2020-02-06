@@ -16,6 +16,7 @@
 					        <li><a href="AjoutL.php">Livre</a></li>
 					        <li><a href="AjoutA.php">Auteur</a></li>
 							<li><a href="Ajout_G.php">Genre</a></li>
+							<li><a href="Ajout_Edi.php">Editeur</a></li>
                         </ul>
                     </li>         
 					<li><a href="#">Favoris</a></li>

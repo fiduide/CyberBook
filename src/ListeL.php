@@ -33,10 +33,10 @@
 								<?php 
 									if(is_file($image)){
 										
-										echo '<img src="'.$image.'">';
+										echo '<img class="i" src="'.$image.'">';
 										
 									}else {
-										echo '<img src="'.$image_par_defaut.'"';
+										echo '<img class="i" src="'.$image_par_defaut.'"';
 									}
 
 									echo '<strong>'.$donnees["titre"]. '</strong>'; //affichage des titres des livres

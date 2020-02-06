@@ -57,8 +57,11 @@ a{
 	text-decoration: none;
 }
 
-img {
+.i {
 	float: left;
 	width: 80px;
-	height: 131px;;
+	height: 131px;
+	border: outset 3px;
+	border-bottom: 0px;
+	border-color:whitesmoke;
 }

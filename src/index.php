@@ -64,7 +64,7 @@
 <section>
 
 
-<hr>
+<hr> <!-- Barre horizontale pour séparer le footer du reste -->
 
     <footer>
         <section class="contener">
