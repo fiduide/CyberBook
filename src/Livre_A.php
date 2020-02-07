@@ -16,7 +16,7 @@
 <?php include "bdd.php"?>
 <?php 
 	$id = htmlspecialchars($_GET['id']); //Protection contre la saisie utilisateur et récupération de la variable titre
-	$alllivre = $bdd->query('SELECT titre, annee, isbn, nbpages FROM livre INNER JOIN auteur ON idLivre = isbn INNER JOIN personne p ON idPersonne = p.id WHERE idPersonne = '.$id.'');
+	$alllivre = $bdd->query('SELECT titre, annee, isbn, nbpages, genre, editeur FROM livre INNER JOIN auteur ON idLivre = isbn INNER JOIN personne p ON idPersonne = p.id WHERE idPersonne = '.$id.'');
 
 	while($alivre = $alllivre->fetch())
 	{
@@ -24,8 +24,8 @@
 	$image_par_defaut = 'img/0.png';
 		?>
 		<div class="alignA">
-		<section class="details_Livre">
-						<a href="details_livre.php?titre=<?= ($alivre['titre']) ?>"> <!-- Permet de rediriger la donnée titre vers la page détails-->
+		<section class="details_LivreA">
+						<a href="details_livre.php?titre=<?= ($alivre['titre']) ?>&amp;genre=<?= ($alivre['genre']) ?>&amp;editeur=<?= ($alivre['editeur'])?>"><!-- Permet de rediriger la donnée titre vers la page détails-->
 							<tr>
 								<td>
 								<?php 

@@ -45,7 +45,7 @@
 					?>
 					
 						<a href="Livre_A.php?id=<?= ($donnees['id']) ?>">
-						<section class="idlivreA">
+						<section class="idA">
 							<?php 
 								echo '<p><strong>' . $donnees["prenom"] . ' - ' . $donnees["nom"] . '</strong></p>';
 								?>

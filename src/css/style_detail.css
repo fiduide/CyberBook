@@ -1,4 +1,4 @@
-.details_Livre
+.details_LivreA
 {
 	vertical-align: top;
 	background-color: whitesmoke;
@@ -9,22 +9,19 @@
 	padding-left: 75px;
 	padding-right: 75px;
 	padding-bottom: 80px;
-
 	width: 300px;
 	height: 110px;
 	font-size: 17px;
-
 	margin-left: 50px;
 	margin-right: 50px;
 	margin-bottom: 10px;
 	padding-top: 25px;
-
 	line-height: 35px;
 
 	
 }
 
-.alignA{
+.align{
 	display: flex;
 	justify-content: center;
 
@@ -42,3 +39,34 @@ img {
 	
 }
 
+.alignA{
+	display: flex;
+	justify-content: center;
+
+}
+.details_Livre
+{
+	vertical-align: top;
+	background-color: whitesmoke;
+	text-align: left;
+	border: 1px groove black;
+	border-radius: 30px 5px 30px 5px;	
+	padding-top: 45px;
+	padding-left: 75px;
+	padding-right: 75px;
+	padding-bottom: 55px;
+	width: 360px;
+	height: 180px;
+	font-size: 17px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 10px;
+	
+	line-height: 35px;
+
+	
+}
+
+.det{
+	margin-left: 140px;
+}
