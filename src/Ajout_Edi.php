@@ -19,14 +19,15 @@
 	
     
 <section style="text-align: center;">
+<h3 style="text-decoration: underline;">Liste des editeurs ajoutés :</h3>
 <?php 
 // Récupération des 5 derniers livre ajouté
-$reponse = $bdd->query('SELECT libelle FROM editeur ORDER BY id DESC LIMIT 0, 5');
+$reponse = $bdd->query('SELECT * FROM editeur ORDER BY id DESC LIMIT 0, 5');
 
 // Affichage des livres (toutes les données sont protégées par htmlspecialchars)
 while ($donnees = $reponse->fetch())
 {
-	echo '<p><strong>' . htmlspecialchars($donnees['libelle']) . '</strong></p>';
+	echo '<p><em>' . htmlspecialchars($donnees['editeur']) . '</em></p>';
 }
 
 $reponse->closeCursor();

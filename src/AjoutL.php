@@ -22,7 +22,7 @@
         <label for="editeur">Editeur</label> : 
          <select name="editeur" id="editeur">
             <?php foreach($editeur as $edi):?>
-            <option value="<?= $edi['id']?>"><?= $edi['libelle']?>
+            <option value="<?= $edi['id']?>"><?= $edi['editeur']?>
             <?php endforeach ?>
         </select><br><br>
         <label for="genre">Genres</label> : 
@@ -34,7 +34,7 @@
         <label for="langue">Langue</label> : 
          <select name="langue" id="langue">
             <?php foreach($langue as $la):?>
-            <option value="<?= $la['id']?>"><?= $la['libelle'] ?>
+            <option value="<?= $la['id']?>"><?= $la['langue'] ?>
             <?php endforeach ?>
         </select><br><br>
         <label for="langue">Auteur</label> : 
@@ -51,6 +51,7 @@
 	</p>
     </form>
 <section style="text-align: center;">
+<h3 style="text-decoration: underline;">Liste des derniers livres ajoutés :</h3>
 <?php
 // Récupération des 5 derniers livre ajouté
 $reponse = $bdd->query('SELECT isbn, titre FROM livre ORDER BY id DESC LIMIT 0, 5');

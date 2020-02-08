@@ -18,6 +18,7 @@
 	</p>
     </form>
 <section style="text-align: center;">
+<h3 style="text-decoration: underline;">Liste des derniers auteurs ajoutés :</h3>
 <?php
 include "bdd.php";
 // Récupération des 5 derniers livre ajouté
@@ -26,7 +27,7 @@ $reponse = $bdd->query('SELECT nom, prenom FROM personne ORDER BY id DESC LIMIT 
 // Affichage des livres (toutes les données sont protégées par htmlspecialchars)
 while ($donnees = $reponse->fetch())
 {
-	echo '<p><strong>' . htmlspecialchars($donnees['prenom']) . ' ' . htmlspecialchars($donnees['nom']) . '</strong></p>';
+	echo '<p><em>' . htmlspecialchars($donnees['prenom']) . ' ' . htmlspecialchars($donnees['nom']) . '</em></p>';
 }
 
 $reponse->closeCursor();

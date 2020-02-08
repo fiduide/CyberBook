@@ -16,31 +16,35 @@
 <?php include "bdd.php"?>
 <?php 
 	$id = htmlspecialchars($_GET['id']); //Protection contre la saisie utilisateur et récupération de la variable titre
-	$alllivre = $bdd->query('SELECT titre, annee, isbn, nbpages, genre, editeur FROM livre INNER JOIN auteur ON idLivre = isbn INNER JOIN personne p ON idPersonne = p.id WHERE idPersonne = '.$id.'');
-
+	$alllivre = $bdd->query('SELECT * FROM livre  INNER JOIN auteur ON idLivre = isbn INNER JOIN editeur ON editeur.id = livre.editeur INNER JOIN personne p ON idPersonne = p.id INNER JOIN genre ON genre.id = livre.genre WHERE idPersonne  = '.$id.'');
+	$Auteur = $bdd->query('SELECT * FROM livre  INNER JOIN auteur ON idLivre = isbn  INNER JOIN personne p ON idPersonne = p.id INNER JOIN genre ON genre.id = livre.genre WHERE idPersonne  = '.$id.'');
+	$Auteur = $Auteur->fetch();
+	echo '<h1 style="text-align: center;">Livre(s) de l\'auteur <strong style="text-decoration: underline;">'.$Auteur["prenom"].' - '.$Auteur["nom"].'</strong></h1><br>';
 	while($alivre = $alllivre->fetch())
 	{
+	
 	$image = 'img/'.$alivre["isbn"].'.jpg';
 	$image_par_defaut = 'img/0.png';
 		?>
+		
 		<div class="alignA">
 		<section class="details_LivreA">
-						<a href="details_livre.php?titre=<?= ($alivre['titre']) ?>&amp;genre=<?= ($alivre['genre']) ?>&amp;editeur=<?= ($alivre['editeur'])?>"><!-- Permet de rediriger la donnée titre vers la page détails-->
+						<a href="details_livre.php?titre=<?= ($alivre['titre']) ?>" title="Afficher le détail du livre"><!-- Permet de rediriger la donnée titre vers la page détails-->
 							<tr>
 								<td>
 								<?php 
 									if(is_file($image)){
 										
-										echo '<img src="'.$image.'">';
+										echo '<img class="i" src="'.$image.'">';
 										
 									}else {
-										echo '<img src="'.$image_par_defaut.'"';
+										echo '<img class="i"src="'.$image_par_defaut.'"';
 									}
 
-									echo '<p><strong><u>Titre</u></strong> : '.$alivre["titre"]. '<br>'; //affichage des titres des livres
-									echo '<strong><u>ISBN</u></strong> : '.$alivre["isbn"]. '<br>'; 
-									echo '<strong><u>Nombre de page</u></strong> : '.$alivre["nbpages"]. ' pages <br>';
-									echo '<strong><u>Date de sortie</u></strong> : '.$alivre["annee"]. '<br>'; 
+									echo '<p class="det"><strong>'.$alivre["titre"]. '</strong><br>'; //affichage des titres des livres 
+									echo '<em>genre :  '.$alivre["libelle"].' </em><br>';
+									echo '<em>editeur : '.$alivre["editeur"].'</em></p>';
+
 									
 									
 									?>

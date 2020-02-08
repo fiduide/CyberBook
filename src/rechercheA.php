@@ -19,7 +19,7 @@
 
 		//Recherche Auteurs :
 		$rechercheA = htmlspecialchars($_GET['rechercheA']); //Protection contre la saisie utilisateur
-		$Auteur = $bdd->query('SELECT id, nom, prenom FROM personne WHERE nom Or prenom LIKE "'.$rechercheA.'%" ');
+		$Auteur = $bdd->query('SELECT id, nom, prenom FROM personne WHERE nom LIKE "%'.$rechercheA.'" OR prenom LIKE "'.$rechercheA.'%"');
 		if(isset($_GET['rechercheA']) AND !empty($_GET['rechercheA'])) { //Si le champs recherche n'est pas vide alors fait la recherche
 		 if($Auteur->rowCount() > 0) {  // Si le nombre le résultat trouvé est supérieur à 0 
 			 ?> 
@@ -29,7 +29,7 @@
 		 while($A = $Auteur->fetch()){
 			 ?>
              <a href="Livre_A.php?id=<?= ($A['id']) ?>">
-			 <section class="idlivreA">
+			 <section class="idA">
 						  <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
 							 <?php
 							     echo '<p><em>' . $A["prenom"] . ' - ' . $A["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs	 
@@ -42,7 +42,7 @@
 		 }
 		 }
 		 else if (empty($_GET['rechercheA'])){ // Si le champs est vide 
-			 echo "Veuillez saisir un champs de recherche";
+			 echo "<br><br><center>Veuillez saisir un champs de recherche</center>";
 		 }
 		 if($Auteur->rowCount() == 0){ // Si le résultat trouvé est inférieur à 0 
 			 echo "<br><br><center>Nous n'avons trouvé aucun résultat à votre recherche</center> ";

@@ -17,15 +17,16 @@
 	</p>
     </form>
 <section style="text-align: center;">
+<h3 style="text-decoration: underline;">Liste des derniers genres ajoutés :</h3>
 <?php
 include "bdd.php";
 // Récupération des 5 derniers livre ajouté
-$reponse = $bdd->query('SELECT libelle FROM genre ORDER BY id DESC LIMIT 0, 5');
+$reponse = $bdd->query('SELECT * FROM genre ORDER BY id DESC LIMIT 0, 5');
 
 // Affichage des livres (toutes les données sont protégées par htmlspecialchars)
 while ($donnees = $reponse->fetch())
 {
-	echo '<p><strong>' . htmlspecialchars($donnees['libelle']) . '</strong></p>';
+	echo '<p><em>' . htmlspecialchars($donnees['libelle']) . '</em></p>';
 }
 
 $reponse->closeCursor();

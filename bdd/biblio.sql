@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 06 fév. 2020 à 15:16
+-- Généré le :  sam. 08 fév. 2020 à 14:16
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -49,7 +49,9 @@ INSERT INTO `auteur` (`idPersonne`, `idLivre`, `idRole`) VALUES
 (6, '2253151394', 1),
 (6, '2253151343', 1),
 (6, '2253122920', 1),
-(7, '2264069112', 2);
+(7, '2264069112', 2),
+(10, '2747033341', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -59,15 +61,15 @@ INSERT INTO `auteur` (`idPersonne`, `idLivre`, `idRole`) VALUES
 DROP TABLE IF EXISTS `editeur`;
 CREATE TABLE IF NOT EXISTS `editeur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(150) NOT NULL,
+  `editeur` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `editeur`
 --
 
-INSERT INTO `editeur` (`id`, `libelle`) VALUES
+INSERT INTO `editeur` (`id`, `editeur`) VALUES
 (1, 'PJK'),
 (2, 'Nathan'),
 (3, 'Robert Laffont'),
@@ -75,7 +77,8 @@ INSERT INTO `editeur` (`id`, `libelle`) VALUES
 (5, 'Le Masque'),
 (6, 'Albin Michel'),
 (7, 'J\'ai lu'),
-(8, 'Belfond');
+(8, 'Belfond'),
+(9, 'Bayard Jeunesse');
 
 -- --------------------------------------------------------
 
@@ -113,7 +116,7 @@ INSERT INTO `genre` (`id`, `libelle`) VALUES
 DROP TABLE IF EXISTS `langue`;
 CREATE TABLE IF NOT EXISTS `langue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(150) NOT NULL,
+  `langue` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -121,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `langue` (
 -- Déchargement des données de la table `langue`
 --
 
-INSERT INTO `langue` (`id`, `libelle`) VALUES
+INSERT INTO `langue` (`id`, `langue`) VALUES
 (1, 'Anglais'),
 (2, 'Français'),
 (3, 'Japonais');
@@ -144,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `livre` (
   `nbpages` int(11) DEFAULT NULL,
   PRIMARY KEY (`isbn`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `livre`
@@ -160,7 +163,8 @@ INSERT INTO `livre` (`id`, `isbn`, `titre`, `editeur`, `annee`, `genre`, `langue
 (7, '2253151394', 'Marche ou creve', 7, 1979, 6, 1, 384),
 (8, '2253151343', 'Ça', 7, 1986, 6, 1, 799),
 (9, '2253122920', 'La ligne Verte', 7, 1996, 6, 1, 503),
-(10, '2264069112', 'L\'étrange bibliothèque', 8, 2015, 4, 2, 80);
+(10, '2264069112', 'L\'étrange bibliothèque', 8, 2015, 4, 2, 80),
+(11, '2747033341', 'Eragon - Cycle L\'Héritage Tome 01', 9, 2019, 5, 2, 709);
 
 -- --------------------------------------------------------
 
@@ -174,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `nom` varchar(150) NOT NULL,
   `prenom` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `personne`
@@ -189,7 +193,8 @@ INSERT INTO `personne` (`id`, `nom`, `prenom`) VALUES
 (6, 'King', 'Stephen'),
 (7, 'Kat', 'Menschik'),
 (8, 'Coben', 'Harlan'),
-(9, 'Duflo', 'Ericka');
+(9, 'Duflo', 'Ericka'),
+(10, 'Paolini', 'Christopher');
 
 -- --------------------------------------------------------
 

@@ -1,15 +1,14 @@
-.details_LivreA
+.details_LivreA /*Détails des livres par auteurs */
 {
 	vertical-align: top;
 	background-color: whitesmoke;
-	text-align: right;
+	text-align: center;
 	border: 1px groove black;
 	border-radius: 30px 5px 30px 5px;	
-	
-	padding-left: 75px;
+	padding-left: 50px;
 	padding-right: 75px;
 	padding-bottom: 80px;
-	width: 300px;
+	width: 340px;
 	height: 110px;
 	font-size: 17px;
 	margin-left: 50px;
@@ -32,10 +31,25 @@ a{
 	color: black;	
 }
 
-img {
+.i {
+	
 	float: left;
-	width: 110px;
-	height: 161px;
+	width: 80px;
+	height: 131px;
+	border: outset 3px;
+	border-bottom: 0px;
+	border-color:whitesmoke;
+}
+
+.img {
+	margin-top: 20px;
+	width: 150px;
+	height: 201px;
+	float: left;
+	border: outset 3px; /*Effet livre*/
+	border-bottom: 0px;
+	border-color:whitesmoke;
+	
 	
 }
 
@@ -44,7 +58,7 @@ img {
 	justify-content: center;
 
 }
-.details_Livre
+.details_Livre /*Détails des livres*/
 {
 	vertical-align: top;
 	background-color: whitesmoke;
@@ -56,17 +70,16 @@ img {
 	padding-right: 75px;
 	padding-bottom: 55px;
 	width: 360px;
-	height: 180px;
+	height: 230px;
 	font-size: 17px;
 	margin-left: 50px;
 	margin-right: 50px;
 	margin-bottom: 10px;
-	
 	line-height: 35px;
 
 	
 }
 
 .det{
-	margin-left: 140px;
+	margin-left: 12em;
 }
