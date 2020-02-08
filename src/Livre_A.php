@@ -19,6 +19,11 @@
 	$alllivre = $bdd->query('SELECT * FROM livre  INNER JOIN auteur ON idLivre = isbn INNER JOIN editeur ON editeur.id = livre.editeur INNER JOIN personne p ON idPersonne = p.id INNER JOIN genre ON genre.id = livre.genre WHERE idPersonne  = '.$id.'');
 	$Auteur = $bdd->query('SELECT * FROM livre  INNER JOIN auteur ON idLivre = isbn  INNER JOIN personne p ON idPersonne = p.id INNER JOIN genre ON genre.id = livre.genre WHERE idPersonne  = '.$id.'');
 	$Auteur = $Auteur->fetch();
+	if($alllivre->rowCount() == 0){ // Si le résultat trouvé est inférieur à 0 
+			 echo "<br><br><center>Nous n'avons pas encore ajouté de livre pour cette auteur</center> ";
+         }else{
+
+		 
 	echo '<h1 style="text-align: center;">Livre(s) de l\'auteur <strong style="text-decoration: underline;">'.$Auteur["prenom"].' - '.$Auteur["nom"].'</strong></h1><br>';
 	while($alivre = $alllivre->fetch())
 	{
@@ -56,5 +61,6 @@
 		
 <?php
 	}
+		 }
 
 ?>
