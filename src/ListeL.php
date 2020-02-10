@@ -39,7 +39,7 @@
 										echo '<img class="i" src="'.$image_par_defaut.'"';
 									}
 
-									echo '<strong>'.$donnees["titre"]. '</strong>'; //affichage des titres des livres
+									echo '<p><strong>'.$donnees["titre"]. '</strong></p>'; //affichage des titres des livres
 									echo '<p><em>Ecrit par ' . $donnees["prenom"] . ' - ' . $donnees["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs
 									echo '<p><em>Genre : '.$donnees["libelle"].'</em></p>';
 									echo '<p><em>Editeur : '.$donnees["editeur"].'</em></p>';

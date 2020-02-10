@@ -11,10 +11,10 @@ include "bdd.php";
 ?>
 <br><br>
 <fieldset style="margin-top: 3em; border-radius: 10px; font-size: 25px; margin-left: 15em; margin-right: 15em;">
-<legend>Conexion</legend>
+<legend>Connexion</legend>
 <form class="formulaire" action="connexion.php" method="POST">
-    <label for="pseudo">pseudo</label> : <input  class="input" type="text" name="pseudo" id="pseudo" /><br /><br />
-     <label for="mdp">Mot de passe</label> :  <input  class="input"type="password" name="mdp" id="mdp" /><br /><br />
+    <label for="pseudo">pseudo</label> : <input  class="id" type="text" name="pseudo" id="pseudo" placeholder=" "/><br /><br />
+     <label for="mdp">Mot de passe</label> :  <input  class="password"type="password" name="mdp" id="mdp" placeholder=" " /><br /><br />
      <input style="text-align: center;" class="button" type="submit" value="Connexion" />
      <a href="register.php"><input class="button" type="button" value="Inscription"></a>
 </form>

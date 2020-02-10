@@ -44,7 +44,7 @@ if(!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']))
 <fieldset  style="margin-top: 3em; border-radius: 10px; font-size: 25px; margin-left: 15em; margin-right: 15em;">
 <legend><strong><em>Inscription</em></strong></legend>
 <form class="formulaire" action="register.php" method="POST">
-    <label for="email"> * Email</label> : <input  class="input" type="text" name="email" id="email" /><br /><br />
+    <label for="email"> * Email</label> : <input  class="email" type="text" name="email" id="email" placeholder=" " /><br /><br />
     <label for="pseudo"> * pseudo</label> : <input  class="id" type="text" name="pseudo" id="pseudo" placeholder=" "/><br /><br />
     <label for="mdp"> * Mot de passe</label> :  <input  class="password"type="password" name="mdp" id="mdp" placeholder=" "/><br /><br />
     <input style="text-align: center;" class="button" type="submit" value="Inscription" /><br />
@@ -72,6 +72,14 @@ padding-left: 27px;
 
 .id::placeholder{
 background-image: url('img/id.png');
+background-repeat: no-repeat;
+background-position: 2px 2px;
+background-size: 10px;
+padding-left: 27px;
+}
+
+.email::placeholder{
+background-image: url('img/arobase.png');
 background-repeat: no-repeat;
 background-position: 2px 2px;
 background-size: 10px;

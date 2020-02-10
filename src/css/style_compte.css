@@ -19,3 +19,28 @@ form{
 	border-style: inset;
 	margin-left: 5px;		
 }
+
+
+.password::placeholder{
+background-image: url('img/password.png');
+background-repeat: no-repeat;
+background-position: 2px 2px;
+background-size: 10px;
+padding-left: 27px;
+}
+
+.id::placeholder{
+background-image: url('img/id.png');
+background-repeat: no-repeat;
+background-position: 2px 2px;
+background-size: 10px;
+padding-left: 27px;
+}
+
+.email::placeholder{
+background-image: url('img/arobase.png');
+background-repeat: no-repeat;
+background-position: 2px 2px;
+background-size: 10px;
+padding-left: 27px;
+}
