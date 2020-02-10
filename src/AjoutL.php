@@ -18,7 +18,7 @@
         <p> <h2 style="text-decoration: underline;">Ajouter un livre : </h2><br>
         <label for="isbn">ISBN</label> : <input  class="input" type="text" name="isbn" id="isbn" /><br /><br />
         <label for="titre">Titre</label> :  <input  class="input"type="text" name="titre" id="titre" /><br /><br />
-        <label for="annee">Année</label> :  <input  class="input"type="text" name="annee" id="annee" /><br /><br />
+        <label for="annee">Année</label> :  <input  class="input"type="number" min="1500" max="2020" step="10" name="annee" id="annee" /><br /><br />
         <label for="editeur">Editeur</label> : 
          <select name="editeur" id="editeur">
             <?php foreach($editeur as $edi):?>

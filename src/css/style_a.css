@@ -5,6 +5,7 @@
 }
 
 .buttonA{
+	
 	font-size: 15px;
 	border-radius: 5px; 
 	border-style: groove;
@@ -26,6 +27,7 @@
 	justify-content: center;
 	margin-top: 100px;
 	margin-bottom: 50px;
+	text-align: center;
 
 
 }

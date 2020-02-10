@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 08 fév. 2020 à 14:16
+-- Généré le :  lun. 10 fév. 2020 à 14:55
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -50,7 +50,8 @@ INSERT INTO `auteur` (`idPersonne`, `idLivre`, `idRole`) VALUES
 (6, '2253151343', 1),
 (6, '2253122920', 1),
 (7, '2264069112', 2),
-(10, '2747033341', 1);
+(10, '2747033341', 1),
+(10, '274702119X', 1);
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `livre` (
   `nbpages` int(11) DEFAULT NULL,
   PRIMARY KEY (`isbn`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `livre`
@@ -164,7 +165,8 @@ INSERT INTO `livre` (`id`, `isbn`, `titre`, `editeur`, `annee`, `genre`, `langue
 (8, '2253151343', 'Ça', 7, 1986, 6, 1, 799),
 (9, '2253122920', 'La ligne Verte', 7, 1996, 6, 1, 503),
 (10, '2264069112', 'L\'étrange bibliothèque', 8, 2015, 4, 2, 80),
-(11, '2747033341', 'Eragon - Cycle L\'Héritage Tome 01', 9, 2019, 5, 2, 709);
+(11, '2747033341', 'Eragon - Cycle L\'Héritage Tome 01', 9, 2019, 5, 2, 709),
+(12, '274702119X', 'Eragon - L\'aîné Tome 02', 9, 2019, 5, 2, 450);
 
 -- --------------------------------------------------------
 
@@ -229,15 +231,20 @@ CREATE TABLE IF NOT EXISTS `visiteurs` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `mdp` varchar(25) NOT NULL,
+  `rôle` varchar(10) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `visiteurs`
 --
 
-INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`) VALUES
-(1, 'fiduide', 'dorian161100@hotmail.fr');
+INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`, `mdp`, `rôle`) VALUES
+(1, 'fiduide', 'dorian161100@hotmail.fr', '161100', 'admin'),
+(11, 'Clopro', 'cloeberthelin1996@gmail.com', '12345', 'membre'),
+(13, 'Amanda', 'lihua99.77600@gmail.com', '77', 'admin'),
+(14, 'dodo', 'xxreflexdu92xx@hotmail.fr', '123', 'membre');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

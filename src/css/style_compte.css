@@ -1,0 +1,21 @@
+form{
+    text-align: center;
+}
+
+.button{
+    text-align: center;
+	font-size: 15px;
+	border-radius: 5px; 
+	border-style: groove;
+	margin-left: 5px;	
+	line-height: 30px;
+	
+}
+
+.button:hover{
+    text-align: center;
+	font-size: 15px;
+	border-radius: 5px; 
+	border-style: inset;
+	margin-left: 5px;		
+}

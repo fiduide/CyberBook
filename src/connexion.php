@@ -1,11 +1,9 @@
-<?php session_start(); ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style_compte.css">
     <title>Connexion</title>
 </head>
 <body>
@@ -13,11 +11,14 @@
 include "header.php"; 
 include "bdd.php";
 ?>
+<br><br>
 <form class="formulaire" action="connexion.php" method="POST">
     <p> Connexion </p>
     <label for="pseudo">pseudo</label> : <input  class="input" type="text" name="pseudo" id="pseudo" /><br /><br />
      <label for="mdp">Mot de passe</label> :  <input  class="input"type="password" name="mdp" id="mdp" /><br /><br />
-     <input style="text-align: center;" class="button" type="submit" value="Connexion" /><br />
+     <input style="text-align: center;" class="button" type="submit" value="Connexion" />
+     <a href="register.php"><input class="button" type="button" value="Inscription"></a>
+
 </form>
 
 
@@ -32,13 +33,14 @@ $req = $bdd->query('SELECT * FROM visiteurs WHERE pseudo = "'.$pseudo.'"');
 $req = $req -> fetch();
 
 
-if($req['mdp'] == $mdp){
-   header('Location: index.php');
+if($mdp != $req['mdp']){
+    echo '<p style="text-align:center;">Vous avez saisi un mauvais mot de passe</p>';
 
-}
-else if($mdp != $req['mdp']){
-    echo '<p style="text-align:center;">Vous avez saisie un mauvais mot de passe</p>';
-
+}else if($pseudo != $req['pseudo']){
+    echo '<p style="text-align: center;">Votre pseudo n\'est pas reconnu</p>';
+}else{
+    $_SESSION['group'] = $req['rôle'];
+    header('Location: index.php');
 }
 }
 

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style_compte.css">
     <title>Inscription</title>
 </head>
 <body>
@@ -30,7 +31,7 @@ if(!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']))
         echo '<br><br><p style="text-align: center"> L\'email <strong>'.$email.'</strong> est déjà pris</p>';
     }
     else{ //si tout est bon alors on l'ajoute à la base de donnée 
-    $req = $bdd -> prepare('INSERT INTO visiteurs (pseudo, email, mdp) VALUE (?,?,?)');
+    $req = $bdd -> prepare('INSERT INTO visiteurs (pseudo, email, mdp, rôle) VALUE (?,?,?, "membre")');
     $req -> execute(array(htmlspecialchars($pseudo), htmlspecialchars($email), htmlspecialchars($mdp)));
     header('Location: index.php');
     
@@ -41,7 +42,7 @@ if(!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']))
 
 ?>
 
-<section style="text-align: center">
+<section>
 <form class="formulaire" action="register.php" method="POST">
     <br /><p> Inscription </p>
     <label for="email"> * Email</label> : <input  class="input" type="text" name="email" id="email" /><br /><br />

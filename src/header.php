@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+
+
+ ?>
+
+
 <link href="https://fonts.googleapis.com/css?family=Homenaje&display=swap" rel="stylesheet">
     <header style="margin-bottom: 10px;">
 		<div class="header">
@@ -11,16 +19,41 @@
 				<ul>
 					<li><a href="ListeL.php">Livres</a></li>
 					<li><a href="Auteur.php">Auteurs</a></li>
-					<li><a href="#">Ajout</a>
-					    <ul class="submenu">
-					        <li><a href="AjoutL.php">Livre</a></li>
-					        <li><a href="AjoutA.php">Auteur</a></li>
-							<li><a href="Ajout_G.php">Genre</a></li>
-							<li><a href="Ajout_Edi.php">Editeur</a></li>
-                        </ul>
-                    </li>         
-					<li><a href="#">Favoris</a></li>
 					<li><a href="index.php">Accueil</a></li>
+					<?php
+					if( !empty($_SESSION['group']) && $_SESSION['group'] == "admin" ){ //Compte admin
+					?>
+						<li><a href="#">Ajout</a>
+							<ul class="submenu">
+								<li><a href="AjoutL.php">Livre</a></li>
+								<li><a href="AjoutA.php">Auteur</a></li>
+								<li><a href="Ajout_G.php">Genre</a></li>
+								<li><a href="Ajout_Edi.php">Editeur</a></li>
+							</ul>
+						</li>         
+						<li><a href="#">Favoris</a></li>
+						<li><a href="admin.php">Admin</a></li>
+						<li><a href="deco.php">Deconnexion</a></li>
+					<?php
+					}else if(!empty($_SESSION['group']) &&  $_SESSION['group'] != "admin" ){
+						?>
+						<li><a href="#">Ajout</a>
+							<ul class="submenu">
+								<li><a href="AjoutL.php">Livre</a></li>
+								<li><a href="AjoutA.php">Auteur</a></li>
+								<li><a href="Ajout_G.php">Genre</a></li>
+								<li><a href="Ajout_Edi.php">Editeur</a></li>
+							</ul>
+						</li>         
+						<li><a href="#">Favoris</a></li>	
+						<li><a href="deco.php">Deconnexion</a></li>
+					<?php
+						}else{
+							?>
+							<li><a href="connexion?php" title="Pour ajouter de nouveau livre vous devez être connecté">Connexion</a></li>
+							<?php
+						}
+					 ?>
 					
 				</ul>
 			</nav>	
