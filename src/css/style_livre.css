@@ -65,3 +65,14 @@ a{
 	border-bottom: 0px;
 	border-color:whitesmoke;
 }
+
+.i:hover{
+    -webkit-transition: all 250ms ease-in;
+    -webkit-transform: scale(1.2);
+    -ms-transition: all 250ms ease-in;
+    -ms-transform: scale(1.2);   
+    -moz-transition: all 250ms ease-in;
+    -moz-transform: scale(1.2);
+    transition: all 250ms ease-in;
+    transform: scale(1.2);
+}

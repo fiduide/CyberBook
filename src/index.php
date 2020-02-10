@@ -17,6 +17,8 @@
 
 
 <header >
+<br>
+<h4 style="text-align:center; margin-top: 4%; font-size: 15px;"><em>(Vous devez être connecter pour pouvoir ajouter des livres, auteurs, etc...)</em></h4>
     <section class="recherche">
         <form action="recherche.php" method="GET">
             <input style="width: 50em; height: 40px;" type="search" name="q" placeholder="Recherche de livre..."><br>

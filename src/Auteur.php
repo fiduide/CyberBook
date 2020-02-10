@@ -38,12 +38,14 @@
 
 		// On affiche les livres avec leur auteurs
 		?>
+	
 		<div class="alignA">
+			
 			<?php
 			while ($donnees = $reponse->fetch())
 				{
 					?>
-					
+						<div class="auteur">
 						<a href="Livre_A.php?id=<?= ($donnees['id']) ?>">
 						<section class="idA">
 							<?php 
@@ -51,9 +53,11 @@
 								?>
 						</section>
 					</a>
+					</div>
 			<?php 
 				}
 			?>
-		</div><br><br>
+		</div>
+	<br><br>
 </body>
 </html>
