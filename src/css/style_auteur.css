@@ -51,11 +51,11 @@ a{
 
 .auteur:hover{
     -webkit-transition: all 250ms ease-in;
-    -webkit-transform: scale(1.2);
+    -webkit-transform: scale(1.3);
     -ms-transition: all 250ms ease-in;
-    -ms-transform: scale(1.2);   
+    -ms-transform: scale(1.3);   
     -moz-transition: all 250ms ease-in;
-    -moz-transform: scale(1.2);
+    -moz-transform: scale(1.3);
     transition: all 250ms ease-in;
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
