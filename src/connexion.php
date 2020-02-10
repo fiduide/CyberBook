@@ -12,15 +12,16 @@ include "header.php";
 include "bdd.php";
 ?>
 <br><br>
+<fieldset style="margin-top: 3em; border-radius: 10px; font-size: 25px; margin-left: 15em; margin-right: 15em;">
+<legend>Connexion</legend>
 <form class="formulaire" action="connexion.php" method="POST">
-    <p> Connexion </p>
     <label for="pseudo">pseudo</label> : <input  class="input" type="text" name="pseudo" id="pseudo" /><br /><br />
      <label for="mdp">Mot de passe</label> :  <input  class="input"type="password" name="mdp" id="mdp" /><br /><br />
      <input style="text-align: center;" class="button" type="submit" value="Connexion" />
      <a href="register.php"><input class="button" type="button" value="Inscription"></a>
-
 </form>
-
+</fieldset>
+<br><br><br><br><br><br>
 
 <?php 
 

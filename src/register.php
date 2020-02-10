@@ -43,14 +43,16 @@ if(!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']))
 ?>
 
 <section>
+<fieldset  style="margin-top: 3em; border-radius: 10px; font-size: 25px; margin-left: 15em; margin-right: 15em;">
+<legend><strong><em>Inscription</em></strong></legend>
 <form class="formulaire" action="register.php" method="POST">
-    <br /><p> Inscription </p>
     <label for="email"> * Email</label> : <input  class="input" type="text" name="email" id="email" /><br /><br />
     <label for="pseudo"> * pseudo</label> : <input  class="id" type="text" name="pseudo" id="pseudo" placeholder=" "/><br /><br />
     <label for="mdp"> * Mot de passe</label> :  <input  class="password"type="password" name="mdp" id="mdp" placeholder=" "/><br /><br />
     <input style="text-align: center;" class="button" type="submit" value="Inscription" /><br />
 </form>
 </section>
+</fieldset>
 <br><br><br><br>
 
 
