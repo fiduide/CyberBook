@@ -14,9 +14,9 @@
         <?php $genre = $bdd->query('SELECT * FROM genre');?>
         <?php $auteur = $bdd->query('SELECT * FROM personne');?>
 
-    <form class="formulaire" action="Ajout_Post.php" method="POST">
+    <form class="formulaire" action="Ajout_Post.php" onsubmit="return verif()" method="POST">
         <p> <h2 style="text-decoration: underline;">Ajouter un livre : </h2><br>
-        <label for="isbn">ISBN</label> : <input  class="input" type="text" name="isbn" id="isbn" /><br /><br />
+        <label for="isbn">ISBN</label> : <input  class="input" type="text" name="isbn" id="isbn" /><br /><br /><span id=missISBN></span>
         <label for="titre">Titre</label> :  <input  class="input"type="text" name="titre" id="titre" /><br /><br />
         <label for="annee">Année</label> :  <input  class="input"type="number" min="1500" max="2020" step="10" name="annee" id="annee" /><br /><br />
         <label for="editeur">Editeur</label> : 
@@ -45,11 +45,75 @@
         </select><br><br>
         <label for="nbpages">Nombre de pages</label> :  <input class="input" type="text" name="nbpages" id="nbpages" /><br /><br />
         <p style="font-size: 12px;"><em>Veulliez renseigner tout les champs !</em></p>
-        <input style="text-align: center;" class="button" type="submit" value="Envoyer" /><br />
+        <input style="text-align: center;" class="button" type="submit" value="Envoyer" id="envoi" /><br />
         <?php 
         ?>
 	</p>
     </form>
+
+<script>
+	function verif() { //Vérification du formulaire
+		if (document.getElementById("isbn").value=="") {
+			alert("Penser à taper un ISBN valide !");
+            document.getElementById("isbn").style.borderColor = "red";
+           
+			return false;
+		}
+		if (document.getElementById("titre").value=="") {
+			alert("Pensez à taper un titre !");
+			
+            document.getElementById("titre").style.borderColor = "red";
+			return false;
+		}
+        	if (document.getElementById("annee").value=="") {
+			alert("Penser à taper une année valide !");
+			
+            document.getElementById("annee").style.borderColor = "red";
+			return false;
+		}
+		if (document.getElementById("editeur").value=="") {
+			alert("Veuillez sélectionner un éditeur !");
+			
+            document.getElementById("editeur").style.borderColor = "red";
+			return false;
+		}
+        if (document.getElementById("auteur").value=="") {
+			alert("Veuillez sélectionner un auteur !");
+			
+            document.getElementById("auteur").style.borderColor = "red";
+			return false;
+		}
+        if (document.getElementById("genre").value=="") {
+			alert("Veuillez sélectionner un genre !");
+			
+            document.getElementById("genre").style.borderColor = "red";
+			return false;
+		}
+        if (document.getElementById("langue").value=="") {
+			alert("Veuillez sélectionner une langue !");
+            document.getElementById("langue").style.borderColor = "red";
+			return false;
+		}
+        if (document.getElementById("nbpages").value <= 4 ||document.getElementById("nbpages").value=="") {
+			alert("Veuillez mettre un nombre de page supérieur à 4 !");
+			
+            document.getElementById("nbpages").style.borderColor = "red";
+			return false;
+		}
+        
+	}
+
+</script>
+
+
+
+
+
+
+
+
+
+
 <section style="text-align: center;">
 <h3 style="text-decoration: underline;">Liste des derniers livres ajoutés :</h3>
 <?php

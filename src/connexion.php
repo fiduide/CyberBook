@@ -14,12 +14,12 @@ include "bdd.php";
 <legend>Connexion</legend>
 <form class="formulaire" action="connexion.php" method="POST">
     <label for="pseudo">pseudo</label> : <input  class="id" type="text" name="pseudo" id="pseudo" placeholder=" "/><br /><br />
-     <label for="mdp">Mot de passe</label> :  <input  class="password"type="password" name="mdp" id="mdp" placeholder=" " /><br /><br />
-     <input style="text-align: center;" class="button" type="submit" value="Connexion" />
+     <label for="mdp">Mot de passe</label> :  <input  class="password"type="password" name="mdp" id="mdp" /><br><br>
+     <input style="text-align: center;" class="button" type="submit" value="Connexion"  placeholder=" "/>
      <a href="register.php"><input class="button" type="button" value="Inscription"></a>
 </form>
 </fieldset>
-<br><br><br><br><br><br>
+
 
 <?php 
 
@@ -35,7 +35,7 @@ $req = $req -> fetch();
 if($mdp != $req['mdp']){ //Si le mdp ne correspond pas
     echo '<p style="text-align:center;">Vous avez saisi un mauvais mot de passe</p>';
 
-}else if($pseudo != $req['pseudo']){ //Si le pseudo n'est pas reconnu dans la base de donnée
+}if($pseudo != $req['pseudo']){ //Si le pseudo n'est pas reconnu dans la base de donnée
     echo '<p style="text-align: center;">Votre pseudo n\'est pas reconnu</p>';
 }else{
     $_SESSION['group'] = $req['rôle']; //Je récupère le rôle de la personne 
@@ -46,7 +46,7 @@ if($mdp != $req['mdp']){ //Si le mdp ne correspond pas
 
 ?>
 
-
+<br><br><br>
 
 
 
