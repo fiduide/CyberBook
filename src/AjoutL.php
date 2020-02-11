@@ -94,11 +94,13 @@
             document.getElementById("langue").style.borderColor = "red";
 			return false;
 		}
-        if (document.getElementById("nbpages").value <= 4 ||document.getElementById("nbpages").value=="") {
+        if (document.getElementById("nbpages").value < 4 && document.getElementById("nbpages").value != 0 ){
 			alert("Veuillez mettre un nombre de page supérieur à 4 !");
-			
             document.getElementById("nbpages").style.borderColor = "red";
 			return false;
+		}
+        if (document.getElementById("nbpages").value = 0){
+			return true;
 		}
         
 	}
