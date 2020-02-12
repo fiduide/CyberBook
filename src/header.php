@@ -17,9 +17,10 @@ session_start();
 			</div>
 			<nav class="menu">
 				<ul>
+					<li><a href="index.php">Accueil</a></li>
 					<li><a href="ListeL.php">Livres</a></li>
 					<li><a href="Auteur.php">Auteurs</a></li>
-					<li><a href="index.php">Accueil</a></li>
+					
 					<?php
 					if( !empty($_SESSION['group']) && $_SESSION['group'] == "admin" ){ //Compte admin
 					?>
@@ -50,7 +51,7 @@ session_start();
 					<?php
 						}else{
 							?>
-							<li><a href="connexion?php" title="Pour ajouter de nouveau livre vous devez être connecté">Connexion</a></li>
+							<li><a href="connexion.php" title="Pour ajouter de nouveau livre vous devez être connecté">Connexion</a></li>
 							<?php
 						}
 					 ?>
