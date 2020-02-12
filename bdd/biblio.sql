@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 10 fév. 2020 à 14:55
+-- Généré le :  mer. 12 fév. 2020 à 10:32
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -51,7 +51,8 @@ INSERT INTO `auteur` (`idPersonne`, `idLivre`, `idRole`) VALUES
 (6, '2253122920', 1),
 (7, '2264069112', 2),
 (10, '2747033341', 1),
-(10, '274702119X', 1);
+(10, '274702119X', 1),
+
 
 -- --------------------------------------------------------
 
@@ -180,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `nom` varchar(150) NOT NULL,
   `prenom` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `personne`
@@ -196,7 +197,8 @@ INSERT INTO `personne` (`id`, `nom`, `prenom`) VALUES
 (7, 'Kat', 'Menschik'),
 (8, 'Coben', 'Harlan'),
 (9, 'Duflo', 'Ericka'),
-(10, 'Paolini', 'Christopher');
+(10, 'Paolini', 'Christopher'),
+(11, 'test', 'test');
 
 -- --------------------------------------------------------
 
@@ -234,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `visiteurs` (
   `mdp` varchar(25) NOT NULL,
   `rôle` varchar(10) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `visiteurs`
@@ -244,7 +246,10 @@ INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`, `mdp`, `rôle`) VALUES
 (1, 'fiduide', 'dorian161100@hotmail.fr', '161100', 'admin'),
 (11, 'Clopro', 'cloeberthelin1996@gmail.com', '12345', 'membre'),
 (13, 'Amanda', 'lihua99.77600@gmail.com', '77', 'admin'),
-(14, 'dodo', 'xxreflexdu92xx@hotmail.fr', '123', 'membre');
+(14, 'dodo', 'xxreflexdu92xx@hotmail.fr', '123', 'membre'),
+(16, 'Yann', 'sqdsqdsqfqdsdqzd', '12345', 'membre'),
+(17, 'Sandra', 'sandra.glt18@gmail.com', '18.11.2000', 'membre'),
+(18, 'Wiwi', 'wiwi6977@hotmail.fr', '14102019', 'membre');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
