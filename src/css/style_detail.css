@@ -52,6 +52,12 @@ a{
 	
 	
 }
+.iD{
+	margin-top: 20px;
+	width: 150px;
+	height: 201px;
+	float: left;
+}
 
 .alignA{
 	display: flex;

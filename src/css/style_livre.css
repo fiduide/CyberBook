@@ -57,7 +57,7 @@ a{
 	text-decoration: none;
 }
 
-.i {
+.iD {
 	float: left;
 	width: 80px;
 	height: 131px;
@@ -66,7 +66,7 @@ a{
 	border-color:whitesmoke;
 }
 
-.i:hover{
+.iD:hover{
     -webkit-transition: all 250ms ease-in;
     -webkit-transform: scale(1.2);
     -ms-transition: all 250ms ease-in;
@@ -75,4 +75,10 @@ a{
     -moz-transform: scale(1.2);
     transition: all 250ms ease-in;
     transform: scale(1.2);
+}
+
+.i{
+	float: left;
+	width: 80px;
+	height: 131px;
 }

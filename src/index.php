@@ -45,7 +45,7 @@
 								<?php 
 									if(is_file($image)){
 										
-										echo '<img class="i" src="'.$image.'">';
+										echo '<img class="iD" src="'.$image.'">';
 										
 									}else {
 										echo '<img class="i" src="'.$image_par_defaut.'"';
