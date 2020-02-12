@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="css/style_livre.css">
-	<title>Liste des livres</title>
+	<link rel="stylesheet" type="text/css" href="css/style_admin.css">
+	<title>Admin</title>
 </head>
 <body>
 	<header>
@@ -18,7 +18,7 @@
 	$reponse = $bdd->query('SELECT * FROM livre LEFT JOIN editeur ON livre.editeur = editeur.id LEFT JOIN auteur ON isbn = idLivre LEFT JOIN personne ON idPersonne = personne.id LEFT JOIN genre ON livre.genre = genre.id ORDER BY titre ASC'); 
 	// On affiche les livres avec leur auteurs
 	?>
-	<h1 style="text-align: center;">Liste des livres de <strong>CyberBook</strong></h1>
+	<h1 style="text-align: center;">Page de modification des livres</h1>
 	<div class="align">
 		<?php
 		while ($donnees = $reponse->fetch()) //tant que tout n'est pas marqué continuer
@@ -35,14 +35,19 @@
 										echo '<img class="iD" src="'.$image.'">';
 										
 									}else {
-										echo '<img class="i" src="'.$image_par_defaut.'">';
+										echo '<img class="i" src="'.$image_par_defaut.'"';
 									}
 
-									echo '<B>'.$donnees["titre"]. '</B>'; //affichage des titres des livres
+									echo '<p><strong>'.$donnees["titre"]. '</strong></p>'; //affichage des titres des livres
 									echo '<p><em>Ecrit par ' . $donnees["prenom"] . ' - ' . $donnees["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs
 									echo '<p><em>Genre : '.$donnees["libelle"].'</em></p>';
 									echo '<p><em>Editeur : '.$donnees["editeur"].'</em></p>';
-									?>
+                                    ?>
+                                    <form action="modifLivre.php">
+                                   <input  class="background" type="button" value="Supprimer"> 
+                                   <input  class="backgroundMod" type="button" value="Modifier"> 
+                                </form>
+
 						</a>
 					</section>
 					
@@ -57,3 +62,4 @@
 
 </body>
 </html>
+

@@ -51,7 +51,7 @@
 										echo '<img class="i" src="'.$image_par_defaut.'"';
 									}
 
-									echo '<strong>'.$h["titre"]. '</strong>'; //affichage des titres des livres
+									echo '<p><strong>'.$h["titre"]. '</strong></p>'; //affichage des titres des livres
 									echo '<p><em>' . $h["prenom"] . ' - ' . $h["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs
 									
 									?>

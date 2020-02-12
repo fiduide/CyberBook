@@ -12,7 +12,7 @@
 	<br>
 	<?php
 	$q = htmlspecialchars($_GET['q']); //Protection contre la saisie utilisateur
-	 $articles = $bdd->query('SELECT * FROM livre LEFT JOIN auteur ON idLivre = isbn LEFT JOIN personne ON idPersonne = personne.id WHERE titre LIKE "'.$q.'%"');
+	$articles = $bdd->query('SELECT * FROM livre LEFT JOIN genre ON genre.id = livre.genre LEFT JOIN editeur ON editeur.id = livre.editeur LEFT JOIN auteur ON idLivre = isbn LEFT JOIN personne ON idPersonne = personne.id WHERE titre LIKE "'.$q.'%"');
 		
 	 if(isset($_GET['q']) AND !empty($_GET['q'])) { //Si le champs recherche n'est pas vide alors fait la recherche
 		if($articles->rowCount() > 0) {  // Si le nombre le résultat trouvé est supérieur à 0 
@@ -28,17 +28,18 @@
 							<tr>
 								<td>
 								<?php 
-									if(is_file($image)){
+								if(is_file($image)){
 										
-										echo '<img src="'.$image.'">';
-										
-									}else {
-										echo '<img src="'.$image_par_defaut.'"';
-									}
-
-									echo '<strong>'.$a["titre"]. '</strong>'; //affichage des titres des livres
-									echo '<p><em>' . $a["prenom"] . ' - ' . $a["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs
+									echo '<img class="iD" src="'.$image.'">';
 									
+								}else {
+									echo '<img class="i" src="'.$image_par_defaut.'">';
+								}
+
+								echo '<B>'.$a["titre"]. '</B>'; //affichage des titres des livres
+								echo '<p><em>Ecrit par ' . $a["prenom"] . ' - ' . $a["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs
+								echo '<p><em>Genre : '.$a["libelle"].'</em></p>';
+								echo '<p><em>Editeur : '.$a["editeur"].'</em></p>';
 									?>
 								</td>	
 							<tr>

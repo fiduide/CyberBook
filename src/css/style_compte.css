@@ -13,11 +13,9 @@ form{
 }
 
 .button:hover{
-    text-align: center;
-	font-size: 15px;
-	border-radius: 5px; 
+
 	border-style: inset;
-	margin-left: 5px;		
+	
 }
 
 

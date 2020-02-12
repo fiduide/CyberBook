@@ -15,10 +15,7 @@
 }
 
 .buttonA:hover{
-	font-size: 15px;
-	border-radius: 5px; 
-	border-style: inset;
-	margin-left: 5px;		
+	border-style: inset;		
 }
 
 /*Barre de recherche dans Index*/
@@ -41,10 +38,7 @@
 }
 
 .button:hover{
-	font-size: 30px;
-	border-radius: 5px; 
-	border-style: inset;
-	margin-left: 5px;		
+	border-style: inset;	
 }
 /*footer*/
 .img_footer{
@@ -59,9 +53,6 @@
 
 }
 
-.fonction{
-	
-}
 
 
 
