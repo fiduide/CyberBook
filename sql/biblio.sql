@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 12 fév. 2020 à 10:32
+-- Généré le :  lun. 20 jan. 2020 à 10:59
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -49,10 +49,7 @@ INSERT INTO `auteur` (`idPersonne`, `idLivre`, `idRole`) VALUES
 (6, '2253151394', 1),
 (6, '2253151343', 1),
 (6, '2253122920', 1),
-(7, '2264069112', 2),
-(10, '2747033341', 1),
-(10, '274702119X', 1);
-
+(7, '2264069112', 2);
 
 -- --------------------------------------------------------
 
@@ -63,15 +60,15 @@ INSERT INTO `auteur` (`idPersonne`, `idLivre`, `idRole`) VALUES
 DROP TABLE IF EXISTS `editeur`;
 CREATE TABLE IF NOT EXISTS `editeur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `editeur` varchar(150) NOT NULL,
+  `libelle` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `editeur`
 --
 
-INSERT INTO `editeur` (`id`, `editeur`) VALUES
+INSERT INTO `editeur` (`id`, `libelle`) VALUES
 (1, 'PJK'),
 (2, 'Nathan'),
 (3, 'Robert Laffont'),
@@ -79,8 +76,7 @@ INSERT INTO `editeur` (`id`, `editeur`) VALUES
 (5, 'Le Masque'),
 (6, 'Albin Michel'),
 (7, 'J\'ai lu'),
-(8, 'Belfond'),
-(9, 'Bayard Jeunesse');
+(8, 'Belfond');
 
 -- --------------------------------------------------------
 
@@ -94,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `genre` (
   `libelle` varchar(150) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `libelle` (`libelle`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `genre`
@@ -106,8 +102,7 @@ INSERT INTO `genre` (`id`, `libelle`) VALUES
 (3, 'Poésie'),
 (4, 'Nouvelle'),
 (5, 'Fantasy'),
-(6, 'Horreur'),
-(7, 'Science-fiction');
+(6, 'Horreur');
 
 -- --------------------------------------------------------
 
@@ -118,15 +113,15 @@ INSERT INTO `genre` (`id`, `libelle`) VALUES
 DROP TABLE IF EXISTS `langue`;
 CREATE TABLE IF NOT EXISTS `langue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `langue` varchar(150) NOT NULL,
+  `libelle` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `langue`
 --
 
-INSERT INTO `langue` (`id`, `langue`) VALUES
+INSERT INTO `langue` (`id`, `libelle`) VALUES
 (1, 'Anglais'),
 (2, 'Français'),
 (3, 'Japonais');
@@ -166,8 +161,8 @@ INSERT INTO `livre` (`id`, `isbn`, `titre`, `editeur`, `annee`, `genre`, `langue
 (8, '2253151343', 'Ça', 7, 1986, 6, 1, 799),
 (9, '2253122920', 'La ligne Verte', 7, 1996, 6, 1, 503),
 (10, '2264069112', 'L\'étrange bibliothèque', 8, 2015, 4, 2, 80),
-(11, '2747033341', 'Eragon - Cycle L\'Héritage Tome 01', 9, 2019, 5, 2, 709),
-(12, '274702119X', 'Eragon - L\'aîné Tome 02', 9, 2019, 5, 2, 450);
+(11, '231242543', 'La belle histoire d\'un test', 1, 2019, 2, 1, 234),
+(12, 'test', 'test', 1, 2000, 3, 1, 234);
 
 -- --------------------------------------------------------
 
@@ -181,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `nom` varchar(150) NOT NULL,
   `prenom` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `personne`
@@ -197,8 +192,7 @@ INSERT INTO `personne` (`id`, `nom`, `prenom`) VALUES
 (7, 'Kat', 'Menschik'),
 (8, 'Coben', 'Harlan'),
 (9, 'Duflo', 'Ericka'),
-(10, 'Paolini', 'Christopher'),
-(11, 'test', 'test');
+(10, 'Vek', 'Vek');
 
 -- --------------------------------------------------------
 
@@ -233,23 +227,15 @@ CREATE TABLE IF NOT EXISTS `visiteurs` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `mdp` varchar(25) NOT NULL,
-  `rôle` varchar(10) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `visiteurs`
 --
 
-INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`, `mdp`, `rôle`) VALUES
-(1, 'fiduide', 'dorian161100@hotmail.fr', '161100', 'admin'),
-(11, 'Clopro', 'cloeberthelin1996@gmail.com', '12345', 'membre'),
-(13, 'Amanda', 'lihua99.77600@gmail.com', '77', 'admin'),
-(14, 'dodo', 'xxreflexdu92xx@hotmail.fr', '123', 'membre'),
-(16, 'Yann', 'sqdsqdsqfqdsdqzd', '12345', 'membre'),
-(17, 'Sandra', 'sandra.glt18@gmail.com', '18.11.2000', 'membre'),
-(18, 'Wiwi', 'wiwi6977@hotmail.fr', '14102019', 'membre');
+INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`) VALUES
+(1, 'fiduide', 'dorian161100@hotmail.fr');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
