@@ -35,7 +35,7 @@ while ($d = $req->fetch()){
 					echo '<img class="img" src="'.$image.'">';
 											
 				}else {
-					echo '<img class="iD"src="'.$image_par_defaut.'">';
+					echo '<img class="img"src="'.$image_par_defaut.'">';
 					}
 				echo '<p class="det">';		
 				echo '<strong><u>ISBN</u></strong> : '.$d["isbn"]. '<br>'; //isbn
