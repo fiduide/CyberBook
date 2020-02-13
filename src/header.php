@@ -174,10 +174,11 @@ nav li:hover .submenu {
 }
 
 .img_menu{
-	float: left;
+	float: right;
 	width: 28px;
 	height: 31px;
 	margin-top: 0%;
+	margin-left: 10px;
 }
 .img_menu2{
 	float: right;
