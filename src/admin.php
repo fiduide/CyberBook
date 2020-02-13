@@ -14,16 +14,20 @@
 		<br>
 	<?php include "bdd.php"?>
     <div class="align">
-    <a href="modifLivre.php"> 
+    <a href="gestionLivre.php"> 
     <section class="Admin">
+    <img class="i" src="img/book.png"/>
     <p>Modification de Livre</p> 
+    
     </section>
     </a>
+    
 
 
 
     <a href="modifCompte.php"> 
     <section class="Admin">
+    <img class="i" src="img/utilisateur.png"/>
     <p>Modification d'un Compte</p>
     </section>
     </a>

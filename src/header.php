@@ -5,7 +5,7 @@ session_start();
 
  ?>
 
-<script type="text/javascript" src="javascript.js"></script>
+<script type="text/javascript" src="javaScript.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Homenaje&display=swap" rel="stylesheet">
     <header style="margin-bottom: 10px;">
 		<div class="header">
@@ -30,11 +30,12 @@ session_start();
 								<li><a href="AjoutA.php">Auteur</a></li>
 								<li><a href="Ajout_G.php">Genre</a></li>
 								<li><a href="Ajout_Edi.php">Editeur</a></li>
+								<li><a href="Ajout_Langue.php">Langue</a></li>
 							</ul>
 						</li>         
 						<li><a href="#">Favoris</a></li>
-						<li><a href="admin.php">Admin</a></li>
-						<li><a href="deco.php">Deconnexion</a></li>
+						<li><a href="admin.php"><img class="img_menu" src="img/engrenage.png"/>Admin</a></li>
+						<li><a href="deco.php">Deconnexion<img class="img_menu2" src="img/deco.png"/></a></li>
 					<?php
 					}else if(!empty($_SESSION['group']) &&  $_SESSION['group'] != "admin" ){
 						?>
@@ -44,10 +45,11 @@ session_start();
 								<li><a href="AjoutA.php">Auteur</a></li>
 								<li><a href="Ajout_G.php">Genre</a></li>
 								<li><a href="Ajout_Edi.php">Editeur</a></li>
+								<li><a href="Ajout_Langue.php">Langue</a></li>
 							</ul>
 						</li>         
 						<li><a href="#">Favoris</a></li>	
-						<li><a href="deco.php">Deconnexion</a></li>
+						<li><a href="deco.php">Deconnexion<img class="img_menu2" src="img/deco.png"/></a></li>
 					<?php
 						}else{
 							?>
@@ -170,11 +172,26 @@ nav li:hover .submenu {
     text-align: left;
     font-size: 20px;
 }
+
+.img_menu{
+	float: left;
+	width: 28px;
+	height: 31px;
+	margin-top: 0%;
+}
+.img_menu2{
+	float: right;
+	width: 28px;
+	height: 31px;
+	margin-top: 0%;
+	margin-left: 10px;
+}
+
+
+
 /*fin menu déroulant*/    
     
     
-
-
 body, html {
 	margin: 0 ;
 	padding: 0 ;

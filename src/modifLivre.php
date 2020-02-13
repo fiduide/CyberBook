@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" type="text/css" href="css/style_admin.css">
-	<title>Admin</title>
-</head>
-<body>
-	<header>
-		<?php include "header.php" ?>
-	</header>
-		<br>
-		<br>
-		<br>
-	<?php include "bdd.php"?>
+    <head>
+    	<link rel="stylesheet" type="text/css" href="css/style_ajout.css">
+        <script type="text/javascript" src="javaScript.js"></script>
+        
+        <title>Modification Livre</title>
+    </head>
+    <body>
+        <?php 
+        include "header.php";
+        include "bdd.php";
 
-	<?php
-	// On récupère le contenu de la table livre + personne via la table auteur
-	$reponse = $bdd->query('SELECT * FROM livre LEFT JOIN editeur ON livre.editeur = editeur.id LEFT JOIN auteur ON isbn = idLivre LEFT JOIN personne ON idPersonne = personne.id LEFT JOIN genre ON livre.genre = genre.id ORDER BY titre ASC'); 
-	// On affiche les livres avec leur auteurs
-	?>
-	<h1 style="text-align: center;">Page de modification des livres</h1>
-	<div class="align">
-		<?php
-		while ($donnees = $reponse->fetch()) //tant que tout n'est pas marqué continuer
-		{
-			$image = 'img/'.$donnees["isbn"].'.jpg';
-			$image_par_defaut = 'img/0.png';
-				?>
-					<section class="idlivre">
-						<a href="details_livre.php?titre=<?= ($donnees['titre']) ?>" title="Afficher le détail du livre"> <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
-
-								<?php 
-									if(is_file($image)){
-										
-										echo '<img class="iD" src="'.$image.'">';
-										
-									}else {
-										echo '<img class="i" src="'.$image_par_defaut.'"';
-									}
-
-									echo '<p><strong>'.$donnees["titre"]. '</strong></p>'; //affichage des titres des livres
-									echo '<p><em>Ecrit par ' . $donnees["prenom"] . ' - ' . $donnees["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs
-									echo '<p><em>Genre : '.$donnees["libelle"].'</em></p>';
-									echo '<p><em>Editeur : '.$donnees["editeur"].'</em></p>';
-                                    ?>
-                                    <form action="modifLivre.php">
-                                   <input  class="background" type="button" value="Supprimer"> 
-                                   <input  class="backgroundMod" type="button" value="Modifier"> 
-                                </form>
-
-						</a>
-					</section>
-					
-					
-	
-	<br>
-	<br>
-	<?php 
-		}
-	?>
-	</div>
-
+        $isbn = $_GET['isbn'];
+         $editeur = $bdd->query('SELECT * FROM editeur');
+         $langue = $bdd->query('SELECT * FROM langue');
+         $genre = $bdd->query('SELECT * FROM genre');
+         $auteur = $bdd->query('SELECT * FROM personne');
+         $Value = $bdd->query('SELECT * FROM livre LEFT JOIN editeur ON editeur.id = livre.editeur LEFT JOIN langue ON langue.id = livre.langue LEFT JOIN genre ON genre.id = livre.genre LEFT JOIN auteur ON auteur.idLivre = livre.isbn LEFT JOIN personne ON auteur.idPersonne = personne.id WHERE isbn = "'.$isbn.'"');
+         $Value = $Value->fetch(); 
+        ?>
+        
+    <form class="formulaire"  onsubmit="return verif()" action="modifLivre_Post.php?isbn=<?= ($Value['isbn'])?>"  method="POST">
+        <p> <h2 style="text-decoration: underline;">Modifier un Livre : </h2><br>
+        <p>ISBN : <?= $Value['isbn']?></p>
+        <label for="titre">Titre</label> :  <input  class="input"type="text" name="titre" id="titre"  value="<?=$Value['titre'] ?>" /><br /><br />
+        <label for="annee">Année</label> :  <input  class="input"type="number" min="1500" max="2020" step="1" name="annee" id="annee" value="<?=$Value['annee'] ?>"/><br /><br />
+        <label for="editeur">Editeur</label> : 
+         <select name="editeur" id="editeur">
+         <option value="">
+            <?php foreach($editeur as $edi):?>
+            <option value="<?= $edi['id']?>"><?= $edi['editeur']?>
+            <?php endforeach ?>
+        </select><br><br>
+        <label for="genre">Genres</label> : 
+         <select name="genre" id="genre">
+         <option value="">
+            <?php foreach($genre as $g):?>
+            <option value="<?= $g['id']?>"><?= $g['libelle'] ?>
+            <?php endforeach ?>
+        </select><br><br>
+        <label for="langue">Langue</label> : 
+         <select name="langue" id="langue">
+         <option value="">
+            <?php foreach($langue as $la):?>
+            <option value="<?= $la['id']?>"><?= $la['langue'] ?>
+            <?php endforeach ?>
+        </select><br><br>
+        <label for="langue">Auteur</label> : 
+         <select name="auteur" id="auteur">
+            <option value="">
+            <?php foreach($auteur as $a):?>
+            <option value="<?= $a['id']?>"><?= $a['prenom']?> - <?=$a['nom']?>
+            <?php endforeach ?>
+        </select><br><br>
+        <label for="nbpages">Nombre de pages</label> :  <input class="input" type="text" name="nbpages" id="nbp" value="0" /><br /><br />
+        <p style="font-size: 12px;"><em>Veulliez renseigner tout les champs !</em></p>
+        <input style="text-align: center;" class="button" type="submit" value="Modifier" id="envoi" onclick="return Modif()" /><br />
+        <?php 
+        ?>
+	</p>
+    </form>
 </body>
 </html>
-

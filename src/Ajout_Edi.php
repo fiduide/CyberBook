@@ -7,10 +7,10 @@
     </head>
     <body>
     	<?php include "header.php" ?>
-    <form class="formulaire" action="Ajout_Edit_Post.php" method="post">
+    <form class="formulaire" action="Ajout_Edit_Post.php" onsubmit="return verif()" method="post">
         <p> <h2 style="text-decoration: underline;">Formulaire d'ajout d'un editeur : </h2><br>
-        <label for="libelle">Nouveau editeur</label> : <input  class="input" type="text" name="libelle" id="libelle" /><br /><br />
-        <input style="text-align: center;" class="button" type="submit" value="Envoyer" /><br />
+        <label for="editeur">Nouveau editeur</label> : <input  class="input" type="text" name="editeur" id="edit" value=""/><br /><br />
+        <input style="text-align: center;" class="button" onclick="return verif();" type="submit" value="Envoyer" /><br />
         </p>
         </form>
         <?php 

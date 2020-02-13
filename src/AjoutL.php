@@ -2,6 +2,7 @@
 <html>
     <head>
     	<link rel="stylesheet" type="text/css" href="css/style_ajout.css">
+        <script type="text/javascript" src="javaScript.js"></script>
         <meta charset="utf-8" />
         <title>Ajout d'un livre</title>
     </head>
@@ -18,102 +19,42 @@
         <p> <h2 style="text-decoration: underline;">Ajouter un livre : </h2><br>
         <label for="isbn">ISBN</label> : <input  class="input" type="text" name="isbn" id="isbn" /><br /><br /><span id=missISBN></span>
         <label for="titre">Titre</label> :  <input  class="input"type="text" name="titre" id="titre" /><br /><br />
-        <label for="annee">Année</label> :  <input  class="input"type="number" min="1500" max="2020" step="10" name="annee" id="annee" /><br /><br />
+        <label for="annee">Année</label> :  <input  class="input"type="number" min="1500" max="2020" step="1" name="annee" id="annee" /><br /><br />
         <label for="editeur">Editeur</label> : 
          <select name="editeur" id="editeur">
+         <option value="">
             <?php foreach($editeur as $edi):?>
             <option value="<?= $edi['id']?>"><?= $edi['editeur']?>
             <?php endforeach ?>
         </select><br><br>
         <label for="genre">Genres</label> : 
          <select name="genre" id="genre">
+         <option value="">
             <?php foreach($genre as $g):?>
             <option value="<?= $g['id']?>"><?= $g['libelle'] ?>
             <?php endforeach ?>
         </select><br><br>
         <label for="langue">Langue</label> : 
          <select name="langue" id="langue">
+         <option value="">
             <?php foreach($langue as $la):?>
             <option value="<?= $la['id']?>"><?= $la['langue'] ?>
             <?php endforeach ?>
         </select><br><br>
         <label for="langue">Auteur</label> : 
          <select name="auteur" id="auteur">
+         <option value="">
             <?php foreach($auteur as $a):?>
             <option value="<?= $a['id']?>"><?= $a['prenom']?> - <?=$a['nom']?>
             <?php endforeach ?>
         </select><br><br>
-        <label for="nbpages">Nombre de pages</label> :  <input class="input" type="text" name="nbpages" id="nbpages" /><br /><br />
+        <label for="nbpages">Nombre de pages</label> :  <input class="input" type="text" name="nbpages" id="nbpages" value="" /><br /><br />
         <p style="font-size: 12px;"><em>Veulliez renseigner tout les champs !</em></p>
         <input style="text-align: center;" class="button" type="submit" value="Envoyer" id="envoi" /><br />
         <?php 
         ?>
 	</p>
     </form>
-
-<script>
-	function verif() { //Vérification du formulaire
-		if (document.getElementById("isbn").value=="") {
-			alert("Penser à taper un ISBN valide !");
-            document.getElementById("isbn").style.borderColor = "red";
-           
-			return false;
-		}
-		if (document.getElementById("titre").value=="") {
-			alert("Pensez à taper un titre !");
-			
-            document.getElementById("titre").style.borderColor = "red";
-			return false;
-		}
-        	if (document.getElementById("annee").value=="") {
-			alert("Penser à taper une année valide !");
-			
-            document.getElementById("annee").style.borderColor = "red";
-			return false;
-		}
-		if (document.getElementById("editeur").value=="") {
-			alert("Veuillez sélectionner un éditeur !");
-			
-            document.getElementById("editeur").style.borderColor = "red";
-			return false;
-		}
-        if (document.getElementById("auteur").value=="") {
-			alert("Veuillez sélectionner un auteur !");
-			
-            document.getElementById("auteur").style.borderColor = "red";
-			return false;
-		}
-        if (document.getElementById("genre").value=="") {
-			alert("Veuillez sélectionner un genre !");
-			
-            document.getElementById("genre").style.borderColor = "red";
-			return false;
-		}
-        if (document.getElementById("langue").value=="") {
-			alert("Veuillez sélectionner une langue !");
-            document.getElementById("langue").style.borderColor = "red";
-			return false;
-		}
-        if (document.getElementById("nbpages").value < 4 && document.getElementById("nbpages").value != 0 ){
-			alert("Veuillez mettre un nombre de page supérieur à 4 !");
-            document.getElementById("nbpages").style.borderColor = "red";
-			return false;
-		}
-        if (document.getElementById("nbpages").value = 0){
-			return true;
-		}
-        
-	}
-
-</script>
-
-
-
-
-
-
-
-
 
 
 <section style="text-align: center;">

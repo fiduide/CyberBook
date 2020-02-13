@@ -61,8 +61,10 @@ a{
 
 .i{
 	float: left;
-	width: 80px;
-	height: 131px;
+	width: 68px;
+	height: 91px;
+	margin-right: 25px;
+	
 }
 
 .Admin{
@@ -74,8 +76,8 @@ a{
 	padding-left: 75px;
 	padding-right: 75px;
 	padding-top: 35px;
-	padding-bottom: 70px;
-	width: 150px;
+	padding-bottom: 105px;
+	width: 170px;
 	height: 20px;
 	font-size: 17px;
 	margin-left: 50px;
@@ -83,6 +85,7 @@ a{
 	margin-bottom: 20px;
 	margin-top: 20px;
 	line-height: 20px;
+	float: left;
 
 }
 
