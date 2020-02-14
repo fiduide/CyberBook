@@ -1,6 +1,8 @@
 <!DOCTYPE html> <!-- Ajout langue-->
 <html>
     <head>
+    <link href="https://fonts.googleapis.com/css?family=Homenaje&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/accueil.png" />
     	<link rel="stylesheet" type="text/css" href="css/style_ajout.css">
         <script type="text/javascript" src="javaScript.js"></script>
         <meta charset="utf-8" />
@@ -8,7 +10,7 @@
     </head>
     <body>
     	<?php include "header.php" ?>
-    <form class="formulaire" action="Ajout_Langue_Post.php" onsubmit="return verif()" method="post">
+    <form class="formulaire" action="Ajout_Langue_Post.php" onsubmit="return verifLang()" method="post">
         <p> <h2 style="text-decoration: underline;">Formulaire d'ajout d'une nouvelle Langue: </h2><br>
         <label for="lang">Nouvelle Langue</label> : <input  class="input" type="text" name="lang" id="lang" /><br /><br />
         <input style="text-align: center;" class="button" type="submit" value="Envoyer" /><br />

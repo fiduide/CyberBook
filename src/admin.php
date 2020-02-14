@@ -3,6 +3,8 @@
 <head>
 
     <link rel="stylesheet" type="text/css" href="css/style_admin.css">
+    <link href="https://fonts.googleapis.com/css?family=Homenaje&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/accueil.png" />
     <title>Admin</title>
 </head>
 <body>

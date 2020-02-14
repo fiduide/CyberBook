@@ -1,0 +1,26 @@
+.compte{
+    border: solid 2px;
+    background-color: whitesmoke;
+    width: 30em;
+    margin:auto;
+    margin-bottom: 50px;
+    border-radius: 20px 20px 20px 20px;
+}
+.compte:hover{
+    -webkit-transition: all 250ms ease-in;
+    -webkit-transform: scale(1.3);
+    -ms-transition: all 250ms ease-in;
+    -ms-transform: scale(1.3);   
+    -moz-transition: all 250ms ease-in;
+    -moz-transform: scale(1.3);
+    transition: all 250ms ease-in;
+    transform: scale(1.3);
+}
+
+.contener{
+    
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    
+}

@@ -2,6 +2,8 @@
 <html>
     <head>
     	<link rel="stylesheet" type="text/css" href="css/style_ajout.css">
+        <link href="https://fonts.googleapis.com/css?family=Homenaje&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/accueil.png" />
         <script type="text/javascript" src="javaScript.js"></script>
         <meta charset="utf-8" />
         <title>Ajout d'un livre</title>
@@ -15,7 +17,7 @@
         <?php $genre = $bdd->query('SELECT * FROM genre');?>
         <?php $auteur = $bdd->query('SELECT * FROM personne');?>
 
-    <form class="formulaire" action="Ajout_Post.php" onsubmit="return verif()" method="POST">
+    <form class="formulaire" action="Ajout_Post.php" onsubmit="return verifLivre()" method="POST">
         <p> <h2 style="text-decoration: underline;">Ajouter un livre : </h2><br>
         <label for="isbn">ISBN</label> : <input  class="input" type="text" name="isbn" id="isbn" /><br /><br /><span id=missISBN></span>
         <label for="titre">Titre</label> :  <input  class="input"type="text" name="titre" id="titre" /><br /><br />

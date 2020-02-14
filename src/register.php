@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="css/style_compte.css">
+    <link href="https://fonts.googleapis.com/css?family=Homenaje&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/accueil.png" />
     <title>Inscription</title>
 </head>
 <body>
@@ -44,7 +46,7 @@ if(!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']))
 <fieldset  style="margin-top: 3em; border-radius: 10px; font-size: 25px; margin-left: 15em; margin-right: 15em;">
 <legend><strong><em>Inscription</em></strong></legend>
 <form class="formulaire" action="register.php" method="POST">
-    <label for="email"> * Email</label> : <input  class="email" type="text" name="email" id="email" placeholder=" " /><br /><br />
+    <label for="email"> * Email</label> : <input  class="email" type="email" name="email" id="email" placeholder=" " /><br /><br />
     <label for="pseudo"> * pseudo</label> : <input  class="id" type="text" name="pseudo" id="pseudo" placeholder=" "/><br /><br />
     <label for="mdp"> * Mot de passe</label> :  <input  class="password"type="password" name="mdp" id="mdp" placeholder=" "/><br /><br />
     <input style="text-align: center;" class="button" type="submit" value="Inscription" /><br />
