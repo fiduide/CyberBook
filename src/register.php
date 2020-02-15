@@ -8,11 +8,9 @@
 </head>
 <body>
 
-<?php 
+<?php
 include "header.php"; 
 include "bdd.php";
-
-
 if(!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp'])) {
     $email = $_POST['email'];
     $pseudo = $_POST['pseudo'];

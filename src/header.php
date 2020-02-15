@@ -1,10 +1,3 @@
-<?php
-session_start();
-
-
-
- ?>
-
 <script type="text/javascript" src="javaScript.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Homenaje&display=swap" rel="stylesheet">
     <header style="margin-bottom: 10px;">

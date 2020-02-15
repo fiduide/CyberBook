@@ -143,43 +143,93 @@
             
             document.getElementById("titre").style.borderColor = "red";
             return false;
+        }else{
+            document.getElementById("titre").style.borderColor = "";
         }
             if (document.getElementById("annee").value=="") {
             alert("Penser à taper une année valide !");
             
             document.getElementById("annee").style.borderColor = "red";
             return false;
+        }else{
+            document.getElementById("annee").style.borderColor = "";
         }
         if (document.getElementById("editeur").value=="") {
             alert("Veuillez sélectionner un éditeur !");
             
             document.getElementById("editeur").style.borderColor = "red";
             return false;
+        }else{
+            document.getElementById("editeur").style.borderColor = "";
         }
         if (document.getElementById("auteur").value=="") {
             alert("Veuillez sélectionner un auteur !");
             
             document.getElementById("auteur").style.borderColor = "red";
             return false;
+        }else{
+            document.getElementById("auteur").style.borderColor = "";
         }
         if (document.getElementById("genre").value=="") {
             alert("Veuillez sélectionner un genre !");
             
             document.getElementById("genre").style.borderColor = "red";
             return false;
+        }else{
+            document.getElementById("genre").style.borderColor = "";
         }
         if (document.getElementById("langue").value=="") {
             alert("Veuillez sélectionner une langue !");
             document.getElementById("langue").style.borderColor = "red";
             return false;
+        }else{
+            document.getElementById("langue").style.borderColor = "";
         }
         if (document.getElementById("nbpages").value < 4 && document.getElementById("nbpages").value != 0 ){
-            alert("Veuillez mettre un nombre de page supérieur à 4 !");
+            alert("Veuillez mettre un nombre de page supérieur à 4 ou ne rien mettre!");
             document.getElementById("nbpages").style.borderColor = "red";
             return false;
+        }else{
+            document.getElementById("nbpages").style.borderColor = "";
         }
         if (document.getElementById("nbpages").value == 0 || document.getElementById("nbpages").value == "")
         { // si le nb de page est zero ou rien alors ça deviendra null 
             return true;
+        }
+    }
+
+    function verifDelCompte(){
+        var reponse = confirm ("Etes vous sur de vouloir supprimer ce compte ?");
+            if(reponse == true){
+                return true;
+            }else {
+                return false;
+            }
+    }
+
+    function verifModifCompte(){
+        if (document.getElementById("pseudo").value=="") {
+            alert("Veuillez sélectionner un pseudo !");
+            
+            document.getElementById("pseudo").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("pseudo").style.borderColor = "";
+        }
+        if (document.getElementById("email").value=="") {
+            alert("Veuillez sélectionner un email !");
+            
+            document.getElementById("email").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("email").style.borderColor = "";
+        }
+        if (document.getElementById("mdp").value=="") {
+            alert("Veuillez sélectionner un mot de passe !");
+            
+            document.getElementById("mdp").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("mdp").style.borderColor = "";
         }
     }

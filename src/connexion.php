@@ -1,3 +1,22 @@
+<?php session_start();
+ini_set( "error_reporting", E_ALL );
+ini_set( "display_errors", "1" );
+    if(isset($_POST['pseudo']) && isset($_POST['mdp'])){
+    $pseudo = $_POST['pseudo'];
+    $mdp = $_POST['mdp'];
+    include "bdd.php";
+    $req = $bdd->query('SELECT * FROM visiteurs WHERE pseudo = "'.$pseudo.'"');
+    $req = $req -> fetch();
+    if($mdp != $req['mdp']){ //Si le mdp ne correspond pas
+        echo '<p style="text-align:center;">Vous avez saisi un mauvais mot de passe</p>';
+    }if($pseudo != $req['pseudo']){ //Si le pseudo n'est pas reconnu dans la base de donnée
+        echo '<p style="text-align: center;">Votre pseudo n\'est pas reconnu</p>';
+    }else{
+        $_SESSION['group'] = $req['rôle'];//Je récupère le rôle de la personne
+        header('Location:index.php');
+    }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +26,8 @@
     <title>Connexion</title>
 </head>
 <body>
-<?php 
-include "header.php"; 
-include "bdd.php";
+<?php
+include "header.php";
 ?>
 <br><br>
 <fieldset style="margin-top: 3em; border-radius: 10px; font-size: 25px; margin-left: 15em; margin-right: 15em;">
@@ -21,39 +39,6 @@ include "bdd.php";
      <a href="register.php"><input class="button" type="button" value="Inscription"></a>
 </form>
 </fieldset>
-
-
-<?php 
-
-if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
-$pseudo = $_POST['pseudo'];
-$mdp = $_POST['mdp'];
-
-
-$req = $bdd->query('SELECT * FROM visiteurs WHERE pseudo = "'.$pseudo.'"');
-$req = $req -> fetch();
-
-
-if($mdp != $req['mdp']){ //Si le mdp ne correspond pas
-    echo '<p style="text-align:center;">Vous avez saisi un mauvais mot de passe</p>';
-
-}if($pseudo != $req['pseudo']){ //Si le pseudo n'est pas reconnu dans la base de donnée
-    echo '<p style="text-align: center;">Votre pseudo n\'est pas reconnu</p>';
-}else{
-    $_SESSION['group'] = $req['rôle']; //Je récupère le rôle de la personne 
-    header('Location: index.php');
-}
-}
-
-
-?>
-
-<br><br><br>
-
-
-
-
-
-    
+<br/><br/><br/>
 </body>
 </html>

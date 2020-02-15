@@ -24,3 +24,40 @@
     flex-direction: column;
     
 }
+
+
+.formulaire{
+	border: 1px solid black;
+	border-style: 10px outset;
+	border-radius: 15px;
+	background-color: #fafafa;
+	margin-left: 17em;
+	margin-right: 17em;
+	margin-top: 4.5em;
+	margin-bottom: 7em;
+	padding: 2em;
+}
+.input{
+	border: none;
+    border-bottom: 1px groove;
+    margin-right: 10px;
+
+}
+form{
+	font-size: 20px;
+}
+
+.button{
+	font-size: 20px;
+	border-radius: 5px; 
+	border-style: inset;	
+}
+.button:hover{
+	font-size: 20px;
+	border-radius: 5px; 
+	border-style: groove;	
+}
+
+a{
+    text-decoration: none;
+}

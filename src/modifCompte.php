@@ -1,8 +1,9 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style_gestionCompte.css">
     <link rel="stylesheet" type="text/css" href="css/style_modifCompte.css">
     <link href="https://fonts.googleapis.com/css?family=Homenaje&display=swap" rel="stylesheet">
@@ -20,23 +21,27 @@
 <br>
 
     <?php
-        $visiteurs = $bdd->query('SELECT * FROM visiteurs');
+        $visiteurs = $bdd->query('SELECT * FROM visiteurs'); //Req pour afficher tout les visiteurs 
 
-       ?> <section class="contener">
+    ?>
+    <section class="contener">
+        <h1>PSEUDO - EMAIL - ROLE</h1>
         <?php
         foreach($visiteurs as $visiteur){
             echo "<section class='compte';><p style='text-align:center'>".$visiteur['pseudo']."";
             echo " - " .$visiteur['email']." - ";
-            if($visiteur['rôle'] == "admin"){
+            if($visiteur['rôle'] == "admin"){ //Si le rôle est "ADMIN" alors l'afficher en rouge 
             echo "<span style='color: red; text-transform : uppercase;'>".$visiteur['rôle']."</span>";
-            }else{
+            }else{ //Sinon en bleu
                 echo "<span style='color: blue; text-transform : uppercase; '>".$visiteur['rôle']."</span>";
             }
-                echo '<a href="modifCompte.php"><img class="imgMo" src="img/modif.png"></a><a href="supprimeCompte.php"><img class="imgMo" src="img/supp.png"></a></p></section>';
-        
+            ?>
+                <a href="ModifCompteID.php?ID=<?= ($visiteur['ID']) ?>"><img class="imgMo" src="img/modif.png"></a><a href="delCompte.php?ID=<?= ($visiteur['ID']) ?>" onclick="return verifDelCompte();"><img class="imgMo" src="img/supp.png"></a></p></section>
+                <!-- redirection vers les différentes pages avec l'ID en paramètre-->
+        <?php
         }
 
-    ?>
+        ?>
     </section>
 </body>
 </html>
