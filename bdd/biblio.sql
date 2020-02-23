@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 12 fév. 2020 à 10:32
+-- Généré le :  Dim 23 fév. 2020 à 10:54
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -51,8 +51,8 @@ INSERT INTO `auteur` (`idPersonne`, `idLivre`, `idRole`) VALUES
 (6, '2253122920', 1),
 (7, '2264069112', 2),
 (10, '2747033341', 1),
-(10, '274702119X', 1);
-
+(10, '274702119X', 1),
+(11, '999999999', 1);
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `editeur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `editeur` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `editeur`
@@ -80,7 +80,8 @@ INSERT INTO `editeur` (`id`, `editeur`) VALUES
 (6, 'Albin Michel'),
 (7, 'J\'ai lu'),
 (8, 'Belfond'),
-(9, 'Bayard Jeunesse');
+(9, 'Bayard Jeunesse'),
+(10, 'TEST');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `genre` (
   `libelle` varchar(150) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `libelle` (`libelle`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `genre`
@@ -107,7 +108,8 @@ INSERT INTO `genre` (`id`, `libelle`) VALUES
 (4, 'Nouvelle'),
 (5, 'Fantasy'),
 (6, 'Horreur'),
-(7, 'Science-fiction');
+(7, 'Science-fiction'),
+(8, 'qdzdqzdqzdqzfsfefsef');
 
 -- --------------------------------------------------------
 
@@ -120,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `langue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `langue` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `langue`
@@ -129,7 +131,8 @@ CREATE TABLE IF NOT EXISTS `langue` (
 INSERT INTO `langue` (`id`, `langue`) VALUES
 (1, 'Anglais'),
 (2, 'Français'),
-(3, 'Japonais');
+(3, 'Japonais'),
+(5, 'Espagnol');
 
 -- --------------------------------------------------------
 
@@ -147,27 +150,28 @@ CREATE TABLE IF NOT EXISTS `livre` (
   `genre` int(11) DEFAULT NULL,
   `langue` int(11) DEFAULT NULL,
   `nbpages` int(11) DEFAULT NULL,
+  `reservation` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`isbn`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `livre`
 --
 
-INSERT INTO `livre` (`id`, `isbn`, `titre`, `editeur`, `annee`, `genre`, `langue`, `nbpages`) VALUES
-(1, '2266200127', 'Le Labyrinthe', 1, 2012, 2, 2, 404),
-(2, '2092543032', 'Nos étoiles contraire', 2, 2012, 1, 2, 336),
-(3, '2266285882', 'La 5eme Vagues', 3, 2013, 2, 1, 608),
-(4, '207066256X', 'La face cachée de Margo', 4, 2008, 2, 1, 400),
-(5, '2702436331', 'Le Crime de l\'Orient-Express', 5, 2011, 1, 2, 240),
-(6, '2226249303', 'Percy Jackson tome 1', 6, 2005, 5, 2, 432),
-(7, '2253151394', 'Marche ou creve', 7, 1979, 6, 1, 384),
-(8, '2253151343', 'Ça', 7, 1986, 6, 1, 799),
-(9, '2253122920', 'La ligne Verte', 7, 1996, 6, 1, 503),
-(10, '2264069112', 'L\'étrange bibliothèque', 8, 2015, 4, 2, 80),
-(11, '2747033341', 'Eragon - Cycle L\'Héritage Tome 01', 9, 2019, 5, 2, 709),
-(12, '274702119X', 'Eragon - L\'aîné Tome 02', 9, 2019, 5, 2, 450);
+INSERT INTO `livre` (`id`, `isbn`, `titre`, `editeur`, `annee`, `genre`, `langue`, `nbpages`, `reservation`) VALUES
+(2, '2092543032', 'Nos étoiles contraire', 2, 2012, 1, 2, 336, 0),
+(3, '2266285882', 'La 5eme Vagues', 3, 2013, 2, 1, 608, 0),
+(4, '207066256X', 'La face cachée de Margo', 4, 2008, 2, 1, 400, 0),
+(5, '2702436331', 'Le Crime de l\'Orient-Express', 5, 2011, 1, 2, 240, 0),
+(6, '2226249303', 'Percy Jackson tome 1', 6, 2005, 5, 2, 432, 0),
+(7, '2253151394', 'Marche ou creve', 7, 1979, 6, 1, 384, 0),
+(8, '2253151343', 'Ça', 7, 1986, 6, 1, 799, 0),
+(9, '2253122920', 'La ligne Verte', 7, 1996, 6, 1, 503, 0),
+(10, '2264069112', 'L\'étrange bibliothèque', 8, 2015, 4, 2, 80, 0),
+(11, '2747033341', 'Eragon - Cycle L\'Héritage Tome 01', 9, 2019, 5, 2, 709, 0),
+(12, '274702119X', 'Eragon - L\'aîné Tome 02', 9, 2019, 5, 2, 0, 0),
+(28, '999999999', 'TEST', 10, 2000, 8, 3, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -199,6 +203,41 @@ INSERT INTO `personne` (`id`, `nom`, `prenom`) VALUES
 (9, 'Duflo', 'Ericka'),
 (10, 'Paolini', 'Christopher'),
 (11, 'test', 'test');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reservations`
+--
+
+DROP TABLE IF EXISTS `reservations`;
+CREATE TABLE IF NOT EXISTS `reservations` (
+  `isbn` int(11) NOT NULL,
+  `date_reservation` date NOT NULL,
+  `id_membre` int(11) NOT NULL COMMENT 'fait référence à id de visiteurs',
+  PRIMARY KEY (`isbn`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Réservations des livres';
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reservations_tmp`
+--
+
+DROP TABLE IF EXISTS `reservations_tmp`;
+CREATE TABLE IF NOT EXISTS `reservations_tmp` (
+  `isbn` varchar(15) NOT NULL,
+  `id_membre` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `reservations_tmp`
+--
+
+INSERT INTO `reservations_tmp` (`isbn`, `id_membre`) VALUES
+('999999999', 1),
+('999999999', 18),
+('2226249303', 18);
 
 -- --------------------------------------------------------
 
@@ -244,10 +283,7 @@ CREATE TABLE IF NOT EXISTS `visiteurs` (
 
 INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`, `mdp`, `rôle`) VALUES
 (1, 'fiduide', 'dorian161100@hotmail.fr', '161100', 'admin'),
-(11, 'Clopro', 'cloeberthelin1996@gmail.com', '12345', 'membre'),
 (13, 'Amanda', 'lihua99.77600@gmail.com', '77', 'admin'),
-(14, 'dodo', 'xxreflexdu92xx@hotmail.fr', '123', 'membre'),
-(16, 'Yann', 'sqdsqdsqfqdsdqzd', '12345', 'membre'),
 (17, 'Sandra', 'sandra.glt18@gmail.com', '18.11.2000', 'membre'),
 (18, 'Wiwi', 'wiwi6977@hotmail.fr', '14102019', 'membre');
 COMMIT;

@@ -207,15 +207,7 @@
             }
     }
 
-    function verifModifCompte(){
-        if (document.getElementById("pseudo").value=="") {
-            alert("Veuillez sélectionner un pseudo !");
-            
-            document.getElementById("pseudo").style.borderColor = "red";
-            return false;
-        }else{
-            document.getElementById("pseudo").style.borderColor = "";
-        }
+    function verifCompte(){
         if (document.getElementById("email").value=="") {
             alert("Veuillez sélectionner un email !");
             
@@ -232,4 +224,25 @@
         }else{
             document.getElementById("mdp").style.borderColor = "";
         }
+        if (document.getElementById("role").value=="") {
+            alert("Veuillez sélectionner un mot de passe !");
+            
+            document.getElementById("role").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("role").style.borderColor = "";
+        }
+    }
+
+    function verifModifCompte(){
+        var reponse = confirm ("Etes vous sur de vouloir modifier ce compte ?");
+            if(reponse == true){
+                return true;
+            }else {
+                return false;
+            }
+    }
+
+    function ROOF(){
+        alert("Ce livre n'est actuellement pas disponible");
     }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,6 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/style_a.css">
     <link href="https://fonts.googleapis.com/css?family=Homenaje&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="img/accueil.png" />
-    
     <title>CyberBook</title>
 </head>
 <body>
@@ -22,8 +21,10 @@ session_start();
 
 <header >
 <br>
+<?php if(empty($_SESSION['group'])){?>
 <h4 style="text-align:center; margin-top: 4%; font-size: 15px;"><em>(Vous devez être connecté pour pouvoir ajouter des livres, auteurs, etc...)</em></h4>
-    <section class="recherche">
+<?php } ?>
+<section class="recherche">
         <form action="recherche.php" method="GET">
             <input style="width: 50em; height: 40px;" type="search" name="q" placeholder="Recherche de livre..."><br>
             <center><input class="button" type="submit" value="Recherche"><center>
@@ -59,11 +60,11 @@ session_start();
 									echo '<p><em>' . $h["prenom"] . ' - ' . $h["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs
 									
 									?>
-								</td>	
+								</td>
 							<tr>
 						</a>
 					</section>
-	<?php 
+	<?php
 		}
 	?>
 	</div>
@@ -81,12 +82,11 @@ session_start();
             <div class="footer">
                 <img class="img_footer"src="img/stylo.png" alt="stylo.png">
                 <p>
-                    Plusieurs fonctions sont disponnible sur ce site, tel que la possibilité de consulter 
+                    Plusieurs fonctions sont disponnible sur ce site, tel que la possibilité de consulter
                     la liste de livre disponnible dans notre base de donnée mais également leurs informations.
                     De plus vous pouvez aussi ajouter vos propres livres, vos auteurs et même de nouveaux genres ou nouvelles langues !
-                    
                 </p>
-            </div> 
+            </div>
         </section>
 
     </footer>

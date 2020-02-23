@@ -1,0 +1,15 @@
+.ListeLR{
+    display: flex;
+    justify-content: center;
+}
+
+.td {
+    padding-left: 50px;
+    padding-bottom: 10px;
+}
+
+.td1 {
+    text-decoration: underline;
+    padding-left: 50px;
+    padding-bottom: 10px;
+}

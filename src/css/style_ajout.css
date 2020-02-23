@@ -13,6 +13,7 @@
 .input{
 	border: none;
 	border-bottom: 1px groove;
+	font-size: 15px;;
 
 }
 form{
@@ -26,12 +27,34 @@ a{
 
 .button{
 	font-size: 20px;
-	border-radius: 5px; 
-	border-style: inset;	
+	border-radius: 5px;
+	border-style: inset;
 }
 .button:hover{
 	font-size: 20px;
-	border-radius: 5px; 
-	border-style: groove;	
+	border-radius: 5px;
+	border-style: groove;
 }
 
+.button_ROFF{
+	font-size: 20px;
+	border-radius: 5px;
+	border-style: inset;
+	background-color: #D6D4D5;
+	border-color: #D6D4D5;
+	color: white;
+}
+
+
+.button_RON{
+	font-size: 20px;
+	border-radius: 5px;
+	border-style: inset;
+	background-color: green;
+	border-color: green;
+	color: white;
+}
+
+.button_RON:hover{
+	border-style: groove;
+}

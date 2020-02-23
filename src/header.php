@@ -13,7 +13,6 @@
 					<li><a href="index.php">Accueil</a></li>
 					<li><a href="ListeL.php">Livres</a></li>
 					<li><a href="Auteur.php">Auteurs</a></li>
-					
 					<?php
 					if( !empty($_SESSION['group']) && $_SESSION['group'] == "admin" ){ //Compte admin
 					?>
@@ -25,12 +24,11 @@
 								<li><a href="Ajout_Edi.php">Editeur</a></li>
 								<li><a href="Ajout_Langue.php">Langue</a></li>
 							</ul>
-						</li>         
-						<li><a href="#">Favoris</a></li>
+						</li>
 						<li><a href="admin.php"><img class="img_menu" src="img/engrenage.png"/>Admin</a></li>
-						<li><a href="deco.php">Deconnexion<img class="img_menu2" src="img/deco.png"/></a></li>
+						<li><a href="deco.php">Déconnexion<img class="img_menu2" src="img/deco.png"/></a></li>
 					<?php
-					}else if(!empty($_SESSION['group']) &&  $_SESSION['group'] != "admin" ){
+					}else if(!empty($_SESSION['group']) &&  $_SESSION['group'] == "membre" ){
 						?>
 						<li><a href="#">Ajout</a>
 							<ul class="submenu">
@@ -40,9 +38,14 @@
 								<li><a href="Ajout_Edi.php">Editeur</a></li>
 								<li><a href="Ajout_Langue.php">Langue</a></li>
 							</ul>
-						</li>         
-						<li><a href="#">Favoris</a></li>	
-						<li><a href="deco.php">Deconnexion<img class="img_menu2" src="img/deco.png"/></a></li>
+						</li>
+						<li><a href="user_Compte.php">Mon compte</a>
+							<ul class="submenu">
+									<li><a href="panier_M.php">Panier de réservation</a></li>
+									<li><a href="reservation.php">Mes réservation</a></li>
+							</ul>
+						</li>
+						<li><a href="deco.php">Déconnexion<img class="img_menu2" src="img/deco.png"/></a></li>
 					<?php
 						}else{
 							?>
@@ -50,9 +53,8 @@
 							<?php
 						}
 					 ?>
-					
 				</ul>
-			</nav>	
+			</nav>
 		</div>
 	</header>
 	<br>
