@@ -1,44 +1,24 @@
 form{
-    text-align: center;
+	text-align: center;
 }
 
 .button{
     text-align: center;
 	font-size: 15px;
-	border-radius: 5px; 
+	border-radius: 5px;
 	border-style: groove;
-	margin-left: 5px;	
+	margin-left: 5px;
 	line-height: 30px;
-	
 }
 
 .button:hover{
 
 	border-style: inset;
-	
 }
 
-
-.password::placeholder{
-background-image: url('img/password.png');
-background-repeat: no-repeat;
-background-position: 2px 2px;
-background-size: 10px;
-padding-left: 27px;
-}
-
-.id::placeholder{
-background-image: url('img/id.png');
-background-repeat: no-repeat;
-background-position: 2px 2px;
-background-size: 10px;
-padding-left: 27px;
-}
-
-.email::placeholder{
-background-image: url('img/arobase.png');
-background-repeat: no-repeat;
-background-position: 2px 2px;
-background-size: 10px;
-padding-left: 27px;
+.input{
+	border: none;
+	border-bottom: 1px groove;
+	font-size: 15px;
+	background-color: #D4D3D3;
 }

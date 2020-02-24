@@ -32,13 +32,13 @@ include "header.php";
 ?>
 <br><br>
 <fieldset style="margin-top: 3em; border-radius: 10px; font-size: 25px; margin-left: 15em; margin-right: 15em;">
-<legend>Connexion</legend>
-<form class="formulaire" action="connexion.php" method="POST">
-    <label for="pseudo">pseudo</label> : <input  class="id" type="text" name="pseudo" id="pseudo" placeholder=" "/><br /><br />
-     <label for="mdp">Mot de passe</label> :  <input  class="password"type="password" name="mdp" id="mdp" /><br><br>
-     <input style="text-align: center;" class="button" type="submit" value="Connexion"  placeholder=" "/>
-     <a href="register.php"><input class="button" type="button" value="Inscription"></a>
-</form>
+    <legend>Connexion</legend>
+        <form onsubmit="return verifCo()" class="formulaire" action="connexion.php" method="POST">
+            <label for="pseudo">Identifiant</label> : <input  class="input" type="text" name="pseudo" id="pseudo" placeholder=" "/><br /><br />
+            <label for="mdp">Mot de passe</label> :  <input  class="input"type="password" name="mdp" id="mdp" /><br><br>
+            <input style="text-align: center;" class="button" type="submit" value="Connexion"/>
+            <a href="register.php"><input class="button" type="button" value="Inscription"></a>
+        </form>
 </fieldset>
 <br/><br/><br/>
 </body>

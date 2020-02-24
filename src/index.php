@@ -47,7 +47,7 @@ session_start();
 						<a href="details_livre.php?titre=<?= ($h['titre']) ?>&amp;genre=<?= ($h['genre']) ?>" title="Afficher le détail du livre"> <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
 							<tr>
 								<td>
-								<?php 
+								<?php
 									if(is_file($image)){
 										
 										echo '<img class="iD" src="'.$image.'">';

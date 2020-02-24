@@ -12,7 +12,20 @@ session_start();
     <?php
     include "header.php";
     include "bdd.php";
-    $ListR = $bdd -> query('SELECT * FROM reservations_tmp LEFT JOIN auteur ON auteur.idLivre = reservations_tmp.isbn LEFT JOIN personne ON personne.id = auteur.idPersonne LEFT JOIN livre ON livre.isbn = reservations_tmp.isbn WHERE id_membre = '.$_SESSION['id'].'');
+        if(isset($_GET['isbn'])){
+        $isbn = $_GET['isbn'];
+        $LivreExist = $bdd -> query('SELECT isbn FROM livre WHERE isbn = "'.$isbn.'"');
+        $n = 1;
+        while(isset($_SESSION['panier'][$n])){
+            $n++;
+        }
+        $_SESSION['panier'][$n] = $isbn;
+        for($i = 0; $i < $n; $i++){
+        echo $_SESSION['panier'][$n];
+        $n++;
+        $i++;
+        }
+    }
     ?>
     <br>
     <br>
@@ -25,12 +38,6 @@ session_start();
                 <td class="td1">Auteurs</td>
             </tr>
         <?php
-        while($d = $ListR->fetch()){
-            echo '<td class="td"><input type="checkbox" style="margin-right: 10px;"name="book" id="book"/>'.$d['isbn'].'</td>';
-            echo '<td class="td">'.$d['titre'].'</td>';
-            echo '<td class="td">'.$d['prenom'].'';
-            echo ' - '.$d['nom'].'</td></tr>';
-        }
         ?>
         </table>
     </section>

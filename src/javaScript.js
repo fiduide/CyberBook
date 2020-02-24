@@ -246,3 +246,44 @@
     function ROOF(){
         alert("Ce livre n'est actuellement pas disponible");
     }
+
+    function verifRegister(){
+        if(document.getElementById("email").value==""){
+            alert("Veuillez remplir tout les champs avec une étoile !");
+            document.getElementById("email").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("email").style.borderColor = "";
+        }
+        if(document.getElementById("pseudo").value==""){
+            alert("Veuillez remplir tout les champs avec une étoile !");
+            document.getElementById("pseudo").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("pseudo").style.borderColor = "";
+        }
+        if(document.getElementById("mdp").value==""){
+            alert("Veuillez remplir tout les champs avec une étoile !");
+            document.getElementById("mdp").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("mdp").style.borderColor = "";
+        }
+    }
+
+    function verifCo(){
+        if(document.getElementById("pseudo").value==""){
+            alert("Veuillez rentrer un identifiant !");
+            document.getElementById("pseudo").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("pseudo").style.borderColor = "";
+        }
+        if(document.getElementById("mdp").value==""){
+            alert("Veuillez rentrer un mot de passe !");
+            document.getElementById("mdp").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("mdp").style.borderColor = "";
+        }
+    }
