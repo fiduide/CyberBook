@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 23 fév. 2020 à 10:54
+-- Généré le :  mar. 25 fév. 2020 à 16:54
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -221,27 +221,6 @@ CREATE TABLE IF NOT EXISTS `reservations` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservations_tmp`
---
-
-DROP TABLE IF EXISTS `reservations_tmp`;
-CREATE TABLE IF NOT EXISTS `reservations_tmp` (
-  `isbn` varchar(15) NOT NULL,
-  `id_membre` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `reservations_tmp`
---
-
-INSERT INTO `reservations_tmp` (`isbn`, `id_membre`) VALUES
-('999999999', 1),
-('999999999', 18),
-('2226249303', 18);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `role`
 --
 
@@ -273,19 +252,21 @@ CREATE TABLE IF NOT EXISTS `visiteurs` (
   `pseudo` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `mdp` varchar(25) NOT NULL,
+  `nom` varchar(55) NOT NULL,
+  `prenom` varchar(55) NOT NULL,
+  `telephone` int(11) DEFAULT NULL,
   `rôle` varchar(10) NOT NULL,
+  `penalite` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `visiteurs`
 --
 
-INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`, `mdp`, `rôle`) VALUES
-(1, 'fiduide', 'dorian161100@hotmail.fr', '161100', 'admin'),
-(13, 'Amanda', 'lihua99.77600@gmail.com', '77', 'admin'),
-(17, 'Sandra', 'sandra.glt18@gmail.com', '18.11.2000', 'membre'),
-(18, 'Wiwi', 'wiwi6977@hotmail.fr', '14102019', 'membre');
+INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`, `mdp`, `nom`, `prenom`, `telephone`, `rôle`, `penalite`) VALUES
+(25, 'fiduide', 'dorian161100@hotmail.fr', '161100', 'Cappe', 'Dorian', 674519842, 'admin', 1),
+(26, 'sandra', 'sandra.glt18@gmail.com', '1234', 'Guillet', 'Sandra', 615153394, 'membre', 4);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

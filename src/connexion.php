@@ -8,9 +8,9 @@ ini_set( "display_errors", "1" );
     $req = $bdd->query('SELECT * FROM visiteurs WHERE pseudo = "'.$pseudo.'"');
     $req = $req -> fetch();
     if($mdp != $req['mdp']){ //Si le mdp ne correspond pas
-        echo '<p style="text-align:center; margin: 0px; font-size: 30px; color: white;background-color: red;">Vous avez saisi un mauvais mot de passe</p>';
+        echo '<p style="text-align:center; margin: 0px; font-size: 30px; color: white;background-color: red;">Vous n\'avez pas saisi les bons identifiants de connexion</p>';
     }else if($pseudo != $req['pseudo']){ //Si le pseudo n'est pas reconnu dans la base de donnée
-        echo '<p style="text-align: center; margin: 0px; font-size: 30px; color: white;background-color: red;">Votre pseudo n\'est pas reconnu';
+        echo '<p style="text-align: center; margin: 0px; font-size: 30px; color: white;background-color: red;">Vous n\'avez pas saisi les bons identifiants de connexion</p>';
     }else{
         $_SESSION['group'] = $req['rôle'];//Je récupère le rôle de la personne
         $_SESSION['id'] = $req['ID']; // Je récup l'id pour la liste de fav et la réservation

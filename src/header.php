@@ -35,15 +35,6 @@
 					<?php
 					}else if(!empty($_SESSION['group']) &&  $_SESSION['group'] == "membre" ){
 						?>
-						<li><a href="#">Ajout</a>
-							<ul class="submenu">
-								<li><a href="AjoutL.php">Livre</a></li>
-								<li><a href="AjoutA.php">Auteur</a></li>
-								<li><a href="Ajout_G.php">Genre</a></li>
-								<li><a href="Ajout_Edi.php">Editeur</a></li>
-								<li><a href="Ajout_Langue.php">Langue</a></li>
-							</ul>
-						</li>
 						<li><a href="user_Compte.php">Mon compte</a>
 							<ul class="submenu">
 									<li><a href="panier_M.php">Panier de réservation</a></li>

@@ -27,27 +27,43 @@ if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur san
 <br>
 
     <?php
-        $visiteurs = $bdd->query('SELECT * FROM visiteurs'); //Req pour afficher tout les visiteurs 
+        $visiteurs = $bdd->query('SELECT * FROM visiteurs ORDER BY penalite DESC'); //Req pour afficher tout les visiteurs 
 
     ?>
     <section class="contener">
-        <h1>PSEUDO - EMAIL - ROLE</h1>
-        <?php
-        foreach($visiteurs as $visiteur){
-            echo "<section class='compte';><p style='text-align:center'>".$visiteur['pseudo']."";
-            echo " - " .$visiteur['email']." - ";
-            if($visiteur['rôle'] == "admin"){ //Si le rôle est "ADMIN" alors l'afficher en rouge 
-            echo "<span style='color: red; text-transform : uppercase;'>".$visiteur['rôle']."</span>";
-            }else{ //Sinon en bleu
-                echo "<span style='color: blue; text-transform : uppercase; '>".$visiteur['rôle']."</span>";
-            }
-            ?>
-                <a href="ModifCompteID.php?ID=<?= ($visiteur['ID']) ?>"><img class="imgMo" src="img/modif.png"></a><a href="delCompte.php?ID=<?= ($visiteur['ID']) ?>" onclick="return verifDelCompte();"><img class="imgMo" src="img/supp.png"></a></p></section>
-                <!-- redirection vers les différentes pages avec l'ID en paramètre-->
-        <?php
-        }
+    <section class='compte'>
+        <table>
+            <tr>
+                <td style="text-decoration: underline"><strong>Email</strong></td>
+                <td style="text-decoration: underline"><strong>Identifiant</strong></td>
+                <td style="text-decoration: underline"><strong>Nom</strong></td>
+                <td style="text-decoration: underline"><strong>Prénom</strong></td>
+                <td style="text-decoration: underline"><strong>Numéro de téléphone</strong></td>
+                <td style="text-decoration: underline"><strong>Pénalitée(s)</strong></td>
+                <td style="text-decoration: underline"><strong>Rôle</strong></td>
+            </tr>
+            <?php
+            foreach($visiteurs as $visiteur){
+                echo "<tr><td></section>".$visiteur['pseudo']."</td>";
+                echo "<td>" .$visiteur['email']."</td>";
+                echo "<td>" .$visiteur['nom']."</td>";
+                echo "<td>" .$visiteur['prenom']."</td>";
+                echo "<td>" .$visiteur['telephone']."</td>";
+                echo "<td>" .$visiteur['penalite']."</td>";
 
-        ?>
+                if($visiteur['rôle'] == "admin"){ //Si le rôle est "ADMIN" alors l'afficher en rouge 
+                echo "<td><span style='color: red; text-transform : uppercase;'>".$visiteur['rôle']."</span></td>";
+                }else{ //Sinon en bleu
+                    echo "<td><span style='color: blue; text-transform : uppercase; '>".$visiteur['rôle']."</span></td>";
+                }
+                ?>
+                    <td><a href="ModifCompteID.php?ID=<?= ($visiteur['ID']) ?>"><img class="imgMo" src="img/modif.png"></a><a href="delCompte.php?ID=<?= ($visiteur['ID']) ?>" onclick="return verifDelCompte();"><img class="imgMo" src="img/supp.png"></a></p></td></tr></section>
+                    <!-- redirection vers les différentes pages avec l'ID en paramètre-->
+            <?php
+            }
+
+            ?>
+        </table>
     </section>
 </body>
 </html>
