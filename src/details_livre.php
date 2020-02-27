@@ -49,11 +49,10 @@ while ($d = $req->fetch()){
 				echo '<strong><u>Langue</u></strong> : '.$d["langue"]. '<br>'; //Editeur
 				echo '<strong><u>Nombre de page</u></strong> : '.$d["nbpages"]. ' pages <br>'; //nbpages
 				echo '<strong><u>Date de sortie</u></strong> : '.$d["annee"]. '<br>'; //annee
+
+				if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['reservation'] != 1){
 				?>
-				<?php 
-					if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['reservation'] != 1){ 
-				?>
-						<a class="button_RON" href="panier_M.php?isbn=<?= ($d['isbn'])?>">Réserver ce livre</a>
+						<a class="button_RON" href="reservation_POST.php?isbn=<?= ($d['isbn'])?>">Réserver ce livre</a>
 				<?php
 					}else if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['reservation'] == 1){
 				?>

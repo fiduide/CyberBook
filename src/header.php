@@ -27,7 +27,7 @@
 						</li>
 						<li><a href="admin.php"><img class="img_menu" src="img/engrenage.png"/>Admin</a>
 							<ul class="submenu">
-									<li><a href="panier_M.php">Panier de réservation</a></li>
+									<li><a href="panier_R.php">Panier de réservation</a></li>
 									<li><a href="reservation.php">Mes réservation</a></li>
 							</ul>
 						</li>
@@ -37,7 +37,7 @@
 						?>
 						<li><a href="user_Compte.php">Mon compte</a>
 							<ul class="submenu">
-									<li><a href="panier_M.php">Panier de réservation</a></li>
+									<li><a href="panier_R.php">Panier de réservation</a></li>
 									<li><a href="reservation.php">Mes réservation</a></li>
 							</ul>
 						</li>

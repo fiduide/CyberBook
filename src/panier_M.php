@@ -1,45 +1,30 @@
 <?php
 session_start();
+
+//Initialisation du panier
+include "bdd.php";
+$isbn = htmlspecialchars($_GET['isbn']);
+$livre = $bdd -> query ('SELECT * FROM livre WHERE isbn = "'.$isbn.'"');
+$d = $livre -> fetch();
+
+
+if(!isset($_SESSION['panier'])){
+    $_SESSION['panier'] = array();
+    //Plusieurs choses dans le panier
+    $_SESSION['panier']['isbn'] = array();
+    $_SESSION['panier']['titre'] = array();
+}
+
+//ajout des livres
+
+$select = array();
+$select['titre'] = $d['titre'];
+$select['isbn'] = $d['isbn'] ;
+ajout($select);
+
+function ajout($select){ //fonction pour ajouter un livre dans le panier
+    array_push($_SESSION['panier']['isbn'], $select['isbn']);
+    array_push($_SESSION['panier']['titre'], $select['titre']);
+}
+header('Location: ListeL.php');
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/style_reserve.css">
-    <title>Panier de réservation</title>
-</head>
-<body>
-    <?php
-    include "header.php";
-    include "bdd.php";
-        if(isset($_GET['isbn'])){
-        $isbn = $_GET['isbn'];
-        $LivreExist = $bdd -> query('SELECT isbn FROM livre WHERE isbn = "'.$isbn.'"');
-        $n = 1;
-        while(isset($_SESSION['panier'][$n])){
-            $n++;
-        }
-        $_SESSION['panier'][$n] = $isbn;
-        for($i = 0; $i < $n; $i++){
-        echo $_SESSION['panier'][$n];
-        $n++;
-        $i++;
-        }
-    }
-    ?>
-    <br>
-    <br>
-    <br>
-    <section class="ListeLR">
-        <table style="text-align: center;">
-            <tr>
-                <td class="td1">ISBN</td>
-                <td class="td1">Titre du livre</td>
-                <td class="td1">Auteurs</td>
-            </tr>
-        <?php
-        ?>
-        </table>
-    </section>
-</body>
-</html>

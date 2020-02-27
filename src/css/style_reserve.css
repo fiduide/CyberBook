@@ -1,9 +1,17 @@
 .ListeLR{
     display: flex;
     justify-content: center;
+    background-color: whitesmoke;
+    border: solid 1px;
+    margin: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 2em;;
+    width: 50em;;
 }
 
-.td {
+td {
+    text-align:center;
     padding-left: 50px;
     padding-bottom: 10px;
 }
