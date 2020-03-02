@@ -52,7 +52,7 @@ while ($d = $req->fetch()){
 
 				if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['reservation'] != 1){
 				?>
-						<a class="button_RON" href="reservation_POST.php?isbn=<?= ($d['isbn'])?>">Réserver ce livre</a>
+						<a class="button_RON" href="panier_tmp.php?isbn=<?= ($d['isbn'])?>">Réserver ce livre</a>
 				<?php
 					}else if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['reservation'] == 1){
 				?>

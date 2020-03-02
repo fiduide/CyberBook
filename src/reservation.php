@@ -14,31 +14,40 @@
     <?php
         include "header.php";
     ?>
-    <br/>
-    <br/>
     <section class="ListeLR">
-        <table>
-            <tr>
-                <td class="td1">ISBN</td>
-                <td class="td1">Titre</td>
-                <td class="td1">Date de réservation</td>
-                <td class="td1">Date de retour maximun avant pénalité</td>
-            </tr>
+        <form action="retour_POST.php" method="POST">
+            <table style="text-align:center;">
+                <tr>
+                    <td class="td1"><strong>ISBN</strong></td>
+                    <td class="td1"><strong>Titre</strong></td>
+                    <td class="td1"><strong>Date de réservation</strong></td>
+                    <td class="td1" style="color:red;"><strong>Date de retour maximun avant pénalitée</strong></td>
+                </tr>
+                <?php
+                    while($aff = $affiche_r->fetch()){
+                        ?>
+                        <tr>
+                        <?php
+                            echo '<td>'.$aff['isbn'].'</td>';
+                            echo '<td>'.$aff['titre'].'</td>';
+                            echo '<td>'.$aff['date_reservation'].'</td>';
+                            echo '<td style="color:red;">'.$aff['date_max_retour'].'</td>';
+                        ?>
+                        <td><input class="button" type="checkbox" name="isbn[]" value="<?= ($aff['isbn']) ?>"/></td>
+                        </tr>
+                <?php
+                    }
+                ?>
+            </table>
             <?php
-                while($aff = $affiche_r->fetch()){
-                    ?>
-                    <tr>
-                    <?php
-                        echo '<td>'.$aff['isbn'].'</td>';
-                        echo '<td>'.$aff['titre'].'</td>';
-                        echo '<td>'.$aff['date_reservation'].'</td>';
-                        echo '<td>'.$aff['date_max_retour'].'</td>';
-                    ?>
-                    </tr>
+             if($affiche_r->rowCount() != 0){ ?> <!-- Si possède un résultat alors affiche -->
+                <br/><input class="button" type="submit" value="Retourner le(s) livre(s)"/>
             <?php
-                }
+            }else{
+                echo '<p style="text-align: center; color: red;">Vous n\'avez pas de livre en réservation</p>';
+            }
             ?>
-        </table>
+        </form>
     </section>
 </body>
 </html>

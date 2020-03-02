@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ session_start();
 					<section class="idlivre">
 						<a href="details_livre.php?titre=<?= ($donnees['titre']) ?>" title="Afficher le détail du livre"> <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
 
-								<?php 
+								<?php
 									if(is_file($image)){
 										
 										echo '<img class="iD" src="'.$image.'">';
@@ -55,7 +55,7 @@ session_start();
 	
 	<br>
 	<br>
-	<?php 
+	<?php
 		}
 	?>
 	</div>

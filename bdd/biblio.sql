@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 25 fév. 2020 à 16:54
+-- Généré le :  lun. 02 mars 2020 à 19:13
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -212,11 +212,25 @@ INSERT INTO `personne` (`id`, `nom`, `prenom`) VALUES
 
 DROP TABLE IF EXISTS `reservations`;
 CREATE TABLE IF NOT EXISTS `reservations` (
-  `isbn` int(11) NOT NULL,
+  `isbn` varchar(11) NOT NULL,
   `date_reservation` date NOT NULL,
+  `date_max_retour` date DEFAULT NULL,
   `id_membre` int(11) NOT NULL COMMENT 'fait référence à id de visiteurs',
+  `date_retour` date DEFAULT NULL,
   PRIMARY KEY (`isbn`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Réservations des livres';
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reservations_tmp`
+--
+
+DROP TABLE IF EXISTS `reservations_tmp`;
+CREATE TABLE IF NOT EXISTS `reservations_tmp` (
+  `id_membre` int(11) NOT NULL,
+  `isbn` varchar(15) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 

@@ -1,6 +1,9 @@
 <?php
 session_start();
-$action = (isset($_POST['action'])? $_POST['action']:) ;
+include "bdd.php";
+$recherche = $bdd->query('SELECT * FROM reservations_tmp LEFT JOIN livre ON livre.isbn = reservations_tmp.isbn LEFT JOIN auteur ON auteur.idLivre = livre.isbn LEFT JOIN personne ON auteur.idPersonne = personne.id  WHERE id_membre = '.$_SESSION['id'].'');
+$date =$bdd->query('SELECT ADDDATE(CURDATE(),INTERVAL 30 DAY) AS dateAc');
+$date = $date->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -13,36 +16,42 @@ $action = (isset($_POST['action'])? $_POST['action']:) ;
     <?php
     include "header.php";
     ?>
-    <br>
-    <br>
-    <br>
     <section class="ListeLR">
-    <table>
-        <tr>
-            <td>ISBN</td>
-            <td>Titre du livre</td>
-        </tr>
-        <tr><td>
-        <?php
-        echo join("<br>",$_SESSION['panier']['isbn']) ;
-        ?>
-        </td>
-        <td>
-        <?php
-        echo join("<br>",$_SESSION['panier']['titre']) ;
-
-        if(!in_array($action,array('suppression'))) {
-            $erreur = true;
-        }
-        switch($action) {
-            Case "suppression":
-                supprimerArticle($isbn);
-                break;
-        }
-        ?>
-        </td>
-        </tr>
-    </table>
+        <form action="reservation_POST.php" method="POST">
+            <table style="text-align:center;">
+                <tr>
+                    <td class="td1"><strong>ISBN</strong></td>
+                    <td class="td1"><strong>Titre du livre</strong></td>
+                    <td class="td1"><strong>Auteur</strong></td>
+                    <td class="td1" style="color: red;"><strong>Date de retour exigée</strong></td>
+                </tr>
+                <?php while($d = $recherche->fetch()){ ?>
+                    <tr>
+                        <td>
+                            <?php echo $d['isbn']; ?>
+                        </td>
+                        <td>
+                            <?php echo $d['titre'];?>
+                        </td>
+                        <td>
+                            <?php echo $d['prenom']." ".$d['nom'];?>
+                        </td>
+                        <td style="color: red;">
+                            <?php echo $date['dateAc'];?>
+                        </td>
+                        <td><input class="button" type="checkbox" name="isbn[]" value="<?= ($d['isbn']) ?>"/></td> <!-- On récupère tous les isbns pour les envoyer -->
+                    </tr>
+                <?php }?>
+            </table>
+            <?php
+                if($recherche->rowCount() != 0){?> <!-- Si possède un résultat alors affiche -->
+                    <br/><input class="button" type="submit" value="Réserver"/>
+            <?php
+                }else{
+                    echo '<p style="text-align: center; color: red">Vous n\'avez pas de livre dans votre panier</p>';
+                }
+            ?>
+        </form>
 </section>
 </body>
 </html>
