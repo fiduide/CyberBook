@@ -1,9 +1,9 @@
-<?php 
+<?php
 session_start();
 if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur sans connection
     $_SESSION['group'] = 'visiteur';
 }else{
-    if($_SESSION['group'] != 'admin'){ //Si le rôle n'est pas égale à admin alors pas de connexion à cette page 
+    if($_SESSION['group'] != 'admin'){ //Si le rôle n'est pas égale à admin alors pas de connexion à cette page
         echo '<h1 style="text-align:center; color: red;">Vous devez être connecté en tant qu\'administrateur pour accéder à cette page</h1>';
     }else{
 ?>
@@ -51,7 +51,7 @@ if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur san
                 echo "<td>" .$visiteur['telephone']."</td>";
                 echo "<td>" .$visiteur['penalite']."</td>";
 
-                if($visiteur['rôle'] == "admin"){ //Si le rôle est "ADMIN" alors l'afficher en rouge 
+                if($visiteur['rôle'] == "admin"){ //Si le rôle est "ADMIN" alors l'afficher en rouge
                 echo "<td><span style='color: red; text-transform : uppercase;'>".$visiteur['rôle']."</span></td>";
                 }else{ //Sinon en bleu
                     echo "<td><span style='color: blue; text-transform : uppercase; '>".$visiteur['rôle']."</span></td>";

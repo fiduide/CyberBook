@@ -28,7 +28,7 @@
 						<li><a href="#"><img class="img_menu" src="img/engrenage.png"/>Admin</a>
 							<ul class="submenu">
 								<li><a href="admin.php">Gestion Site</a></li>
-								<li><a href="panier_R.php">Panier de réservation</a></li>
+								<li><a href="Panier_R.php">Panier de réservation</a></li>
 								<li><a href="reservation.php">Mes réservation</a></li>
 							</ul>
 						</li>

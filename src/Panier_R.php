@@ -4,6 +4,7 @@ include "bdd.php";
 $recherche = $bdd->query('SELECT * FROM reservations_tmp LEFT JOIN livre ON livre.isbn = reservations_tmp.isbn LEFT JOIN auteur ON auteur.idLivre = livre.isbn LEFT JOIN personne ON auteur.idPersonne = personne.id  WHERE id_membre = '.$_SESSION['id'].'');
 $date =$bdd->query('SELECT ADDDATE(CURDATE(),INTERVAL 30 DAY) AS dateAc');
 $date = $date->fetch();
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -40,6 +41,7 @@ $date = $date->fetch();
                             <?php echo $date['dateAc'];?>
                         </td>
                         <td><input class="button" type="checkbox" name="isbn[]" value="<?= ($d['isbn']) ?>"/></td> <!-- On récupère tous les isbns pour les envoyer -->
+                        <td><a href="suppLivreR.php?isbn=<?=($d['isbn']) ?>"><img src="img/supp.png"> </td>
                     </tr>
                 <?php }?>
             </table>

@@ -43,3 +43,16 @@ td {
 .titre{
     border: solid 2px;
 }
+
+.button2{
+    display: block;
+    margin: auto;
+    text-align: center;
+	font-size: 20px;
+	border-radius: 5px;
+    border-style: inset;
+    background-color:  rgb(red, red, red);
+    border-color:  rgb(197, 21, 21);
+    color: red;
+    text-decoration: none;
+}

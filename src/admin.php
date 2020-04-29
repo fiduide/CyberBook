@@ -1,9 +1,9 @@
-<?php 
+<?php
 session_start();
 if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur sans connection
     $_SESSION['group'] = 'visiteur';
 }else{
-    if($_SESSION['group'] != 'admin'){ //Si le rôle n'est pas égale à admin alors pas de connexion à cette page 
+    if($_SESSION['group'] != 'admin'){ //Si le rôle n'est pas égale à admin alors pas de connexion à cette page
         echo '<h1 style="text-align:center; color: red;">Vous devez être connecté en tant qu\'administrateur pour accéder à cette page</h1>';
     }else{
     ?>
@@ -25,18 +25,17 @@ if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur san
 		<br>
 	<?php include "bdd.php"?>
     <div class="align">
-    <a href="gestionLivre.php"> 
+    <a href="gestionLivre.php">
     <section class="Admin">
     <img class="i" src="img/book.png"/>
-    <p>Modification de Livre</p> 
-    
+    <p>Modification de Livre</p>
+
     </section>
     </a>
-    
 
 
 
-    <a href="modifCompte.php"> 
+    <a href="modifCompte.php">
     <section class="Admin">
     <img class="i" src="img/utilisateur.png"/>
     <p>Modification d'un Compte</p>
@@ -50,7 +49,7 @@ if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur san
     <br />
 </body>
 </html>
-<?php 
+<?php
 }
 }
 ?>
