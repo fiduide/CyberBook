@@ -1,7 +1,8 @@
 <?php
     session_start();
     include "bdd.php";
-    $affiche_r = $bdd->query('SELECT * FROM reservations LEFT JOIN livre ON livre.isbn = reservations.isbn WHERE id_membre = '.$_SESSION['id'].'');
+    $affiche_r = $bdd->query('SELECT * FROM reservations LEFT JOIN livre ON livre.isbn = reservations.isbn WHERE id_membre = '.$_SESSION['id'].' AND date_retour is NULL');
+    $afficher_ancien_r = $bdd->query('SELECT * FROM reservations LEFT JOIN livre ON livre.isbn = reservations.isbn WHERE id_membre = '.$_SESSION['id'].' AND date_retour is NOT NULL');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -48,6 +49,30 @@
             }
             ?>
         </form>
+    </section>
+    <section class="ListeLR" style="opacity: 0.65">
+        <table style="text-align:center;">
+            <tr>
+                <td class="td1"><strong>ISBN</strong></td>
+                <td class="td1"><strong>Titre</strong></td>
+                <td class="td1"><strong>Date de réservation</strong></td>
+                <td class="td1" style="color:red;"><strong>Date de retour du livre</strong></td>
+            </tr>
+            <?php
+                while($affA = $afficher_ancien_r->fetch()){
+            ?>
+                <tr>
+                    <?php
+                        echo '<td>'.$affA['isbn'].'</td>';
+                        echo '<td>'.$affA['titre'].'</td>';
+                        echo '<td>'.$affA['date_reservation'].'</td>';
+                        echo '<td style="color:red;">'.$affA['date_retour'].'</td>';
+                    ?>
+                </tr>
+                <?php
+                    }
+                ?>
+        </table>
     </section>
 </body>
 </html>

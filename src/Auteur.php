@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ session_start();
 	<title>Liste des Auteurs</title>
 </head>
 <body>
-	
+
 	<?php include "header.php" ?>
 	<header>
 		<div class="align">

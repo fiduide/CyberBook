@@ -10,4 +10,4 @@
 		 die('Erreur : '.$e->getMessage());
 		}
 	// Si tout va bien, on peut continuer
-	?>
+?>

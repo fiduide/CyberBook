@@ -8,6 +8,6 @@ for($i = 0; $i < count($isbn); $i++){ //Tant que l'array de isbn n'est pas égal
     $modif_bdd = $bdd -> query('UPDATE livre SET reservation = 1 WHERE isbn = "'.$isbn[$i].'"');
     $delete = $bdd->query('DELETE FROM reservations_tmp WHERE isbn = "'.$isbn[$i].'" AND id_membre = "'.$_SESSION['id'].'"');
 }
-header('Location: listeL.php');
+header('Location: reservation.php');
 
 ?>

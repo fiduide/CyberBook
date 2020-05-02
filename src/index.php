@@ -49,16 +49,13 @@ session_start();
 								<td>
 								<?php
 									if(is_file($image)){
-										
 										echo '<img class="iD" src="'.$image.'">';
-										
 									}else {
 										echo '<img class="i" src="'.$image_par_defaut.'"';
 									}
 
 									echo '<p><strong>'.$h["titre"]. '</strong></p>'; //affichage des titres des livres
 									echo '<p><em>' . $h["prenom"] . ' - ' . $h["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs
-									
 									?>
 								</td>
 							<tr>
@@ -91,5 +88,4 @@ session_start();
 
     </footer>
 </body>
-
 </html>

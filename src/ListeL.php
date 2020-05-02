@@ -36,9 +36,9 @@ session_start();
 
 								<?php
 									if(is_file($image)){
-										
+
 										echo '<img class="iD" src="'.$image.'">';
-										
+
 									}else {
 										echo '<img class="i" src="'.$image_par_defaut.'">';
 									}
@@ -50,15 +50,11 @@ session_start();
 									?>
 						</a>
 					</section>
-					
-					
-	
 	<br>
 	<br>
 	<?php
 		}
 	?>
 	</div>
-
 </body>
 </html>
