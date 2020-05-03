@@ -48,13 +48,30 @@ while ($d = $req->fetch()){
 				echo '<strong><u>Editeur</u></strong> : '.$d["editeur"]. '<br>'; //Editeur
 				echo '<strong><u>Langue</u></strong> : '.$d["langue"]. '<br>'; //Editeur
 				echo '<strong><u>Nombre de page</u></strong> : '.$d["nbpages"]. ' pages <br>'; //nbpages
-				echo '<strong><u>Date de sortie</u></strong> : '.$d["annee"]. '<br>'; //annee
+				echo '<strong><u>Date de sortie</u></strong> : '.$d["annee"]. '<br>';
+				if($_SESSION['group'] != 'admin'){
+					if($d['stock'] == 0){
+						echo '<strong><u>Nombre d\'exemplaire</u></strong> : Indisponible<br>'; //stock
+					}else{
+						echo '<strong><u>Nombre d\'exemplaire</u></strong> : '.$d["stock"]. '<br>'; //annee
+					}
+				}else{
+					if($d['stock'] == 0){
+						echo '<strong><u>Nombre d\'exemplaire</u></strong> : Indisponible'; //stock
+						echo '<a href="addStock.php?isbn='.$d['isbn'].'"><img src="img/add.png"> <br/></a>';
+					}else{
+						echo '<strong><u>Nombre d\'exemplaire</u></strong> : '.$d["stock"]. '';
+						echo '<a href="addStock.php?isbn='.$d['isbn'].'"><img src="img/add.png"> <br/></a>';
+					}
+				}
+
+
 
 				if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['reservation'] != 1){
 				?>
 						<a class="button_RON" href="panier_tmp.php?isbn=<?= ($d['isbn'])?>">Réserver ce livre</a>
 				<?php
-					}else if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['reservation'] == 1){
+					}else if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['reservation'] == 1 && $d['stock'] == 0){
 				?>
 						<a class="button_ROFF" href="#" title="Nous n'avons plus de stock" onclick="return ROOF()">Indisponible </a>
 				<?php

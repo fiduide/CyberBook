@@ -42,7 +42,6 @@ session_start();
 									}else {
 										echo '<img class="i" src="'.$image_par_defaut.'">';
 									}
-
 									echo '<B>'.$donnees["titre"]. '</B>'; //affichage des titres des livres
 									echo '<p><em>Ecrit par ' . $donnees["prenom"] . ' - ' . $donnees["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs
 									echo '<p><em>Genre : '.$donnees["libelle"].'</em></p>';

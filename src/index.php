@@ -22,7 +22,7 @@ session_start();
 <header >
 <br>
 <?php if(empty($_SESSION['group'])){?>
-<h4 style="text-align:center; margin-top: 4%; font-size: 15px;"><em>(Vous devez être connecté pour pouvoir ajouter des livres, auteurs, etc...)</em></h4>
+<h4 style="text-align:center; margin-top: 4%; font-size: 15px;"><em>(Vous devez être connecté pour pouvoir réserver des livres...)</em></h4>
 <?php } ?>
 <section class="recherche">
         <form action="recherche.php" method="GET">
@@ -38,7 +38,7 @@ session_start();
     ?>
     	<div class="align">
 		<?php
-		while ($h = $home->fetch()) //tant que tout n'est pas marqué continuer
+		while ($h = $home->fetch()) //tant que tous n'est pas marqué continuer
 		{
 			$image = 'img/'.$h["isbn"].'.jpg';
 			$image_par_defaut = 'img/0.png';
@@ -79,9 +79,8 @@ session_start();
             <div class="footer">
                 <img class="img_footer"src="img/stylo.png" alt="stylo.png">
                 <p>
-                    Plusieurs fonctions sont disponnible sur ce site, tel que la possibilité de consulter
-                    la liste de livre disponnible dans notre base de donnée mais également leurs informations.
-                    De plus vous pouvez aussi ajouter vos propres livres, vos auteurs et même de nouveaux genres ou nouvelles langues !
+                    Plusieurs fonctions sont disponible sur ce site, vous pouvez consulter
+                    la liste de livre disponible dans notre base de donnée mais également leurs informations et la possibilité de les réserver.
                 </p>
             </div>
         </section>

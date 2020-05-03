@@ -11,6 +11,7 @@ $date = $date->fetch();
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style_reserve.css">
+    <link rel="shortcut icon" type="image/png" href="img/accueil.png" />
     <title>Panier de réservation</title>
 </head>
 <body>

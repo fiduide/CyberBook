@@ -269,24 +269,29 @@
         }else{
             document.getElementById("mdp").style.borderColor = "";
         }if(document.getElementById("nom").value==""){
-            alert("Veuillez rentrer votre nom !");
+            alert("Veuillez entrer votre nom !");
             document.getElementById("nom").style.borderColor = "red";
             return false;
         }else{
             document.getElementById("nom").style.borderColor = "";
         }
         if(document.getElementById("prenom").value==""){
-            alert("Veuillez rentrer votre prenom !");
+            alert("Veuillez entrer votre prenom !");
             document.getElementById("prenom").style.borderColor = "red";
             return false;
         }else{
             document.getElementById("prenom").style.borderColor = "";
         }
         if(document.getElementById("tel").value==""){
-            alert("Veuillez rentrer votre numéro de téléphone !");
+            alert("Veuillez entrer votre numéro de téléphone !");
             document.getElementById("tel").style.borderColor = "red";
             return false;
-        }else{
+        }else if(document.getElementById("tel").value.length != 10){
+            alert("Veuillez entrer un numéro de téléphone correcte !");
+            document.getElementById("tel").style.borderColor = "red";
+            return false;
+        }
+        else{
             document.getElementById("tel").style.borderColor = "";
         }
     }

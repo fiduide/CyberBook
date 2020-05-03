@@ -9,6 +9,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style_reserve.css">
+    <link rel="shortcut icon" type="image/png" href="img/accueil.png" />
     <title>Mes réservations</title>
 </head>
 <body>
@@ -74,5 +75,7 @@
                 ?>
         </table>
     </section>
+    <br/>
+    <br/>
 </body>
 </html>

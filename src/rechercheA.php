@@ -1,5 +1,8 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +17,8 @@
 <?php include "bdd.php" ?>
 	<br>
     <br>
-    
+
     <?php
-    
 
 
 		//Recherche Auteurs :
@@ -24,9 +26,8 @@
 		$Auteur = $bdd->query('SELECT id, nom, prenom FROM personne WHERE nom LIKE "%'.$rechercheA.'" OR prenom LIKE "'.$rechercheA.'%"');
 		if(isset($_GET['rechercheA']) AND !empty($_GET['rechercheA'])) { //Si le champs recherche n'est pas vide alors fait la recherche
 		 if($Auteur->rowCount() > 0) {  // Si le nombre le résultat trouvé est supérieur à 0 
-			 ?> 
+			 ?>
 			 <div class="alignA">
-             
 			 <?php
 		 while($A = $Auteur->fetch()){
 			 ?>
@@ -43,14 +44,14 @@
 		 }
 		 }
 		 }
-		 else if (empty($_GET['rechercheA'])){ // Si le champs est vide 
+		 else if (empty($_GET['rechercheA'])){ // Si le champs est vide
 			 echo "<br><br><center>Veuillez saisir un champs de recherche</center>";
 		 }
-		 if($Auteur->rowCount() == 0){ // Si le résultat trouvé est inférieur à 0 
+		 if($Auteur->rowCount() == 0){ // Si le résultat trouvé est inférieur à 0
 			 echo "<br><br><center>Nous n'avons trouvé aucun résultat à votre recherche</center> ";
          }
          ?>
         </div>
-        
+
 </body>
 </html>

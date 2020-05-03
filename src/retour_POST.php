@@ -8,10 +8,10 @@ $email = $bdd->query('SELECT * FROM reservations LEFT JOIN visiteurs ON visiteur
 
 for($i = 0; $i < count($isbn); $i++){
     $req = $bdd ->query('UPDATE reservations SET date_retour = NOW() WHERE isbn = "'.$isbn[$i].'"');
-    $req = $bdd ->query('UPDATE livre SET reservation = 0 WHERE isbn = "'.$isbn[$i].'" ');
+    $req = $bdd ->query('UPDATE livre SET reservation = 0, stock = stock + 1 WHERE isbn = "'.$isbn[$i].'" ');
 }
 
-
+//Si le résultat de la recherche de $email n'est pas égale à 1 alors on envoit un mail car l'utilisateur possède un livre en retard
 if($email->rowCount() != 0){
     $email = $email->fetch();
     ini_set( 'display_errors', 1 );
@@ -27,7 +27,7 @@ if($email->rowCount() != 0){
     $headers = "From:" . $from;
 
     mail($to,$subject,$message, $headers);
-
+//On ajoute une pénalité
     $addPenality = $bdd->query('UPDATE visiteurs SET penalite = penalite + 1 WHERE ID = '.$email['ID'].'');
     header('Location: reservation.php');
 }

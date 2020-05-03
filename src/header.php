@@ -38,7 +38,7 @@
 						?>
 						<li><a href="user_Compte.php">Mon compte</a>
 							<ul class="submenu">
-									<li><a href="panier_R.php">Panier de réservation</a></li>
+									<li><a href="Panier_R.php">Panier de réservation</a></li>
 									<li><a href="reservation.php">Mes réservation</a></li>
 							</ul>
 						</li>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 02 mars 2020 à 19:13
+-- Généré le :  sam. 02 mai 2020 à 15:24
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -217,8 +217,16 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `date_max_retour` date DEFAULT NULL,
   `id_membre` int(11) NOT NULL COMMENT 'fait référence à id de visiteurs',
   `date_retour` date DEFAULT NULL,
-  PRIMARY KEY (`isbn`)
+  KEY `isbn` (`isbn`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Réservations des livres';
+
+--
+-- Déchargement des données de la table `reservations`
+--
+
+INSERT INTO `reservations` (`isbn`, `date_reservation`, `date_max_retour`, `id_membre`, `date_retour`) VALUES
+('999999999', '2020-04-30', '2020-05-30', 25, '2020-05-01'),
+('999999999', '2020-05-01', '2020-05-31', 25, '2020-05-01');
 
 -- --------------------------------------------------------
 
@@ -261,7 +269,7 @@ INSERT INTO `role` (`id`, `libelle`) VALUES
 --
 
 DROP TABLE IF EXISTS `visiteurs`;
-CREATE TABLE IF NOT EXISTS `visiteurs` (
+CREATE TABLE `visiteurs` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -269,18 +277,17 @@ CREATE TABLE IF NOT EXISTS `visiteurs` (
   `nom` varchar(55) NOT NULL,
   `prenom` varchar(55) NOT NULL,
   `telephone` int(11) DEFAULT NULL,
+  `confirm_key` varchar(255) CHARACTER SET utf8 NOT NULL,
   `rôle` varchar(10) NOT NULL,
   `penalite` int(11) NOT NULL DEFAULT '0',
+  `confirme` int(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `visiteurs`
---
-
-INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`, `mdp`, `nom`, `prenom`, `telephone`, `rôle`, `penalite`) VALUES
-(25, 'fiduide', 'dorian161100@hotmail.fr', '161100', 'Cappe', 'Dorian', 674519842, 'admin', 1),
-(26, 'sandra', 'sandra.glt18@gmail.com', '1234', 'Guillet', 'Sandra', 615153394, 'membre', 4);
+INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`, `mdp`, `nom`, `prenom`, `telephone`, `confirm_key`, `rôle`, `penalite`, `confirme`) VALUES
+(26, 'sandra', 'sandra.glt18@gmail.com', '1234', 'Guillet', 'Sandra', 615153394, '', 'membre', 4, 0),
+(27, 'Amanda', 'amanda99.77600@gmail.com', '77', 'Liu', 'Amanda', 630769943, '', 'admin', 0, 0),
+(50, 'test', 'lihua99.77600@gmail.com', 'test', 'test', 'test', 123, '161', 'membre', 0, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
