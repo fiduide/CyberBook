@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 02 mai 2020 à 15:24
+-- Généré le :  Dim 03 mai 2020 à 13:40
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -52,7 +52,8 @@ INSERT INTO `auteur` (`idPersonne`, `idLivre`, `idRole`) VALUES
 (7, '2264069112', 2),
 (10, '2747033341', 1),
 (10, '274702119X', 1),
-(11, '999999999', 1);
+(11, '999999999', 1),
+(11, 'test', 1);
 
 -- --------------------------------------------------------
 
@@ -151,27 +152,27 @@ CREATE TABLE IF NOT EXISTS `livre` (
   `langue` int(11) DEFAULT NULL,
   `nbpages` int(11) DEFAULT NULL,
   `reservation` int(11) NOT NULL DEFAULT '0',
+  `stock` int(2) NOT NULL DEFAULT '5',
   PRIMARY KEY (`isbn`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `livre`
 --
 
-INSERT INTO `livre` (`id`, `isbn`, `titre`, `editeur`, `annee`, `genre`, `langue`, `nbpages`, `reservation`) VALUES
-(2, '2092543032', 'Nos étoiles contraire', 2, 2012, 1, 2, 336, 0),
-(3, '2266285882', 'La 5eme Vagues', 3, 2013, 2, 1, 608, 0),
-(4, '207066256X', 'La face cachée de Margo', 4, 2008, 2, 1, 400, 0),
-(5, '2702436331', 'Le Crime de l\'Orient-Express', 5, 2011, 1, 2, 240, 0),
-(6, '2226249303', 'Percy Jackson tome 1', 6, 2005, 5, 2, 432, 0),
-(7, '2253151394', 'Marche ou creve', 7, 1979, 6, 1, 384, 0),
-(8, '2253151343', 'Ça', 7, 1986, 6, 1, 799, 0),
-(9, '2253122920', 'La ligne Verte', 7, 1996, 6, 1, 503, 0),
-(10, '2264069112', 'L\'étrange bibliothèque', 8, 2015, 4, 2, 80, 0),
-(11, '2747033341', 'Eragon - Cycle L\'Héritage Tome 01', 9, 2019, 5, 2, 709, 0),
-(12, '274702119X', 'Eragon - L\'aîné Tome 02', 9, 2019, 5, 2, 0, 0),
-(28, '999999999', 'TEST', 10, 2000, 8, 3, NULL, 0);
+INSERT INTO `livre` (`id`, `isbn`, `titre`, `editeur`, `annee`, `genre`, `langue`, `nbpages`, `reservation`, `stock`) VALUES
+(2, '2092543032', 'Nos étoiles contraire', 2, 2012, 1, 2, 336, 0, 5),
+(3, '2266285882', 'La 5eme Vagues', 3, 2013, 2, 1, 608, 0, 5),
+(4, '207066256X', 'La face cachée de Margo', 4, 2008, 2, 1, 400, 0, 5),
+(5, '2702436331', 'Le Crime de l\'Orient-Express', 5, 2011, 1, 2, 240, 0, 5),
+(6, '2226249303', 'Percy Jackson tome 1', 6, 2005, 5, 2, 432, 0, 5),
+(7, '2253151394', 'Marche ou creve', 7, 1979, 6, 1, 384, 0, 5),
+(8, '2253151343', 'Ça', 7, 1986, 6, 2, 799, 0, 5),
+(9, '2253122920', 'La ligne Verte', 7, 1996, 6, 1, 503, 0, 5),
+(10, '2264069112', 'L\'étrange bibliothèque', 8, 2015, 4, 2, 80, 0, 5),
+(11, '2747033341', 'Eragon - Cycle L\'Héritage Tome 01', 9, 2019, 5, 2, 709, 0, 5),
+(12, '274702119X', 'Eragon - L\'aîné Tome 02', 9, 2019, 5, 2, 0, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -226,7 +227,9 @@ CREATE TABLE IF NOT EXISTS `reservations` (
 
 INSERT INTO `reservations` (`isbn`, `date_reservation`, `date_max_retour`, `id_membre`, `date_retour`) VALUES
 ('999999999', '2020-04-30', '2020-05-30', 25, '2020-05-01'),
-('999999999', '2020-05-01', '2020-05-31', 25, '2020-05-01');
+('999999999', '2020-05-01', '2020-05-31', 25, '2020-05-01'),
+('test', '2020-05-03', '2020-06-02', 51, '2020-05-03'),
+('test', '2020-05-03', '2020-06-02', 52, '2020-05-03');
 
 -- --------------------------------------------------------
 
@@ -239,6 +242,13 @@ CREATE TABLE IF NOT EXISTS `reservations_tmp` (
   `id_membre` int(11) NOT NULL,
   `isbn` varchar(15) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `reservations_tmp`
+--
+
+INSERT INTO `reservations_tmp` (`id_membre`, `isbn`) VALUES
+(51, 'test');
 
 -- --------------------------------------------------------
 
@@ -269,24 +279,28 @@ INSERT INTO `role` (`id`, `libelle`) VALUES
 --
 
 DROP TABLE IF EXISTS `visiteurs`;
-CREATE TABLE `visiteurs` (
+CREATE TABLE IF NOT EXISTS `visiteurs` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `mdp` varchar(25) NOT NULL,
   `nom` varchar(55) NOT NULL,
   `prenom` varchar(55) NOT NULL,
-  `telephone` int(11) DEFAULT NULL,
+  `telephone` int(10) DEFAULT NULL,
   `confirm_key` varchar(255) CHARACTER SET utf8 NOT NULL,
   `rôle` varchar(10) NOT NULL,
   `penalite` int(11) NOT NULL DEFAULT '0',
   `confirme` int(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `visiteurs`
+--
 
 INSERT INTO `visiteurs` (`ID`, `pseudo`, `email`, `mdp`, `nom`, `prenom`, `telephone`, `confirm_key`, `rôle`, `penalite`, `confirme`) VALUES
-(26, 'sandra', 'sandra.glt18@gmail.com', '1234', 'Guillet', 'Sandra', 615153394, '', 'membre', 4, 0),
-(27, 'Amanda', 'amanda99.77600@gmail.com', '77', 'Liu', 'Amanda', 630769943, '', 'admin', 0, 0),
+(52, 'test2', 'testmoi@email.fr', 'test', 'test', 'test', 656453445, '303', 'membre', 0, 1),
+(51, 'dorian', 'dorian161100@hotmail.fr', '161100', 'Cappe', 'Dorian', 674519842, '737', 'admin', 0, 1),
 (50, 'test', 'lihua99.77600@gmail.com', 'test', 'test', 'test', 123, '161', 'membre', 0, 1);
 COMMIT;
 
