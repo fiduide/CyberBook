@@ -25,9 +25,9 @@ session_start();
 
 <?php include "bdd.php"?>
 <?php
-	$titre = $_GET['titre']; //Protection contre la saisie utilisateur et récupération de la variable titre
+	$isbn = $_GET['isbn']; //Protection contre la saisie utilisateur et récupération de la variable titre
 
-	$req = $bdd->query('SELECT * FROM livre LEFT JOIN genre ON livre.genre = genre.id LEFT JOIN editeur ON editeur.id = livre.editeur LEFT JOIN langue ON langue.id = livre.langue WHERE titre LIKE "'.$titre.'%"');
+	$req = $bdd->query('SELECT * FROM livre LEFT JOIN genre ON livre.genre = genre.id LEFT JOIN editeur ON editeur.id = livre.editeur LEFT JOIN langue ON langue.id = livre.langue WHERE isbn = "'.$isbn.'"');
 while ($d = $req->fetch()){
 	$image = 'img/'.$d["isbn"].'.jpg';
 	$image_par_defaut = 'img/0.png';
@@ -61,17 +61,17 @@ while ($d = $req->fetch()){
 						echo '<a href="addStock.php?isbn='.$d['isbn'].'"><img src="img/add.png"> <br/></a>';
 					}else{
 						echo '<strong><u>Nombre d\'exemplaire</u></strong> : '.$d["stock"]. '';
-						echo '<a href="addStock.php?isbn='.$d['isbn'].'"><img src="img/add.png"> <br/></a>';
+						echo '<a title="Ajouter un exemplaire" href="addStock.php?isbn='.$d['isbn'].'"><img style="margin-left: 10px"src="img/add.png"> <br/></a>';
 					}
 				}
 
 
 
-				if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['reservation'] != 1){
+				if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['stock'] != 0){
 				?>
 						<a class="button_RON" href="panier_tmp.php?isbn=<?= ($d['isbn'])?>">Réserver ce livre</a>
 				<?php
-					}else if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['reservation'] == 1 && $d['stock'] == 0){
+					}else if(($_SESSION['group'] == "membre" || $_SESSION['group'] == "admin") && $d['stock'] == 0){
 				?>
 						<a class="button_ROFF" href="#" title="Nous n'avons plus de stock" onclick="return ROOF()">Indisponible </a>
 				<?php

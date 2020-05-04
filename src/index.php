@@ -44,7 +44,7 @@ session_start();
 			$image_par_defaut = 'img/0.png';
 				?>
 					<section class="idlivre">
-						<a href="details_livre.php?titre=<?= ($h['titre']) ?>&amp;genre=<?= ($h['genre']) ?>" title="Afficher le détail du livre"> <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
+						<a href="details_livre.php?isbn=<?= ($h['isbn']) ?>&amp;genre=<?= ($h['genre']) ?>" title="Afficher le détail du livre"> <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
 							<tr>
 								<td>
 								<?php

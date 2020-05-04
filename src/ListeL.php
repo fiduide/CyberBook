@@ -32,7 +32,7 @@ session_start();
 			$image_par_defaut = 'img/0.png';
 				?>
 					<section class="idlivre">
-						<a href="details_livre.php?titre=<?= ($donnees['titre']) ?>" title="Afficher le détail du livre"> <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
+						<a href="details_livre.php?isbn=<?= ($donnees['isbn']) ?>" title="Afficher le détail du livre"> <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
 
 								<?php
 									if(is_file($image)){

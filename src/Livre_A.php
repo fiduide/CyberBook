@@ -23,7 +23,7 @@ session_start();
 	$alllivre = $bdd->query('SELECT * FROM livre  INNER JOIN auteur ON idLivre = isbn INNER JOIN editeur ON editeur.id = livre.editeur INNER JOIN personne p ON idPersonne = p.id INNER JOIN genre ON genre.id = livre.genre WHERE idPersonne  = '.$id.'');
 	$Auteur = $bdd->query('SELECT * FROM livre  INNER JOIN auteur ON idLivre = isbn  INNER JOIN personne p ON idPersonne = p.id INNER JOIN genre ON genre.id = livre.genre WHERE idPersonne  = '.$id.'');
 	$Auteur = $Auteur->fetch();
-	if($alllivre->rowCount() == 0){ // Si le résultat trouvé est inférieur à 0 
+	if($alllivre->rowCount() == 0){ // Si le résultat trouvé est inférieur à 0
 			 echo "<br><br><center>Nous n'avons pas encore ajouté de livre pour cette auteur</center> ";
          }else{
 
@@ -38,7 +38,7 @@ session_start();
 
 		<div class="alignA">
 		<section class="details_LivreA">
-						<a href="details_livre.php?titre=<?= ($alivre['titre']) ?>" title="Afficher le détail du livre"><!-- Permet de rediriger la donnée titre vers la page détails-->
+						<a href="details_livre.php?isbn=<?= ($alivre['isbn']) ?>" title="Afficher le détail du livre"><!-- Permet de rediriger la donnée titre vers la page détails-->
 							<tr>
 								<td>
 								<?php

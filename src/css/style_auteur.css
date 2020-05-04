@@ -4,7 +4,7 @@
 	text-align: center;
 	padding: center;
 	border: 1px groove black;
-	border-radius: 30px 5px 30px 5px;	
+	border-radius: 30px 5px 30px 5px;
 	padding-left: 75px;
 	padding-right: 75px;
 	padding-top: 35px;
@@ -27,7 +27,7 @@
 
 a{
 	text-decoration: none;
-	color: black;	
+	color: black;
 }
 
 .detail

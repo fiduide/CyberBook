@@ -8,7 +8,7 @@ $email = $bdd->query('SELECT * FROM reservations LEFT JOIN visiteurs ON visiteur
 
 for($i = 0; $i < count($isbn); $i++){
     $req = $bdd ->query('UPDATE reservations SET date_retour = NOW() WHERE isbn = "'.$isbn[$i].'"');
-    $req = $bdd ->query('UPDATE livre SET reservation = 0, stock = stock + 1 WHERE isbn = "'.$isbn[$i].'" ');
+    $req = $bdd ->query('UPDATE livre SET stock = stock + 1 WHERE isbn = "'.$isbn[$i].'" ');
 }
 
 //Si le résultat de la recherche de $email n'est pas égale à 1 alors on envoit un mail car l'utilisateur possède un livre en retard

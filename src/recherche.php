@@ -18,7 +18,7 @@
 		
 	 if(isset($_GET['q']) AND !empty($_GET['q'])) { //Si le champs recherche n'est pas vide alors fait la recherche
 		if($articles->rowCount() > 0) {  // Si le nombre le résultat trouvé est supérieur à 0 
-			?> 
+			?>
 			<div class="align">
 			<?php
 		while($a = $articles->fetch()){
@@ -26,10 +26,10 @@
 			$image_par_defaut = 'img/0.jpg';
 			?>
 			<section class="idlivre">
-						<a href="details_livre.php?titre=<?= ($a['titre']) ?>&amp;genre=<?= ($a['genre']) ?>"> <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
+						<a href="details_livre.php?isbn=<?= ($a['isbn']) ?>&amp;genre=<?= ($a['genre']) ?>"> <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
 							<tr>
 								<td>
-								<?php 
+								<?php
 								if(is_file($image)){
 										
 									echo '<img class="iD" src="'.$image.'">';
