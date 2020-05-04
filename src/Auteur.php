@@ -43,23 +43,23 @@ session_start();
 
 		// On affiche les livres avec leur auteurs
 		?>
-	
+
 		<div class="alignA">
-			
+
 			<?php
 			while ($donnees = $reponse->fetch())
 				{
 					?>
 						<div class="auteur">
-						<a href="Livre_A.php?id=<?= ($donnees['id']) ?>">
+						<a href="livre_A.php?id=<?= ($donnees['id']) ?>">
 						<section class="idA">
-							<?php 
+							<?php
 								echo '<p><strong>' . $donnees["prenom"] . ' - ' . $donnees["nom"] . '</strong></p>';
 								?>
 						</section>
 					</a>
 					</div>
-			<?php 
+			<?php
 				}
 			?>
 		</div>

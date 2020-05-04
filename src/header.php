@@ -11,24 +11,24 @@
 			<nav class="menu">
 				<ul>
 					<li><a href="index.php">Accueil</a></li>
-					<li><a href="ListeL.php">Livres</a></li>
-					<li><a href="Auteur.php">Auteurs</a></li>
+					<li><a href="listeL.php">Livres</a></li>
+					<li><a href="auteur.php">Auteurs</a></li>
 					<?php
 					if( !empty($_SESSION['group']) && $_SESSION['group'] == "admin" ){ //Compte admin
 					?>
 						<li><a href="#">Ajout</a>
 							<ul class="submenu">
-								<li><a href="AjoutL.php">Livre</a></li>
-								<li><a href="AjoutA.php">Auteur</a></li>
-								<li><a href="Ajout_G.php">Genre</a></li>
-								<li><a href="Ajout_Edi.php">Editeur</a></li>
-								<li><a href="Ajout_Langue.php">Langue</a></li>
+								<li><a href="ajoutL.php">Livre</a></li>
+								<li><a href="ajoutA.php">Auteur</a></li>
+								<li><a href="ajout_G.php">Genre</a></li>
+								<li><a href="ajout_Edi.php">Editeur</a></li>
+								<li><a href="ajout_Langue.php">Langue</a></li>
 							</ul>
 						</li>
 						<li><a href="#"><img class="img_menu" src="img/engrenage.png"/>Admin</a>
 							<ul class="submenu">
 								<li><a href="admin.php">Gestion Site</a></li>
-								<li><a href="Panier_R.php">Panier de réservation</a></li>
+								<li><a href="panier_R.php">Panier de réservation</a></li>
 								<li><a href="reservation.php">Mes réservation</a></li>
 							</ul>
 						</li>
@@ -38,7 +38,7 @@
 						?>
 						<li><a href="user_Compte.php">Mon compte</a>
 							<ul class="submenu">
-									<li><a href="Panier_R.php">Panier de réservation</a></li>
+									<li><a href="panier_R.php">Panier de réservation</a></li>
 									<li><a href="reservation.php">Mes réservation</a></li>
 							</ul>
 						</li>

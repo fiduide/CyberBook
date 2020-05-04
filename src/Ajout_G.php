@@ -13,7 +13,7 @@ session_start();
     </head>
     <body>
     	<?php include "header.php" ?>
-    <form class="formulaire" action="Ajout_G_Post.php" onsubmit="return verif()" method="post">
+    <form class="formulaire" action="ajout_G_Post.php" onsubmit="return verif()" method="post">
         <p> <h2 style="text-decoration: underline;">Formulaire d'ajout d'un genre : </h2><br>
         <label for="genre">Nouveau genre</label> : <input  class="input" type="text" name="libelle" id="ge" /><br /><br />
         <input style="text-align: center;" class="button" type="submit" value="Envoyer" /><br />

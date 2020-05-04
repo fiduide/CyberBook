@@ -13,7 +13,7 @@ session_start();
     </head>
     <body>
     	<?php include "header.php" ?>
-    <form class="formulaire" action="Ajout_Langue_Post.php" onsubmit="return verifLang()" method="post">
+    <form class="formulaire" action="ajout_Langue_Post.php" onsubmit="return verifLang()" method="post">
         <p> <h2 style="text-decoration: underline;">Formulaire d'ajout d'une nouvelle Langue: </h2><br>
         <label for="lang">Nouvelle Langue</label> : <input  class="input" type="text" name="lang" id="lang" /><br /><br />
         <input style="text-align: center;" class="button" type="submit" value="Envoyer" /><br />

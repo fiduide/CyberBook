@@ -20,7 +20,7 @@ session_start();
         <?php $genre = $bdd->query('SELECT * FROM genre');?>
         <?php $auteur = $bdd->query('SELECT * FROM personne');?>
 
-    <form class="formulaire" action="Ajout_Post.php" onsubmit="return verifLivre()" method="POST">
+    <form class="formulaire" action="ajout_Post.php" onsubmit="return verifLivre()" method="POST">
         <p> <h2 style="text-decoration: underline;">Ajouter un livre : </h2><br>
         <label for="isbn">ISBN</label> : <input  class="input" type="text" name="isbn" id="isbn" /><br /><br /><span id=missISBN></span>
         <label for="titre">Titre</label> :  <input  class="input"type="text" name="titre" id="titre" /><br /><br />
