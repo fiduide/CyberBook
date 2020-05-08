@@ -37,7 +37,6 @@ include "header.php";
             <label for="pseudo">Identifiant</label> : <input  class="input" type="text" name="pseudo" id="pseudo" placeholder=" "/><br /><br />
             <label for="mdp">Mot de passe</label> :  <input  class="input"type="password" name="mdp" id="mdp" /><br><br>
             <input style="text-align: center; color: #2ECC71;" class="button" type="submit" value="Connexion"/>
-            <a href="register.php"><input style="color: #9683EC;" class="button" type="button" value="Inscription"></a>
         </form>
 </fieldset>
 <br/><br/><br/>

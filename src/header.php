@@ -32,7 +32,7 @@
 								<li><a href="reservation.php">Mes réservation</a></li>
 							</ul>
 						</li>
-						<li><a href="deco.php">Déconnexion<img class="img_menu2" src="img/deco.png"/></a></li>
+						<li><a href="deco.php" title="Déconnexion"><img class="img_menu2" src="img/deco.png"/></a></li>
 					<?php
 					}else if(!empty($_SESSION['group']) &&  $_SESSION['group'] == "membre" ){
 						?>
@@ -46,7 +46,8 @@
 					<?php
 						}else{
 							?>
-							<li><a href="connexion.php" title="Pour ajouter de nouveau livre vous devez être connecté">Connexion</a></li>
+							<li><a href="connexion.php" title="vous connectez">Connexion</a></li>
+							<li><a href="register.php" title="vous inscrire ">Inscription</a></li>
 							<?php
 						}
 					 ?>

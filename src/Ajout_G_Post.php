@@ -2,7 +2,7 @@
 session_start();
 ?>
 <?php
-include "bdd.php"?>
+include "bdd.php" ?>
 <?php
 
 
