@@ -1,5 +1,20 @@
 <?php
 session_start();
+include "bdd.php";
+
+
+//Recherche Auteurs :
+if(!empty($_GET['rechercheA'])){
+	$rechercheA = htmlspecialchars($_GET['rechercheA']); //Protection contre la saisie utilisateur
+	$Auteur = $bdd->query('SELECT id, nom, prenom FROM personne WHERE nom LIKE "%'.$rechercheA.'" OR prenom LIKE "'.$rechercheA.'%"');
+
+	if (empty($_GET['rechercheA'])){ // Si le champs est vide
+		echo "<center>Veuillez saisir un champs de recherche</center>";
+	}
+	if($Auteur->rowCount() == 0){ // Si le résultat trouvé est inférieur à 0
+		echo "<p style='text-align: center;margin: 0px; font-size: 30px; color: white;background-color: red;'>Nous n'avons trouvé aucun résultat à votre recherche</p>";
+	}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,26 +32,41 @@ session_start();
 	<?php include "header.php" ?>
 	<header>
 		<div class="align">
-			<form  class="rechercheA" action="rechercheA.php" method="GET">
-				<input style="width: 50em; height: 30px;" type="search" name="rechercheA" placeholder="Recherche...">
+			<form  class="rechercheA" action="auteur.php" method="GET">
+				<input style="width: 50em; height: 40px;" type="search" name="rechercheA" placeholder="Recherche...">
 				<input class="buttonA" type="submit" value="Recherche">
 			</form>
 		</div>
+
+
+		<?php
+			if(isset($_GET['rechercheA']) AND !empty($_GET['rechercheA'])) { //Si le champs recherche n'est pas vide alors fait la recherche
+				if($Auteur->rowCount() > 0) {  // Si le nombre le résultat trouvé est supérieur à 0 
+					?>
+					<div class="alignA">
+					<?php
+				while($A = $Auteur->fetch()){
+					?>
+					<a href="Livre_A.php?id=<?= ($A['id']) ?>">
+					<section class="idA">
+								 <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
+									<?php
+										echo '<p><em>' . $A["prenom"] . ' - ' . $A["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs	 
+									?>
+								</a>
+					</section>
+							</a>
+				<?php
+				}
+				}
+				}
+
+				?>
+			   </div>
 	</header>
+<br/>
+<br/>
 
-
-
-
-
-
-
-
-
-
-
-	<?php
-		include "bdd.php" // Accès à la bdd
-	?>
 	<?php
 		// On récupère le contenu de la table livre + personne
 		$reponse = $bdd->query('SELECT nom, prenom, id FROM personne');

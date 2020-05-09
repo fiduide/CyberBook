@@ -178,7 +178,6 @@ nav li:hover .submenu {
 	width: 28px;
 	height: 31px;
 	margin-top: 0%;
-	margin-left: 10px;
 }
 
 
