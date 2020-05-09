@@ -1,5 +1,14 @@
-<?php 
+<?php
 session_start();
+include "bdd.php";
+
+if(!empty($_POST['lang'])){
+// Insertion du genre à l'aide d'une requête préparée
+$req = $bdd->prepare('INSERT INTO langue (langue) VALUES(?)');
+$req->execute(array(htmlspecialchars($_POST['lang'])));
+echo '<p style="text-align: center; margin: 0px; font-size: 30px; color: white;background-color: green;">La langue ('.$_POST['lang'].') a bien été ajoutée !</p>';
+
+}
 ?>
 <!DOCTYPE html> <!-- Ajout langue-->
 <html>
@@ -13,13 +22,10 @@ session_start();
     </head>
     <body>
     	<?php include "header.php" ?>
-    <form class="formulaire" action="ajout_Langue_Post.php" onsubmit="return verifLang()" method="post">
+    <form class="formulaire" action="ajout_Langue.php" onsubmit="return verifLang()" method="post">
         <p> <h2 style="text-decoration: underline;">Formulaire d'ajout d'une nouvelle Langue: </h2><br>
         <label for="lang">Nouvelle Langue</label> : <input  class="input" type="text" name="lang" id="lang" /><br /><br />
         <input style="text-align: center;" class="button" type="submit" value="Envoyer" /><br />
-
-        <?php 
-        ?>
 	</p>
     </form>
 <section style="text-align: center;">
