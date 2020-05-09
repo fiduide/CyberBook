@@ -34,8 +34,8 @@ if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur san
     <section class='compte'>
         <table>
             <tr>
-                <td style="text-decoration: underline"><strong>Email</strong></td>
                 <td style="text-decoration: underline"><strong>Identifiant</strong></td>
+                <td style="text-decoration: underline"><strong>Email</strong></td>
                 <td style="text-decoration: underline"><strong>Nom</strong></td>
                 <td style="text-decoration: underline"><strong>Prénom</strong></td>
                 <td style="text-decoration: underline"><strong>Numéro de téléphone</strong></td>

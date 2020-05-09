@@ -3,13 +3,28 @@ session_start();
 if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur sans connection
     $_SESSION['group'] = 'visiteur';
 }else{
-    if($_SESSION['group'] != 'admin'){ //Si le rôle n'est pas égale à admin alors pas de connexion à cette page 
+    if($_SESSION['group'] != 'admin'){ //Si le rôle n'est pas égale à admin alors pas de connexion à cette page
         echo '<h1 style="text-align:center; color: red;">Vous devez être connecté en tant qu\'administrateur pour accéder à cette page</h1>';
     }else{
         include "bdd.php";
         $ID = $_GET['ID'];
         $modifCompte = $bdd->query('SELECT * FROM visiteurs WHERE ID = '.$ID.' ');
         $modifCompte = $modifCompte->fetch();
+
+        if(!empty($_POST['email']) && !empty($_POST['mdp']) &&!empty($_POST['role'])){
+            $email = htmlspecialchars($_POST['email']);
+            $mdp = htmlspecialchars($_POST['mdp']);
+            $role = htmlspecialchars($_POST['role']);
+            $modif = $bdd->prepare('UPDATE visiteurs SET email = ?, mdp = ?,  rôle = ?
+            WHERE ID = ?');
+            $modif -> execute(array(
+            $email,
+            $mdp,
+            $role,
+            $ID
+            ));
+            echo '<p style="text-align: center; margin: 0px; font-size: 30px; color: white;background-color: green;">Le compte a été modifié, vous devez rafraichir la page pour voir les modifications !</p>';
+        }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -25,7 +40,7 @@ if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur san
     <?php
         include "header.php";
     ?>
-    <form onsubmit="return verifCompte()"class="formulaire" style="text-align: center"method="POST" onsubmit="return verifCompte()" action="modifCompte_Post.php?ID=<?= ($modifCompte['ID']) ?>">
+    <form onsubmit="return verifCompte()"class="formulaire" style="text-align: center"method="POST" onsubmit="return verifCompte()" action="modifCompteID.php?ID=<?= ($modifCompte['ID']) ?>">
             <p><span style="color: blue">Pseudo : </span><?= $modifCompte['pseudo']?></p>
             <label for="email"><span style="color: blue">Email</span></label> :  <input  class="input"type="text" name="email" id="email" style="width: 10em;"  value="<?=$modifCompte['email'] ?>" /><br /><br />
             <label for="mdp"><span style="color: blue">Mot de passe</span> : <input class="input" type="text" name="mdp" id="mdp" style="width:10em;" value="<?= $modifCompte['mdp'] ?>"/> <br /> <br />

@@ -3,9 +3,38 @@ session_start();
 if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur sans connection
     $_SESSION['group'] = 'visiteur';
 }else{
-    if($_SESSION['group'] != 'admin'){ //Si le rôle n'est pas égale à admin alors pas de connexion à cette page 
+    if($_SESSION['group'] != 'admin'){ //Si le rôle n'est pas égale à admin alors pas de connexion à cette page
         echo '<h1 style="text-align:center; color: red;">Vous devez être connecté en tant qu\'administrateur pour accéder à cette page</h1>';
     }else{
+
+        if(!empty($_GET['isbn']) && !empty($_POST['titre']) && !empty($_POST['editeur']) && !empty($_POST['annee']) && !empty($_POST['genre']) &&  !empty($_POST['langue']) && !empty($_POST['nbpages'])){
+        include "bdd.php";
+        if($_POST['nbpages'] === "" && $_POST['nbpages'] == '0')
+        {
+            $nbpages = NULL;
+        }else{
+            $nbpages = $_POST['nbpages'];
+        }
+
+        $isbn = $_GET['isbn'];
+        $titre = $_POST['titre'];
+        $editeur = $_POST['editeur'];
+        $annee= $_POST['annee'];
+        $genre =  $_POST['genre'];
+        $langue = $_POST['langue'];
+        $modif = $bdd->prepare('UPDATE livre SET titre = ?, editeur = ?, annee = ?,  genre = ?,  langue = ? , nbpages = ?
+        WHERE isbn = ?');
+        $modif -> execute(array(
+            $titre,
+            $editeur,
+            $annee,
+            $genre,
+            $langue,
+            $nbpages,
+            $isbn
+        ));
+        echo '<p style="text-align: center; margin: 0px; font-size: 30px; color: white;background-color: green;">Le livre ('.$_POST['titre'].') a bien été modifié !</p>';
+    }
 ?>
 
 
@@ -33,7 +62,7 @@ if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur san
             $Value = $Value->fetch();
         ?>
 
-    <form class="formulaire"  onsubmit="return verifModif()" action="modifLivre_Post.php?isbn=<?= ($Value['isbn'])?>"  method="POST">
+    <form class="formulaire"  onsubmit="return verifModif()" action="modifLivre.php?isbn=<?= ($Value['isbn'])?>"  method="POST">
         <p> <h2 style="text-decoration: underline;">Modifier un Livre : </h2>
         <p><em style="font-size: 15px; color: red">Pensez à bien re-séléctionner chaque case</em></p>
         <p>ISBN : <?= $Value['isbn']?></p>
