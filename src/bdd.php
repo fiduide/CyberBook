@@ -7,7 +7,7 @@
 	catch(Exception $e)
 		{
 			// En cas d'erreur, on affiche un message et on arrête tout
-		 die('Erreur : la base de donnée n\'est pas disponible...');
+		 die('<p style="text-align: center;margin: 0px; font-size: 30px; color: white;background-color: red;">Erreur : la base de donnée n\'est pas disponible...</p>');
 		}
 	// Si tout va bien, on peut continuer
 ?>
