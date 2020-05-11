@@ -47,7 +47,7 @@ if(!empty($_GET['rechercheA'])){
 					<?php
 				while($A = $Auteur->fetch()){
 					?>
-					<a href="Livre_A.php?id=<?= ($A['id']) ?>">
+					<a href="livre_A.php?id=<?= ($A['id']) ?>">
 					<section class="idA">
 								 <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
 									<?php

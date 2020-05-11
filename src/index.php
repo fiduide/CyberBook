@@ -6,7 +6,7 @@ include "bdd.php";
 if(!empty($_GET['q'])){
 
 $q = htmlspecialchars($_GET['q']); //Protection contre la saisie utilisateur
-$articles = $bdd->query('SELECT * FROM livre LEFT JOIN genre ON genre.id = livre.genre LEFT JOIN editeur ON editeur.id = livre.editeur LEFT JOIN auteur ON idLivre = isbn LEFT JOIN personne ON idPersonne = personne.id WHERE isbn= "'.$q.'"  OR titre LIKE "%'.$q.'%" ');
+$articles = $bdd->query('SELECT * FROM livre LEFT JOIN genre ON genre.id = livre.genre LEFT JOIN editeur ON editeur.id = livre.editeur LEFT JOIN auteur ON idLivre = isbn LEFT JOIN personne ON idPersonne = personne.id WHERE isbn LIKE "%'.$q.'%"  OR titre LIKE "%'.$q.'%" OR nom LIKE "%'.$q.'%" OR prenom LIKE "%'.$q.'%"');
 
 		if($articles->rowCount() == 0){ // Si le résultat trouvé est inférieur à 0
 			echo '<p style="text-align: center;margin: 0px; font-size: 30px; color: white;background-color: red;">Nous n\'avons trouvé aucun résultat à votre recherche</p>';
