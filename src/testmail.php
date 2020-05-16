@@ -13,7 +13,6 @@
                         "<input type='button' value='Vous avez obtenu une pénalitée' style='border: none; border: 2px solid #3A539B; background: transparent; color: #3A539B; font-size: 16px; height: 60px; cursor: pointer; outline: none;'/>".
                     "</a>".
                 "</span>".
-
             "</div>".
             "<div style='background: white; color: #666; padding: 1%; border-radius: 0 0 10px 10px; padding-top: 20px'>".
                 "<b>".

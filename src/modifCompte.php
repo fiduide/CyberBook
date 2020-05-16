@@ -4,7 +4,8 @@ if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur san
     $_SESSION['group'] = 'visiteur';
 }else{
     if($_SESSION['group'] != 'admin'){ //Si le rôle n'est pas égale à admin alors pas de connexion à cette page
-        echo '<h1 style="text-align:center; color: red;">Vous devez être connecté en tant qu\'administrateur pour accéder à cette page</h1>';
+        include "header.php";
+        echo '<h1 style="text-align:center; margin-top: 3em; color: red;">Vous devez être connecté en tant qu\'administrateur pour accéder à cette page</h1>';
     }else{
 ?>
 <!DOCTYPE html>
@@ -57,7 +58,7 @@ if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur san
                     echo "<td><span style='color: blue; text-transform : uppercase; '>".$visiteur['rôle']."</span></td>";
                 }
                 ?>
-                    <td><a href="ModifCompteID.php?ID=<?= ($visiteur['ID']) ?>"><img class="imgMo" src="img/modif.png"></a><a href="delCompte.php?ID=<?= ($visiteur['ID']) ?>" onclick="return verifDelCompte();"><img class="imgMo" src="img/supp.png"></a></p></td></tr></section>
+                    <td><a href="modifCompteID.php?ID=<?= ($visiteur['ID']) ?>"><img class="imgMo" src="img/modif.png"></a><a href="delCompte.php?ID=<?= ($visiteur['ID']) ?>" onclick="return verifDelCompte();"><img class="imgMo" src="img/supp.png"></a></p></td></tr></section>
                     <!-- redirection vers les différentes pages avec l'ID en paramètre-->
             <?php
             }

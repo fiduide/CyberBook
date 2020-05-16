@@ -1,7 +1,5 @@
-<?php  
+<?php
 session_start();
-
-
 include "bdd.php";
 
 if(!empty($_POST['libelle'])){

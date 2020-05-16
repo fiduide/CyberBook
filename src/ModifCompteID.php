@@ -4,7 +4,8 @@ if(empty($_SESSION['group'])){ //Si session est vide alors c'est un visiteur san
     $_SESSION['group'] = 'visiteur';
 }else{
     if($_SESSION['group'] != 'admin'){ //Si le rôle n'est pas égale à admin alors pas de connexion à cette page
-        echo '<h1 style="text-align:center; color: red;">Vous devez être connecté en tant qu\'administrateur pour accéder à cette page</h1>';
+        include "header.php";
+        echo '<h1 style="text-align:center; margin-top: 3em; color: red;">Vous devez être connecté en tant qu\'administrateur pour accéder à cette page</h1>';
     }else{
         include "bdd.php";
         $ID = $_GET['ID'];
