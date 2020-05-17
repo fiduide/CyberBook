@@ -1,5 +1,11 @@
 
-    <?php echo "<html>".
+    <?php
+    
+    echo $from = "CyberBook@biblio.fr";
+    $to = ''.$email['email'].'';
+    $subject = "Vous avez obtenu une pénalitée";
+    $message =
+    "<html>".
     "<head></head>".
     "<body style='padding: 0%; margin: 0; font-family: Helvetica, Arial , sans-serif'>".
         "<div style='background: #f7f7f7; padding: 5% 5% 5% 5%'>".
@@ -22,5 +28,9 @@
         "</div>".
     "</body>".
 "</html>";
+
+
+$headers = "MIME-Version : 1.0" . "\r\n";
+$headers .="Content-type:text/html; charset=utf-8)";
 
 ?>
