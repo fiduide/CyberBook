@@ -1,5 +1,6 @@
 <?php
 include "bdd.php";
+include "header.php";
 
 ini_set('display_errors', 'on');
 
@@ -19,9 +20,9 @@ if (isset($_GET['pseudo'], $_GET['key']) && !empty($_GET['pseudo']) && !empty($_
         if ($user['confirme'] == 0) {
             $updateuser = $bdd->prepare('UPDATE visiteurs SET confirme = 1 WHERE pseudo=? AND confirm_key = ?');
             $updateuser->execute(array($pseudo, $key));
-            echo "Votre compte a bien été confirmé";
+            echo '<p style="text-align:center; margin-top: 3em; font-size: 30px; color: green;">Le compte a bien été confirmé</p>';
         } else {
-            echo "Votre compte a déjà été confirmé ";
+            echo '<p style="text-align:center; margin-top: 3em; font-size: 30px; color: red;">Le compte a déjà été confirmé</p>';
         }
     } else {
         echo "L'utilisateur n'existe pas!";
