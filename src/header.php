@@ -75,7 +75,7 @@
 	height:99.5%;
 	position: relative;
 
-	
+
 }
 
 .header_mask{

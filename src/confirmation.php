@@ -19,9 +19,9 @@ if (isset($_GET['pseudo'], $_GET['key']) && !empty($_GET['pseudo']) && !empty($_
         if ($user['confirme'] == 0) {
             $updateuser = $bdd->prepare('UPDATE visiteurs SET confirme = 1 WHERE pseudo=? AND confirm_key = ?');
             $updateuser->execute(array($pseudo, $key));
-            echo "Votre compte à bien été confirmé";
+            echo "Votre compte a bien été confirmé";
         } else {
-            echo "Votre compte à déjà été confirmé ";
+            echo "Votre compte a déjà été confirmé ";
         }
     } else {
         echo "L'utilisateur n'existe pas!";

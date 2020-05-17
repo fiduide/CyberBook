@@ -28,42 +28,52 @@ if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp'])
     } else { //si tout est bon alors on l'ajoute à la base de donnée
         $req = $bdd->prepare('INSERT INTO visiteurs (pseudo, email, mdp, nom, prenom, telephone,confirm_key, rôle, penalite,confirme) VALUES (?,?,?,?,?,?,?, "membre", 0,0)');
         $req->execute(array(htmlspecialchars($pseudo), htmlspecialchars($email), htmlspecialchars($mdp), htmlspecialchars($nom), htmlspecialchars($prenom), htmlspecialchars($telephone),$key));
-        echo '<p style="text-align:center; margin: 0px; font-size: 30px; color: white;background-color: green;">Vous allez recevoir un mail de confirmation (pensez à regarder vos spam)</p>';
+        echo '<p style="text-align:center; margin: 0px; font-size: 30px; color: white;background-color: green;">Vous allez recevoir un mail de confirmation (pensez à regarder vos spams)</p>';
 
-        $from="CyberBook@biblio.fr";
+        $from= "CyberBook@biblio.fr" . "\r\n";
         $to = $email; //Mettre le destinataire ou l'on veut recevoir le message
         $subject="Confirmation d'inscription";
-        $header="From : ".$from;
+        $headers="From : ".$from;
         //Affichage du message a envoyer
         $message =
-        "<html>".
-        "<head></head>".
-        "<body style='padding: 0%; margin: 0; font-family: Helvetica, Arial , sans-serif'>".
-            "<div style='background: #f7f7f7; padding: 5% 5% 5% 5%'>".
-                "<div style='background: #9B59B6; padding: 1%; border-radius: 10px 10px 0 0'>".
-                    "<a href='https://cyberbook-ipssi.000webhostapp.com/index.php' style='color: white; text-decoration: none; font-weight: 100; font-size: 22px'>CyberBook</a>".
-                "</div>".
-                "<div style='background: white; padding: 2%'>".
-                    "<p style='text-align: center; font-size: 18px'><b>Bonjour ".$email['pseudo'].",</b></p><br/>".
-                    "<span style='text-align: center; display: block; margin: auto'>".
-                        "<a href='http://localhost:8888/CyberBook/src/confirmation.php?pseudo='".$pseudo."'&key='".$key."''target='_blank'>".
-                            "<input type='button' value='Vous avez obtenu une pénalitée' style='border: none; border: 2px solid #3A539B; background: transparent; color: #3A539B; font-size: 16px; height: 60px; cursor: pointer; outline: none;'/>".
-                        "</a>".
-                    "</span>".
-                "</div>".
-                "<div style='background: white; color: #666; padding: 1%; border-radius: 0 0 10px 10px; padding-top: 20px'>".
-                    "<b>".
-                        "<span>© 2020 <a href='https://cyberbook-ipssi.000webhostapp.com/index.php' style='color:#666;outline:none;text-decoration: none;margin-bottom:5px'>CyberBook</a></span>".
-                    "</b>".
-                "</div>".
-            "</div>".
-        "</body>".
-    "</html>";
+        "<html>
+        <head>
+        <title>Hey</title>
+        </head>
+        <a href='https://cyberbook-ipssi.000webhostapp.com/index.php'>
+        <header style='margin-bottom: 10px;'>
+        <div style='height: 350px;width: 100%;position: relative;'>
+			<img style='width: 100%;height:50%; position: relative;' src='https://firebasestorage.googleapis.com/v0/b/test-df0b6.appspot.com/o/logo.png?alt=media&token=419c8afd-c593-48b4-8621-4231b7bb8b9a'>
+			<div class='position: absolute;bottom: 0;background: 0 0;height: 60px;width: 100%;-webkit-filter: blur(7px);'>
+				<svg width='100%' height='100%' viewBox='0 0 100 100' preserveAspectRatio='none'>
+					<path d='M0 100 L 0 0 C 25 100 75 100 100 0 L 100 100' fill='black'></path>
+				</svg>
+			</div>
+        </header>
+        </a>
+        <body style='padding: 0%; margin: 0; font-family: Helvetica, Arial , sans-serif'>
+            <div style='background: #f7f7f7; padding: 5% 5% 5% 5%'>
+                <div style='background: white; padding: 2%'>
+                    <p style='text-align: center; font-size: 18px'><b>Bonjour ".$prenom.",</b></p><br/>
+                    <span style='text-align: center; display: block; margin: auto'>
+                        <a href='https://cyberbook-ipssi.000webhostapp.com/confirmation.php?pseudo=".$pseudo."&key=".$key."'>
+                            <input type='button' value='Confirmer mon inscription' style='border: none; border: 2px solid #3A539B; background: transparent; color: #3A539B; font-size: 16px; height: 60px; cursor: pointer; outline: none;'/>
+                        </a>
+                    </span>
+                </div>
+                <div style='background: white; color: #666; padding: 1%; border-radius: 0 0 10px 10px; padding-top: 20px'>
+                    <b>
+                        <span>© 2020 <a href='https://cyberbook-ipssi.000webhostapp.com/index.php' style='color:#666;outline:none;text-decoration: none;margin-bottom:5px'>CyberBook</a></span>
+                    </b>
+                </div>
+            </div>
+        </body>
+    </html>";
 
-    $headers = $from . "MIME-Version : 1.0" . "\r\n";
-    $headers .= "Content-type:text/html; charset=utf-8)";
+    $headers .= "MIME-Version : 1.0" . "\r\n";
+    $headers .= "Content-type:text/html; charset='utf-8'";
 
-        mail($to, $subject, $message, $header);
+    mail($to, $subject, $message, $headers);
         //Changer la partie "Objet Test" par l'objet
 
     }
