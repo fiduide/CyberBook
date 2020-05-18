@@ -28,7 +28,7 @@ if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp'])
     } else { //si tout est bon alors on l'ajoute à la base de donnée
         $req = $bdd->prepare('INSERT INTO visiteurs (pseudo, email, mdp, nom, prenom, telephone,confirm_key, rôle, penalite,confirme) VALUES (?,?,?,?,?,?,?, "membre", 0,0)');
         $req->execute(array(htmlspecialchars($pseudo), htmlspecialchars($email), htmlspecialchars($mdp), htmlspecialchars($nom), htmlspecialchars($prenom), htmlspecialchars($telephone),$key));
-        echo '<p style="text-align:center; margin: 0px; font-size: 30px; color: white;background-color: green;">Vous allez recevoir un mail de confirmation (pensez à regarder vos spams)</p>';
+        echo '<p style="text-align:center; margin: 0px; font-size: 30px; color: white;background-color: green;">Vous allez recevoir un mail de confirmation (pensez à regarder vos spams, s\'il n\'apparaît toujours pas et que vous avez utilisé une adresse gmail ceci est un bug)</p>';
 
         $from= "CyberBook@biblio.fr" . "\r\n";
         $to = $email; //Mettre le destinataire ou l'on veut recevoir le message
@@ -106,8 +106,8 @@ if (!empty($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['mdp'])
                 <label for="nom"> * Nom</label> : <input class="input" type="text" name="nom" id="nom" placeholder=" " /><br /><br />
                 <label for="prenom"> * Prénom</label> : <input class="input" type="text" name="prenom" id="prenom" placeholder=" " /><br /><br />
                 <label for="tel"> * Numéro de téléphone</label> : <input class="input" type="tel" name="tel" id="tel" placeholder=" " /><br /><br />
-                <input style="text-align: center;" class="button" type="submit" value="Inscription" />
-                <a href="connexion.php"><input class="button" type="button" value="Retour"></a><br />
+                <input style="text-align: center; color: #4cc143" class="button" type="submit" value="Inscription" />
+                <a href="connexion.php"><input class="button"  style='color: red 'type="button" value="Retour"></a><br />
                 <?php
                 if (empty($_POST['email']) && empty($_POST['pseudo']) && empty($_POST['mdp']) && empty($_POST['nom']) && empty($_POST['prenom']) && empty($_POST['tel'])) {
                     echo '<p style="text-align:center; font-size: 13px; color: red;">Vous devez remplir tous les champs possédant une étoile </p>';

@@ -42,8 +42,8 @@ if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
         <form onsubmit="return verifCo()" class="formulaire" action="connexion.php" method="POST">
             <label for="pseudo">Identifiant</label> : <input class="input" type="text" name="pseudo" id="pseudo" placeholder=" " /><br /><br />
             <label for="mdp">Mot de passe</label> : <input class="input" type="password" name="mdp" id="mdp" /><br><br>
-            <input style="text-align: center;" class="button" type="submit" value="Connexion" />
-            <a href="register.php"><input class="button" type="button" value="Inscription"></a>
+            <input style="text-align: center; color: #4cc143" class="button" type="submit" value="Connexion" />
+            <a href="register.php"><input style='color: #4F8AFF;'class="button" type="button" value="Inscription"></a>
         </form>
     </fieldset>
     <br /><br /><br />
