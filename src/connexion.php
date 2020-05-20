@@ -13,8 +13,8 @@ if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
         echo '<p style="text-align: center; margin: 0px; font-size: 30px; color: white;background-color: red;">Vous n\'avez pas saisi les bons identifiants de connexion</p>';
     } else {
         if ($req['confirme'] == 1) {
-            $_SESSION['group'] = $req['rôle']; //Je récupère le rôle de la personne
-            $_SESSION['id'] = $req['ID']; // Je récup l'id pour la liste de fav et la réservation
+            $_SESSION['group'] = $req['rôle']; //Je stock le rôle de la personne
+            $_SESSION['id'] = $req['ID']; // Je stock l'id
             header('Location:index.php');
         } else {
             echo '<p style="text-align:center; margin: 0px; font-size: 30px; color: white;background-color: grey;">Vous devez confirmer votre inscription avant de vous connectez</p>';

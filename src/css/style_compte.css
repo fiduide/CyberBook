@@ -22,3 +22,35 @@ form{
 	font-size: 15px;
 	background-color: #D4D3D3;
 }
+
+.id_Compte
+{
+	color: black;
+	background-color: whitesmoke;
+	text-align: right;
+	padding: center;
+	border: 1px groove black;
+	border-radius: 30px 5px 30px 5px;
+	padding-left: 75px;
+	padding-right: 75px;
+	padding-top: 35px;
+	padding-bottom: 70px;
+	width: 100ch;
+	height: 100ch;
+	font-size: 17px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+	margin-top: 3em;
+}
+
+.gauche {
+	float: left;
+
+}
+
+.align{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}

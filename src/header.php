@@ -25,7 +25,7 @@
 								<li><a href="ajout_Langue.php">Langue</a></li>
 							</ul>
 						</li>
-						<li><a href="#"><img class="img_menu" src="img/engrenage.png"/>Admin</a>
+						<li><a href="user_Compte.php"><img class="img_menu" src="img/engrenage.png"/>Admin</a>
 							<ul class="submenu">
 								<li><a href="admin.php">Gestion Site</a></li>
 								<li><a href="panier_R.php">Panier de réservation</a></li>
@@ -42,7 +42,7 @@
 									<li><a href="reservation.php">Mes réservation</a></li>
 							</ul>
 						</li>
-						<li><a href="deco.php">Déconnexion<img class="img_menu2" src="img/deco.png"/></a></li>
+						<li><a href="deco.php"><img class="img_menu2" src="img/deco.png"/></a></li>
 					<?php
 						}else{
 							?>

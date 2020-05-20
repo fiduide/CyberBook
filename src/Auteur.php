@@ -51,7 +51,7 @@ if(!empty($_GET['rechercheA'])){
 					<section class="idA">
 								 <!-- Permet de rediriger la donnée titre et genre vers la page détails-->
 									<?php
-										echo '<p><em>' . $A["prenom"] . ' - ' . $A["nom"] . '</em></p>';//affichage les prenoms et noms des auteurs	 
+										echo '<p><B><em>' . $A["prenom"] . ' - ' . $A["nom"] . '</em></B></p>';//affichage les prenoms et noms des auteurs	 
 									?>
 								</a>
 					</section>
