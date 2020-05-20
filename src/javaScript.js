@@ -312,3 +312,43 @@
             document.getElementById("mdp").style.borderColor = "";
         }
     }
+
+    function verifFormModifCompteUtilisateur(){
+        if(document.getElementById("email").value==""){
+            alert("Veuillez rentrer un email !");
+            document.getElementById("email").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("mdp").style.borderColor = "";
+        }
+        if(document.getElementById("tel").value==""){
+            alert("Veuillez rentrer un numéro de téléphone !");
+            document.getElementById("tel").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("tel").style.borderColor = "";
+        }
+        if(document.getElementById("mdp").value != document.getElementById("mdpConfirm").value){
+            alert("Veuillez saisir le même mot de passe !");
+            document.getElementById("mdp").style.borderColor = "red";
+            document.getElementById("mdpConfirm").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("mdp").style.borderColor = "";
+            document.getElementById("mdpConfirm").style.borderColor = "";
+        }
+        if(document.getElementById("mdp").value==""){
+            alert("Veuillez rentrer un mot de passe !");
+            document.getElementById("mdp").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("mdp").style.borderColor = "";
+        }
+        if(document.getElementById("mdpConfirm").value==""){
+            alert("Veuillez rentrer la confirmation de votre mot de passe !");
+            document.getElementById("mdpConfirm").style.borderColor = "red";
+            return false;
+        }else{
+            document.getElementById("mdpConfirm").style.borderColor = "";
+        }
+    }

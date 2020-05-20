@@ -21,6 +21,15 @@ form{
 	border-bottom: 1px groove;
 	font-size: 15px;
 	background-color: #D4D3D3;
+	margin-top: 20px;
+}
+
+.input2{
+	border: none;
+	border-bottom: 1px groove;
+	font-size: 15px;
+	background-color: #F5F5F5;
+	margin-top: 20px;
 }
 
 .id_Compte
@@ -35,8 +44,8 @@ form{
 	padding-right: 75px;
 	padding-top: 35px;
 	padding-bottom: 70px;
-	width: 100ch;
-	height: 100ch;
+	width: 50ch;
+	height: 60ch;
 	font-size: 17px;
 	margin-left: 50px;
 	margin-right: 50px;
@@ -44,9 +53,23 @@ form{
 	margin-top: 3em;
 }
 
-.gauche {
-	float: left;
 
+.button2{
+    display: block;
+    margin: auto;
+    text-align: center;
+	font-size: 20px;
+	border-radius: 5px;
+    border-style: inset;
+    background-color:  rgb(21, 197, 21);
+    border-color:  rgb(21, 197, 21);
+	color: whitesmoke;
+	margin-top: 1em;
+}
+
+.button2:hover{
+	border-radius: 5px;
+	border-style: groove;
 }
 
 .align{
