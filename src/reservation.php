@@ -2,7 +2,7 @@
     session_start();
     include "bdd.php";
     $affiche_r = $bdd->query('SELECT * FROM reservations LEFT JOIN livre ON livre.isbn = reservations.isbn WHERE id_membre = '.$_SESSION['id'].' AND date_retour is NULL');
-    $afficher_ancien_r = $bdd->query('SELECT * FROM reservations LEFT JOIN livre ON livre.isbn = reservations.isbn WHERE id_membre = '.$_SESSION['id'].' AND date_retour is NOT NULL');
+    $afficher_ancien_r = $bdd->query('SELECT * FROM reservations LEFT JOIN livre ON livre.isbn = reservations.isbn WHERE id_membre = '.$_SESSION['id'].' AND date_retour is NOT NULL ORDER BY date_reservation DESC');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
